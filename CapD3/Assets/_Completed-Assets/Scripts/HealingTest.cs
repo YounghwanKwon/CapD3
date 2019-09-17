@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Complete
 {
-
     public class HealingTest : MonoBehaviour
     {
         // Start is called before the first frame update
+
+        [SerializeField] private GameObject HC;
+        [SerializeField] private Transform HZ;
         [SerializeField] private float healingamount = 15.0f;
+        private int i;
+        private float timer;
+
+        private WaitForSeconds waiting = new WaitForSeconds(5f);
         void OnTriggerEnter(Collider other)
         {
             if (other.transform.CompareTag("Player"))
@@ -19,9 +26,9 @@ namespace Complete
                 TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth>();
                 targetHealth.GetHealing(healingamount);
 
-
-                Destroy(this.gameObject);
-                regen();
+                this.gameObject.SetActive(false);
+                regentry();
+                //Destroy(this.gameObject);
 
             }
         }
@@ -40,10 +47,23 @@ namespace Complete
         {
             this.transform.rotation = new Quaternion(0, this.transform.rotation.y + 5, 0, 0);
         }
+        
+        IEnumerator Waiting()
+        {
+            yield return waiting;
+        }
 
+        void regentry()
+        {
+            Debug.Log("regentry진입");
+            Invoke("regen", 5);
+        }
         void regen()
         {
-
+           
+            Debug.Log("HC생성");
+            this.gameObject.SetActive(true);
+            //Instantiate(HC, HZ.position, HZ.rotation);
         }
     }
 }
