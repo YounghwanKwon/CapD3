@@ -14,6 +14,7 @@ namespace Complete
         public Text m_MessageText;                  // Reference to the overlay Text to display winning text, etc.
         public GameObject m_TankPrefab;             // Reference to the prefab the players will control.
         public TankManager[] m_Tanks;               // A collection of managers for enabling and disabling different aspects of the tanks.
+        
 
         
         private int m_RoundNumber;                  // Which round the game is currently on.
@@ -21,6 +22,7 @@ namespace Complete
         private WaitForSeconds m_EndWait;           // Used to have a delay whilst the round or game ends.
         private TankManager m_RoundWinner;          // Reference to the winner of the current round.  Used to make an announcement of who won.
         private TankManager m_GameWinner;           // Reference to the winner of the game.  Used to make an announcement of who won.
+        public CameraFollowingTest CFT;
 
 
         private void Start()
@@ -48,6 +50,9 @@ namespace Complete
                 m_Tanks[i].m_PlayerNumber = i + 1;
                 m_Tanks[i].Setup();
             }
+            
+                        
+
         }
 
 
@@ -65,6 +70,7 @@ namespace Complete
 
             // These are the targets the camera should follow.
             m_CameraControl.m_Targets = targets;
+            CFT.Target = m_Tanks[0].m_Instance;
         }
 
 
