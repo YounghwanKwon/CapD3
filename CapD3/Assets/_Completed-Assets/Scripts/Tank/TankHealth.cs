@@ -57,7 +57,15 @@ namespace Complete
                 OnDeath ();
             }
         }
-
+        public void GetHealing(float amount)
+        {
+            m_CurrentHealth += amount;
+            if (m_CurrentHealth >= 100.0f)
+            {
+                m_CurrentHealth = 100.0f;
+            }
+            SetHealthUI();
+        }
 
         private void SetHealthUI ()
         {
