@@ -35,16 +35,16 @@ namespace Complete
         private void Move ()
         {
             // Find the average position of the targets.
-            FindAveragePosition ();
+            FindPosition();
 
             // Smoothly transition to that position.
             transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
         }
 
 
-        private void FindAveragePosition ()
+        private void FindAveragePosition()
         {
-            Vector3 averagePos = new Vector3 ();
+            Vector3 averagePos = new Vector3();
             int numTargets = 0;
 
             // Go through all the targets and add their positions together.
@@ -68,6 +68,33 @@ namespace Complete
 
             // The desired position is the average position;
             m_DesiredPosition = averagePos;
+        }
+        private void FindPosition()
+        {
+            Vector3 BackPos = new Vector3();
+            int numTargets = 0;
+
+            // Go through all the targets and add their positions together.
+            for (int i = 0; i < m_Targets.Length; i++)
+            {
+                // If the target isn't active, go on to the next one.
+                if (!m_Targets[i].gameObject.activeSelf)
+                    continue;
+
+                // Add to the average and increment the number of targets in the average.
+                BackPos += m_Targets[i].position;
+                numTargets++;
+            }
+
+            // If there are targets divide the sum of the positions by the number of them to find the average.
+            if (numTargets > 0)
+                BackPos /= numTargets;
+
+            // Keep the same y value.
+            BackPos.y = transform.position.y;
+
+            // The desired position is the average position;
+            m_DesiredPosition = BackPos;
         }
 
 
