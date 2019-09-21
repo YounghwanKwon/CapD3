@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Complete
 {
     public class TankMovement : MonoBehaviour
     {
+
         public int m_PlayerNumber = 1;              // Used to identify which tank belongs to which player.  This is set by this tank's manager.
         public float m_Speed = 12f;                 // How fast the tank moves forward and back.
         public float m_TurnSpeed = 180f;            // How fast the tank turns in degrees per second.
@@ -11,7 +13,8 @@ namespace Complete
         public AudioClip m_EngineIdling;            // Audio to play when the tank isn't moving.
         public AudioClip m_EngineDriving;           // Audio to play when the tank is moving.
 		public float m_PitchRange = 0.2f;           // The amount by which the pitch of the engine noises can vary.
-
+       
+       
         private string m_MovementAxisName;          // The name of the input axis for moving forward and back.
         private string m_TurnAxisName;              // The name of the input axis for turning.
         private Rigidbody m_Rigidbody;              // Reference used to move the tank.
@@ -73,11 +76,17 @@ namespace Complete
         private void Update ()
         {
             // Store the value of both input axes.
-            m_MovementInputValue = Input.GetAxis (m_MovementAxisName);
-            m_TurnInputValue = Input.GetAxis (m_TurnAxisName);
+           // m_MovementInputValue = Input.GetAxis (m_MovementAxisName);
+            //m_TurnInputValue = Input.GetAxis (m_TurnAxisName);
+
+
+
+
 
             EngineAudio ();
         }
+
+
 
 
         private void EngineAudio ()
@@ -137,5 +146,7 @@ namespace Complete
             // Apply this rotation to the rigidbody's rotation.
             m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
         }
+
+
     }
 }
