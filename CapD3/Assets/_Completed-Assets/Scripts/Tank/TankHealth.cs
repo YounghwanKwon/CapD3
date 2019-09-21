@@ -15,6 +15,7 @@ namespace Complete
         [SerializeField] private Image UIHealthImage;
 
 
+        private bool deathable = false;
         private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
         private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
         private float m_CurrentHealth;                      // How much health the tank currently has.
@@ -49,6 +50,9 @@ namespace Complete
         {
             // Reduce current health by the amount of damage done.
             m_CurrentHealth -= amount;
+            Debug.Log("현재 체력: " + m_CurrentHealth);
+            if (m_CurrentHealth <= -1)
+                m_CurrentHealth = -1;
 
             // Change the UI elements appropriately.
             SetHealthUI ();
@@ -84,21 +88,27 @@ namespace Complete
 
         private void OnDeath ()
         {
-            // Set the flag so that this function is only called once.
-            m_Dead = true;
+            if(deathable == true)
+            {
 
-            // Move the instantiated explosion prefab to the tank's position and turn it on.
-            m_ExplosionParticles.transform.position = transform.position;
-            m_ExplosionParticles.gameObject.SetActive (true);
+                // Set the flag so that this function is only called once.
+                m_Dead = true;
 
-            // Play the particle system of the tank exploding.
-            m_ExplosionParticles.Play ();
+                // Move the instantiated explosion prefab to the tank's position and turn it on.
+                m_ExplosionParticles.transform.position = transform.position;
+                m_ExplosionParticles.gameObject.SetActive (true);
 
-            // Play the tank explosion sound effect.
-            m_ExplosionAudio.Play();
+                // Play the particle system of the tank exploding.
+                m_ExplosionParticles.Play ();
 
-            // Turn the tank off.
-            gameObject.SetActive (false);
+                // Play the tank explosion sound effect.
+                m_ExplosionAudio.Play();
+
+                // Turn the tank off.
+                gameObject.SetActive (false);
+
+            }
         }
+
     }
 }
