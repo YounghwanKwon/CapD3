@@ -61,6 +61,13 @@ public class CapturePoint : MonoBehaviour
         test1.SetActive(false);
         resetbtn.SetActive(true);
     }
+    public void CPreset()
+    {
+        count = 0;
+        tencheck = 0;
+        onlyone = false;
+        Istotallycaptured = false;
+    }
 
     void tryaddcount()
     {
