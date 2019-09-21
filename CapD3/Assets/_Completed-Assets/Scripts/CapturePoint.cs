@@ -1,35 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CapturePoint : MonoBehaviour
 {
-    [SerializeField] private float count=0f;
+    [SerializeField] private double count=0d;
     [SerializeField] public int tencheck = 0;
     [SerializeField] private GameObject tank;
     [SerializeField] private Transform CapturePointPos;
     [SerializeField] private Vector3 howfarvec;
     [SerializeField] private float howfar;
     [SerializeField] private bool capturing = false;
+    [SerializeField] private DateTime now;
+
+    private DateTime OneSecLater;
+    private TimeSpan span;
     // Start is called before the first frame update
 
     void tryCapturing()
     {
-        while (count < 900.0f && capturing == true)
+        if (count < 20000.0d && capturing == true)
         {
-            howfarvec = new Vector3(Mathf.Abs(tank.transform.position.x - CapturePointPos.transform.position.x), 0, Mathf.Abs(tank.transform.position.z - CapturePointPos.transform.position.z));
-            count += Time.deltaTime;
+            //howfarvec = new Vector3(Mathf.Abs(tank.transform.position.x - CapturePointPos.transform.position.x), 0, Mathf.Abs(tank.transform.position.z - CapturePointPos.transform.position.z));
+            tryaddcount();
             
-            if(count >= tencheck)
+            if(count - 10000 >= tencheck)
             {
                 Debug.Log("count: " + count + " tencheck: " + tencheck+" howfarvec: " +howfarvec);
-                tencheck += 100;
+                tencheck += 10000;
             }
             distancecheck();
         }
-        if (count >= 900.0f)
+        if (count >= 20000.0d)
         {
-            Debug.Log("30초가지남");
+            Debug.Log("20초가지남 count: "+ count);
         }
         else if (capturing == false)
         {
@@ -38,6 +43,33 @@ public class CapturePoint : MonoBehaviour
         else
             Debug.Log("ㅈ됨;;");
         Debug.Log("end tryCapturing");
+    }
+
+    void tryaddcount()
+    {
+        Invoke("OneSeclaterfunc", 0);
+        //Debug.Log("now.tolocaltime: " + now.ToLocalTime());
+        /*TimeSpan span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
+        while (span.TotalSeconds <= 1)
+        {
+            span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
+        }
+        if (capturing == true)
+            count++;*/
+    }
+    void OneSeclaterfunc()
+    {
+        OneSecLater = DateTime.Now;
+        span = OneSecLater - now;
+        Debug.Log("span.totalSeconds: " + span.TotalSeconds);
+        Debug.Log("span.TotalMilliseconds: " + span.TotalMilliseconds);
+        count += span.TotalMilliseconds;
+        Debug.Log("count: " + count);
+        span = TimeSpan.Zero;
+        now = DateTime.Now;
+        //capturing = false;
+        
+
     }
     void Start()
     {
@@ -49,6 +81,8 @@ public class CapturePoint : MonoBehaviour
     {
         if (capturing == false)
             distancecheck();
+        else
+            tryCapturing();
     }
 
     void distancecheck()
@@ -58,7 +92,7 @@ public class CapturePoint : MonoBehaviour
             if (capturing == false)
             {
                 capturing = true;
-                tryCapturing();
+                now = DateTime.Now;
             }
         }
         else
