@@ -112,6 +112,7 @@ namespace Complete
         public void fullrecovery()
         {
             m_CurrentHealth = 100;
+            SetHealthUI();
         }
 
     }
