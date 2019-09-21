@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class CapturePoint : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] private GameObject test1;
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject timer;
+    [SerializeField] private Slider UICapturingSlider;
 
     private float realtimer = 0.0f;
     private bool onlyone = false;
@@ -67,8 +69,8 @@ public class CapturePoint : MonoBehaviour
     }
     public void CPreset()
     {
-        count = 0;
-        tencheck = 0;
+        count = 0; SetUICapturingSlider();
+         tencheck = 0;
         onlyone = false;
         Istotallycaptured = false;
         Invoke("countreset", 1);
@@ -76,7 +78,7 @@ public class CapturePoint : MonoBehaviour
 
     void countreset()
     {
-        count = 0;
+        count = 0; SetUICapturingSlider();
         Debug.Log("count: " + count);
     }
     void tryaddcount()
@@ -86,6 +88,7 @@ public class CapturePoint : MonoBehaviour
         //count += Mathf.Round(temp * 10) * 0.1f;
 
         count += Time.deltaTime;
+        SetUICapturingSlider();
         Debug.Log("count: " + count);
 
 
@@ -116,7 +119,7 @@ public class CapturePoint : MonoBehaviour
     }
     void Start()
     {
-        
+        SetUICapturingSlider();
     }
 
     // Update is called once per frame
@@ -140,5 +143,10 @@ public class CapturePoint : MonoBehaviour
         }
         else
             capturing = false;
+    }
+
+    void SetUICapturingSlider()
+    {
+        UICapturingSlider.value = count;
     }
 }
