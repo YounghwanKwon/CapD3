@@ -70,7 +70,7 @@ namespace Complete
 
             // These are the targets the camera should follow.
             m_CameraControl.m_Targets = targets;
-            CFT.Target = m_Tanks[0].m_Instance;
+            //CFT.Target = m_Tanks[0].m_Instance;
         }
 
 

@@ -14,6 +14,7 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] private bool capturing = false;
     [SerializeField] private DateTime now;
 
+    private bool Istotallycaptured = false;
     private DateTime OneSecLater;
     private TimeSpan span;
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class CapturePoint : MonoBehaviour
         }
         if (count >= 20000.0d)
         {
+            Istotallycaptured = true;
             Debug.Log("20초가지남 count: "+ count);
         }
         else if (capturing == false)
@@ -79,7 +81,7 @@ public class CapturePoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (capturing == false)
+        if (capturing == false && Istotallycaptured == false)
             distancecheck();
         else
             tryCapturing();
