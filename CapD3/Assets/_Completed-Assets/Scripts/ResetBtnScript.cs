@@ -25,8 +25,11 @@ public class ResetBtnScript : MonoBehaviour
     void tryreset()
     {
         oldtank.transform.position = new Vector3(0, 0, 0);
-        oldtank.transform.rotation = Quaternion.Euler(0, 90, 0);
-        oldGC.SetActive(true); //탱크 재배치
+        oldtank.transform.rotation = Quaternion.Euler(0, 90, 0);//탱크 재배치
+        Complete.TankHealth temptank = oldtank.GetComponent<Complete.TankHealth>();//탱크 체력회복
+        temptank.fullrecovery();
+
+        oldGC.SetActive(true); //게임코어 재배치
 
         CapturePoint tempCP = oldCP.GetComponent<CapturePoint>();
         tempCP.CPreset(); //거점 점령시간초기화
