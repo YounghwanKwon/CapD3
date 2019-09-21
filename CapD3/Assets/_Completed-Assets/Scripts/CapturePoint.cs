@@ -5,7 +5,7 @@ using System;
 
 public class CapturePoint : MonoBehaviour
 {
-    [SerializeField] private float count=0f;
+    [SerializeField] private double count=0d;
     [SerializeField] public int tencheck = 0;
     [SerializeField] private GameObject tank;
     [SerializeField] private Transform CapturePointPos;
@@ -20,7 +20,7 @@ public class CapturePoint : MonoBehaviour
 
     void tryCapturing()
     {
-        if (count < 30000.0f && capturing == true)
+        if (count < 30000.0d && capturing == true)
         {
             //howfarvec = new Vector3(Mathf.Abs(tank.transform.position.x - CapturePointPos.transform.position.x), 0, Mathf.Abs(tank.transform.position.z - CapturePointPos.transform.position.z));
             tryaddcount();
@@ -28,13 +28,13 @@ public class CapturePoint : MonoBehaviour
             if(count >= tencheck)
             {
                 Debug.Log("count: " + count + " tencheck: " + tencheck+" howfarvec: " +howfarvec);
-                tencheck += 10;
+                tencheck += 10000;
             }
             distancecheck();
         }
-        if (count >= 30f)
+        if (count >= 30000.0d)
         {
-            Debug.Log("30초가지남");
+            Debug.Log("30초가지남 count: "+ count);
         }
         else if (capturing == false)
         {
@@ -47,9 +47,6 @@ public class CapturePoint : MonoBehaviour
 
     void tryaddcount()
     {
-        now = DateTime.Now;
-        Debug.Log("now: " + now);
-        Debug.Log("now.tolocaltime: " + now.ToLocalTime());
         Invoke("OneSeclaterfunc", 1);
         //Debug.Log("now.tolocaltime: " + now.ToLocalTime());
         /*TimeSpan span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
@@ -64,7 +61,13 @@ public class CapturePoint : MonoBehaviour
     {
         OneSecLater = DateTime.Now;
         span = OneSecLater - now;
-        Debug.Log("span: " + span.TotalSeconds);
+        Debug.Log("span.totalSeconds: " + span.TotalSeconds);
+        Debug.Log("span.TotalMilliseconds: " + span.TotalMilliseconds);
+        count += span.TotalMilliseconds;
+        Debug.Log("count: " + count);
+        capturing = false;
+        
+
     }
     void Start()
     {
@@ -87,6 +90,7 @@ public class CapturePoint : MonoBehaviour
             if (capturing == false)
             {
                 capturing = true;
+                now = DateTime.Now;
             }
         }
         else
