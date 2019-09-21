@@ -12,6 +12,7 @@ public class ResetBtnScript : MonoBehaviour
     [SerializeField] private GameObject oldCP;
     [SerializeField] private GameObject oldGC;
     [SerializeField] private GameObject oldtank;
+    [SerializeField] private GameObject timer;
     //[SerializeField] private GameObject completedtuesdaymap;
     // Start is called before the first frame update
 
@@ -25,11 +26,17 @@ public class ResetBtnScript : MonoBehaviour
     {
         oldtank.transform.position = new Vector3(0, 0, 0);
         oldtank.transform.rotation = Quaternion.Euler(0, 90, 0);
-        oldGC.SetActive(true);
+        oldGC.SetActive(true); //탱크 재배치
+
         CapturePoint tempCP = oldCP.GetComponent<CapturePoint>();
-        tempCP.CPreset();
+        tempCP.CPreset(); //거점 점령시간초기화
+
         Complete.TankShooting temptankshooting = oldtank.GetComponent<Complete.TankShooting>();
-        temptankshooting.refillbullet();
+        temptankshooting.refillbullet(); //총알 재보급
+
+        TimerScript temptimer = timer.GetComponent<TimerScript>(); //시간 0초부터 다시재생
+        temptimer.timezerofy();
+        temptimer.timepasson();
 
         this.gameObject.SetActive(false);
         /*

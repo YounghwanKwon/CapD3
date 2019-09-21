@@ -9,6 +9,7 @@ public class GameCore : MonoBehaviour
     [SerializeField] private GameObject text1;
     // Start is called before the first frame update
     [SerializeField] private GameObject resetbtn;
+    [SerializeField] private GameObject timer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,8 @@ public class GameCore : MonoBehaviour
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
             
             text1.SetActive(true);
+            TimerScript temptimer = timer.GetComponent<TimerScript>();
+            temptimer.timepassoff();
             this.gameObject.SetActive(false);
             Invoke("deavtivate", 5);
         }

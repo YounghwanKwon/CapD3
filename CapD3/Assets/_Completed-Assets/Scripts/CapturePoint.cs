@@ -15,6 +15,7 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] private DateTime now;
     [SerializeField] private GameObject test1;
     [SerializeField] private GameObject resetbtn;
+    [SerializeField] private GameObject timer;
 
     private bool onlyone = false;
     private bool Istotallycaptured = false;
@@ -43,6 +44,9 @@ public class CapturePoint : MonoBehaviour
             {
                 Debug.Log("20초가지남 count: " + count);
                 test1.SetActive(true);
+                TimerScript temptimer = timer.GetComponent<TimerScript>();
+                temptimer.timepassoff();
+
                 Invoke("deactive", 5);
                 onlyone = true;
             }
