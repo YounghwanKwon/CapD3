@@ -45,7 +45,8 @@ namespace Complete
 
         void spin()
         {
-            this.transform.rotation = new Quaternion(0, this.transform.rotation.y + 5, 0, 0);
+            transform.Rotate(new Vector3(0, 90, 0) * Time.deltaTime);
+
         }
         
         IEnumerator Waiting()
