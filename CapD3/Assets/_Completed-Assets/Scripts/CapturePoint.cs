@@ -20,21 +20,21 @@ public class CapturePoint : MonoBehaviour
 
     void tryCapturing()
     {
-        if (count < 30000.0d && capturing == true)
+        if (count < 20000.0d && capturing == true)
         {
             //howfarvec = new Vector3(Mathf.Abs(tank.transform.position.x - CapturePointPos.transform.position.x), 0, Mathf.Abs(tank.transform.position.z - CapturePointPos.transform.position.z));
             tryaddcount();
             
-            if(count >= tencheck)
+            if(count - 10000 >= tencheck)
             {
                 Debug.Log("count: " + count + " tencheck: " + tencheck+" howfarvec: " +howfarvec);
                 tencheck += 10000;
             }
             distancecheck();
         }
-        if (count >= 30000.0d)
+        if (count >= 20000.0d)
         {
-            Debug.Log("30초가지남 count: "+ count);
+            Debug.Log("20초가지남 count: "+ count);
         }
         else if (capturing == false)
         {
@@ -47,7 +47,7 @@ public class CapturePoint : MonoBehaviour
 
     void tryaddcount()
     {
-        Invoke("OneSeclaterfunc", 1);
+        Invoke("OneSeclaterfunc", 0);
         //Debug.Log("now.tolocaltime: " + now.ToLocalTime());
         /*TimeSpan span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
         while (span.TotalSeconds <= 1)
@@ -65,7 +65,9 @@ public class CapturePoint : MonoBehaviour
         Debug.Log("span.TotalMilliseconds: " + span.TotalMilliseconds);
         count += span.TotalMilliseconds;
         Debug.Log("count: " + count);
-        capturing = false;
+        span = TimeSpan.Zero;
+        now = DateTime.Now;
+        //capturing = false;
         
 
     }
