@@ -67,8 +67,14 @@ public class CapturePoint : MonoBehaviour
         tencheck = 0;
         onlyone = false;
         Istotallycaptured = false;
+        Invoke("countreset", 1);
     }
 
+    void countreset()
+    {
+        count = 0;
+        Debug.Log("count: " + count);
+    }
     void tryaddcount()
     {
         Invoke("OneSeclaterfunc", 0);
