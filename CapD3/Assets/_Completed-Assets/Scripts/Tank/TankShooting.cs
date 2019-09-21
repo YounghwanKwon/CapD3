@@ -16,7 +16,7 @@ namespace Complete
         public float m_MaxLaunchForce = 30f;        // The force given to the shell if the fire button is held for the max charge time.
         public float m_MaxChargeTime = 0.75f;       // How long the shell can charge for before it is fired at max force.
         [SerializeField] private int m_MaxBullet = 20;
-
+        [SerializeField] private Text LastBullet;
 
         private int m_CurrentBullet;
         private string m_FireButton;                // The input axis that is used for launching shells.
@@ -35,13 +35,13 @@ namespace Complete
 
         private void Start ()
         {
-            m_CurrentBullet = m_MaxBullet;
-            Debug.Log("현재 총알 수: "+m_CurrentBullet);
+            refillbullet();
             // The fire axis is based on the player number.
             m_FireButton = "Fire" + m_PlayerNumber;
 
             // The rate that the launch force charges up is the range of possible forces by the max charge time.
             m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
+            LastBullet.text = "Lasting bullet: "+m_CurrentBullet;
         }
 
 
@@ -109,6 +109,18 @@ namespace Complete
             m_CurrentLaunchForce = m_MinLaunchForce;
             m_CurrentBullet -= 1;
             Debug.Log("사격 후 남은 총알 수: " + m_CurrentBullet);
+            SetUIBulletCount();
+        }
+
+        public void refillbullet()
+        {
+            m_CurrentBullet = m_MaxBullet;
+            Debug.Log("현재 총알 수: " + m_CurrentBullet);
+            SetUIBulletCount();
+        }
+        public void SetUIBulletCount()
+        {
+            LastBullet.text = "Lasting bullet: " + m_CurrentBullet;
         }
     }
 }

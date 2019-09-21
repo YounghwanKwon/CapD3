@@ -28,6 +28,9 @@ public class ResetBtnScript : MonoBehaviour
         oldGC.SetActive(true);
         CapturePoint tempCP = oldCP.GetComponent<CapturePoint>();
         tempCP.CPreset();
+        Complete.TankShooting temptankshooting = oldtank.GetComponent<Complete.TankShooting>();
+        temptankshooting.refillbullet();
+
         this.gameObject.SetActive(false);
         /*
         destorypart();
