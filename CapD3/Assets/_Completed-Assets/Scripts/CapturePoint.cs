@@ -13,7 +13,10 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] private float howfar;
     [SerializeField] private bool capturing = false;
     [SerializeField] private DateTime now;
+    [SerializeField] private GameObject test1;
+    [SerializeField] private GameObject resetbtn;
 
+    private bool onlyone = false;
     private bool Istotallycaptured = false;
     private DateTime OneSecLater;
     private TimeSpan span;
@@ -33,10 +36,17 @@ public class CapturePoint : MonoBehaviour
             }
             distancecheck();
         }
-        if (count >= 20000.0d)
+        if (count >= 20000.0d ) 
         {
             Istotallycaptured = true;
-            Debug.Log("20초가지남 count: "+ count);
+            if (onlyone == false)
+            {
+                Debug.Log("20초가지남 count: " + count);
+                test1.SetActive(true);
+                Invoke("deactive", 5);
+                onlyone = true;
+            }
+
         }
         else if (capturing == false)
         {
@@ -45,6 +55,11 @@ public class CapturePoint : MonoBehaviour
         else
             Debug.Log("ㅈ됨;;");
         Debug.Log("end tryCapturing");
+    }
+    void deactive()
+    {
+        test1.SetActive(false);
+        resetbtn.SetActive(true);
     }
 
     void tryaddcount()
