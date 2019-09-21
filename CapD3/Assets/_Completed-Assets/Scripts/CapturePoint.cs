@@ -5,11 +5,10 @@ using System;
 
 public class CapturePoint : MonoBehaviour
 {
-    [SerializeField] private double count=0d;
+    [SerializeField] private float count=0.0f;
     [SerializeField] public int tencheck = 0;
     [SerializeField] private GameObject tank;
     [SerializeField] private Transform CapturePointPos;
-    [SerializeField] private Vector3 howfarvec;
     [SerializeField] private float howfar;
     [SerializeField] private bool capturing = false;
     [SerializeField] private DateTime now;
@@ -17,6 +16,7 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject timer;
 
+    private float realtimer = 0.0f;
     private bool onlyone = false;
     private bool Istotallycaptured = false;
     private DateTime OneSecLater;
@@ -25,24 +25,23 @@ public class CapturePoint : MonoBehaviour
 
     void tryCapturing()
     {
-        if (count < 20000.0d && capturing == true)
+        if (count < 15.0f && capturing == true)
         {
-            //howfarvec = new Vector3(Mathf.Abs(tank.transform.position.x - CapturePointPos.transform.position.x), 0, Mathf.Abs(tank.transform.position.z - CapturePointPos.transform.position.z));
             tryaddcount();
             
-            if(count - 10000 >= tencheck)
+            if(count - 1.0f >= tencheck)
             {
-                Debug.Log("count: " + count + " tencheck: " + tencheck+" howfarvec: " +howfarvec);
-                tencheck += 10000;
+                Debug.Log("count: " + count + " tencheck: " + tencheck);
+                tencheck += 1;
             }
             distancecheck();
         }
-        if (count >= 20000.0d ) 
+        if (count >= 15.0f)
         {
             Istotallycaptured = true;
             if (onlyone == false)
             {
-                Debug.Log("20초가지남 count: " + count);
+                Debug.Log("15초가지남 count: " + count);
                 test1.SetActive(true);
                 TimerScript temptimer = timer.GetComponent<TimerScript>();
                 temptimer.timepassoff();
@@ -56,9 +55,10 @@ public class CapturePoint : MonoBehaviour
         {
             Debug.Log("too far to capture");
         }
+        else if (capturing == true) { Debug.Log("정상"); }
         else
-            Debug.Log("ㅈ됨;;");
-        Debug.Log("end tryCapturing");
+            Debug.Log("ㅈ됨;;count : "+ count);
+        Debug.Log("end tryCapturing  count : " + count);
     }
     void deactive()
     {
@@ -81,7 +81,14 @@ public class CapturePoint : MonoBehaviour
     }
     void tryaddcount()
     {
-        Invoke("OneSeclaterfunc", 0);
+        //float temp = 0;
+        //temp += Time.deltaTime;
+        //count += Mathf.Round(temp * 10) * 0.1f;
+
+        count += Time.deltaTime;
+        Debug.Log("count: " + count);
+
+
         //Debug.Log("now.tolocaltime: " + now.ToLocalTime());
         /*TimeSpan span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
         while (span.TotalSeconds <= 1)
@@ -93,11 +100,13 @@ public class CapturePoint : MonoBehaviour
     }
     void OneSeclaterfunc()
     {
+        
         OneSecLater = DateTime.Now;
         span = OneSecLater - now;
         Debug.Log("span.totalSeconds: " + span.TotalSeconds);
         Debug.Log("span.TotalMilliseconds: " + span.TotalMilliseconds);
-        count += span.TotalMilliseconds;
+        //count += span.TotalMilliseconds;
+        
         Debug.Log("count: " + count);
         span = TimeSpan.Zero;
         now = DateTime.Now;
