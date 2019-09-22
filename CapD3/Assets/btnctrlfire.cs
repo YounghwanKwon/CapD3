@@ -7,6 +7,7 @@ public class btnctrlfire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public static float crntBtn = 0;
     public static float firebtn = 0;
+    public static bool pressed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,14 +34,17 @@ public class btnctrlfire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         crntBtn = 1;
+        pressed = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         crntBtn = 2;
+        pressed = false;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         crntBtn = 3;
+        pressed = true;
     }
     public void resetbtn()
     {
