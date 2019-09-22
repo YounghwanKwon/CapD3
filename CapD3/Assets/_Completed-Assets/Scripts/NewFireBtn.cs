@@ -23,14 +23,19 @@ public class NewFireBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (button == true)
         {
             Input.GetButton("Fire1");
+            Debug.Log(Input.mousePosition);
         }
         else
+        {
             Input.GetButtonUp("Fire1");
+            Debug.Log(Input.mousePosition);
+        }
     }
     
     public void OnPointerDown(PointerEventData eventData)
     {
         button = true;
+        TankShooting.Fire();
     }
 
     public void OnPointerUp(PointerEventData eventData)
