@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameCore : MonoBehaviour
 {
-    [SerializeField] private GameObject tank;
+    //[SerializeField] private GameObject tank;
     //[SerializeField] private Canvas Maincanvas;
     [SerializeField] private GameObject text1;
     // Start is called before the first frame update
