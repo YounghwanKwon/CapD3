@@ -41,12 +41,25 @@ public class tankmove2 : MonoBehaviour
     {
 
         //좌우 회전
-        rotLeftRight = Input.GetAxis("Vertical") * Sensitivity;
+        if (btnctrlrr.moveforr == 1)
+        {
+            rotLeftRight = btnctrlrr.moveforr * Sensitivity;
+        }
+        else
+        {
+            rotLeftRight = btnctrlll.moveforl * Sensitivity;
+        }
         transform.Rotate(0f, rotLeftRight, 0f);
 
         Vector3 dir = cam.transform.localRotation * Vector3.forward;
-        gameObject.transform.Translate(btnctrl.movefor * dir * 5f * Time.deltaTime);
 
-
+        if (btnctrlf.movefor == 1)
+        {
+            gameObject.transform.Translate(btnctrlf.movefor * dir * 5f * Time.deltaTime);
+        }
+        else
+        {
+            gameObject.transform.Translate(btnctrlb.moveforb * dir * 5f * Time.deltaTime);
+        }
     }
 }
