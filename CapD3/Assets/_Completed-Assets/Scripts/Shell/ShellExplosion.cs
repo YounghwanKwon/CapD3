@@ -30,18 +30,35 @@ namespace Complete
             {
                 // ... and find their rigidbody.
                 Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody> ();
+                
 
                 // If they don't have a rigidbody, go on to the next collider.
                 if (!targetRigidbody)
                     continue;
+                Debug.Log("강체있음1");
 
                 // Add an explosion force.
                 targetRigidbody.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius);
 
                 // Find the TankHealth script associated with the rigidbody.
                 TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth> ();
+                HealthForTurret targetHealth2 = targetRigidbody.GetComponent<HealthForTurret>();
+
+                float damage = CalculateDamage(targetRigidbody.position);
+
+                if (targetHealth)
+                {
+                    targetHealth.TakeDamage(damage);
+                }
+                else if (targetHealth2)
+                {
+                    targetHealth2.TakeDamage(damage);
+                }
+                else
+                    continue;
 
                 // If there is no TankHealth script attached to the gameobject, go on to the next collider.
+                /*
                 if (!targetHealth)
                     continue;
 
@@ -50,6 +67,13 @@ namespace Complete
 
                 // Deal this damage to the tank.
                 targetHealth.TakeDamage (damage);
+
+                if (!targetHealth2)
+                    continue;
+
+                targetHealth2.TakeDamage(damage);
+                */
+
             }
 
             // Unparent the particles from the shell.
