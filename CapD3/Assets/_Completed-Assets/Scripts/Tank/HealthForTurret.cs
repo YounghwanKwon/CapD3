@@ -121,6 +121,8 @@ public class HealthForTurret : MonoBehaviour
     private void reviveturret()
     {
         this.gameObject.SetActive(true);
+        ShootingForTurret shooting = gameObject.GetComponent<ShootingForTurret>();
+        shooting.TurretFire();
         //Instantiate(oldturret, originpos.transform);
     }
     private void Start()

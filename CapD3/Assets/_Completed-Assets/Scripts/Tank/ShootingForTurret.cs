@@ -24,8 +24,9 @@ public class ShootingForTurret : MonoBehaviour
     private float m_CurrentLaunchForce=15.0f;         // The force that will be given to the shell when the fire button is released.
     private float m_ChargeSpeed;                // How fast the launch force increases, based on the max charge time.
     private bool m_Fired;                       // Whether or not the shell has been launched with this button press.
+    private bool wait = false;
                                                 // Start is called before the first frame update
-    private void TurretFire()
+    public void TurretFire()
     {
         if (gameObject.activeSelf)
         {
@@ -52,7 +53,7 @@ public class ShootingForTurret : MonoBehaviour
 
     void Start()
     {
-        Invoke("TurretFire", 5);
+        Invoke("TurretFire", 2.5f);
     }
 
     // Update is called once per frame
