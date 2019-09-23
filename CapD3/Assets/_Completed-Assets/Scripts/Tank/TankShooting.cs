@@ -17,6 +17,7 @@ namespace Complete
         public float m_MaxChargeTime = 0.75f;       // How long the shell can charge for before it is fired at max force.
         [SerializeField] private int m_MaxBullet = 20;
         [SerializeField] private Text LastBullet;
+        [SerializeField] private GameObject firebtn;
 
         private int m_CurrentBullet;
         private string m_FireButton;                // The input axis that is used for launching shells.
@@ -42,13 +43,32 @@ namespace Complete
             // The rate that the launch force charges up is the range of possible forces by the max charge time.
             m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
             LastBullet.text = "Lasting bullet: "+m_CurrentBullet;
+
+            btnctrlfire newfire = firebtn.GetComponent<btnctrlfire>();
         }
 
 
         private void Update ()
         {
+            
             if(m_CurrentBullet > 0)
             {
+                m_AimSlider.value = m_MinLaunchForce;
+                if(btnctrlfire.firebtn == 1 && !m_Fired){
+                    m_CurrentLaunchForce += m_ChargeSpeed * Time.deltaTime;
+                    m_AimSlider.value = m_CurrentLaunchForce;
+                    if(m_CurrentLaunchForce >= m_MaxLaunchForce)
+                    {
+                        m_CurrentLaunchForce = m_MaxLaunchForce;
+                        Fire();
+                    }
+                    if(btnctrlfire.pressed== false)
+                    {
+                        Fire();
+                    }
+
+                }
+                /*
                 // The slider should have a default value of the minimum launch force.
                 m_AimSlider.value = m_MinLaunchForce;
 
@@ -60,7 +80,7 @@ namespace Complete
                     Fire();
                 }
                 // Otherwise, if the fire button has just started being pressed...
-                else if (Input.GetButtonDown(m_FireButton))
+                else if (btnctrlfire.firebtn == 2)
                 {
                     // ... reset the fired flag and reset the launch force.
                     m_Fired = false;
@@ -71,7 +91,7 @@ namespace Complete
                     m_ShootingAudio.Play();
                 }
                 // Otherwise, if the fire button is being held and the shell hasn't been launched yet...
-                else if (Input.GetButton(m_FireButton) && !m_Fired)
+                else if (btnctrlfire.firebtn == 1 && !m_Fired)
                 {
                     // Increment the launch force and update the slider.
                     m_CurrentLaunchForce += m_ChargeSpeed * Time.deltaTime;
@@ -79,11 +99,12 @@ namespace Complete
                     m_AimSlider.value = m_CurrentLaunchForce;
                 }
                 // Otherwise, if the fire button is released and the shell hasn't been launched yet...
-                else if (Input.GetButtonUp(m_FireButton) && !m_Fired)
+                else if (btnctrlfire.firebtn == 2 && !m_Fired)
                 {
                     // ... launch the shell.
                     Fire();
                 }
+                */
             }
             
         }
@@ -110,6 +131,7 @@ namespace Complete
             m_CurrentBullet -= 1;
             Debug.Log("사격 후 남은 총알 수: " + m_CurrentBullet);
             SetUIBulletCount();
+            m_Fired = false;
         }
 
         public void refillbullet()
