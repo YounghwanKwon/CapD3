@@ -17,7 +17,7 @@ namespace Complete
         public float m_MaxChargeTime = 0.75f;       // How long the shell can charge for before it is fired at max force.
         [SerializeField] private int m_MaxBullet = 20;
         [SerializeField] private Text LastBullet;
-        [SerializeField] private GameObject firebtn;
+        //[SerializeField] private GameObject firebtn;
 
         private int m_CurrentBullet;
         private string m_FireButton;                // The input axis that is used for launching shells.
@@ -44,7 +44,7 @@ namespace Complete
             m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
             LastBullet.text = "Lasting bullet: "+m_CurrentBullet;
 
-            btnctrlfire newfire = firebtn.GetComponent<btnctrlfire>();
+            //btnctrlfire newfire = firebtn.GetComponent<btnctrlfire>();
         }
 
 
