@@ -8,6 +8,7 @@ namespace Complete
         public float m_ScreenEdgeBuffer = 4f;           // Space between the top/bottom most target and the screen edge.
         public float m_MinSize = 6.5f;                  // The smallest orthographic size the camera can be.
         [HideInInspector] public Transform[] m_Targets; // All the targets the camera needs to encompass.
+        [SerializeField] private GameObject oldtank;
 
 
         private Camera m_Camera;                        // Used for referencing the camera.
@@ -38,6 +39,7 @@ namespace Complete
             FindPosition();
 
             // Smoothly transition to that position.
+            //transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
             transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
         }
 
@@ -94,7 +96,8 @@ namespace Complete
             BackPos.y = transform.position.y;
 
             // The desired position is the average position;
-            m_DesiredPosition = BackPos;
+            //m_DesiredPosition = BackPos;
+            m_DesiredPosition = new Vector3(oldtank.transform.position.x, 0, oldtank.transform.position.z);
         }
 
 
