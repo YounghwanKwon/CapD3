@@ -13,8 +13,9 @@ public class HealthForTurret : MonoBehaviour
     public GameObject m_ExplosionPrefab;                // A prefab that will be instantiated in Awake, then used whenever the tank dies.
     //[SerializeField] private Slider UIHealthslider;
     //[SerializeField] private Image UIHealthImage;
+    [SerializeField] private GameObject oldturret;
 
-
+    private Transform originpos;
     private bool deathable = true;
     private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
     private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
@@ -104,9 +105,11 @@ public class HealthForTurret : MonoBehaviour
             // Play the tank explosion sound effect.
             m_ExplosionAudio.Play();
 
+
+            Invoke("reviveturret", 5);
+
             // Turn the tank off.
             gameObject.SetActive(false);
-
         }
     }
     public void fullrecovery()
@@ -115,4 +118,13 @@ public class HealthForTurret : MonoBehaviour
         SetHealthUI();
     }
     
+    private void reviveturret()
+    {
+        this.gameObject.SetActive(true);
+        //Instantiate(oldturret, originpos.transform);
+    }
+    private void Start()
+    {
+        originpos = this.transform;
+    }
 }
