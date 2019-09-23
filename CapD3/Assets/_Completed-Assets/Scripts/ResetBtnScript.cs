@@ -13,12 +13,15 @@ public class ResetBtnScript : MonoBehaviour
     [SerializeField] private GameObject oldGC;
     [SerializeField] private GameObject oldtank;
     [SerializeField] private GameObject timer;
+    [SerializeField] private GameObject exitBtn;
     //[SerializeField] private GameObject completedtuesdaymap;
     // Start is called before the first frame update
 
     public void whenresetbtnpressed()
     {
         Debug.Log("reset버튼이 눌림");
+        ExitScript escscript = exitBtn.GetComponent<ExitScript>();
+        escscript.countup();
         tryreset();
     }
 
