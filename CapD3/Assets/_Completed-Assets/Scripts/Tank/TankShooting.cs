@@ -50,24 +50,29 @@ namespace Complete
 
         private void Update ()
         {
-            
             if(m_CurrentBullet > 0)
             {
                 m_AimSlider.value = m_MinLaunchForce;
-                if(btnctrlfire.firebtn == 1 && !m_Fired){
+                if (btnctrlfire.pressed == true && !m_Fired)
+                {
                     m_CurrentLaunchForce += m_ChargeSpeed * Time.deltaTime;
                     m_AimSlider.value = m_CurrentLaunchForce;
-                    if(m_CurrentLaunchForce >= m_MaxLaunchForce)
+                    if (m_CurrentLaunchForce >= m_MaxLaunchForce)
                     {
                         m_CurrentLaunchForce = m_MaxLaunchForce;
                         Fire();
                     }
-                    if(btnctrlfire.pressed== false)
-                    {
-                        Fire();
-                    }
-
+                    //else
+                        //Debug.Log("pressed1?: " + btnctrlfire.pressed + "현재 게이지: " + m_CurrentLaunchForce);
                 }
+                if (btnctrlfire.pressed==false && m_CurrentLaunchForce != m_MinLaunchForce)
+                {
+                    Fire();
+                }
+                //else
+                    //Debug.Log("pressed2?: " + btnctrlfire.pressed + "현재 게이지: " + m_CurrentLaunchForce);
+
+                
                 /*
                 // The slider should have a default value of the minimum launch force.
                 m_AimSlider.value = m_MinLaunchForce;

@@ -35,16 +35,19 @@ public class btnctrlfire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         crntBtn = 1;
         pressed = true;
+        Debug.Log("발사포인트 다운");
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         crntBtn = 2;
         pressed = false;
+        Debug.Log("발사포인트 업");
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         crntBtn = 3;
         pressed = true;
+        Debug.Log("발사포인트 클릭");
     }
     public void resetbtn()
     {
