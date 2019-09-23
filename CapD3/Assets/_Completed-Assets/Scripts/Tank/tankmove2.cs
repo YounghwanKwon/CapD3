@@ -22,7 +22,7 @@ public class tankmove2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();    
+          
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class tankmove2 : MonoBehaviour
         float y = -1;
 
         Vector3 moveDelta = new Vector3(0, y, 0);
-        controller.Move(moveDelta);
+        //controller.Move(moveDelta);
         FPRotate();
     }
 
