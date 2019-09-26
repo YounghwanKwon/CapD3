@@ -18,11 +18,19 @@ public class StageSelectCanvasScript : MonoBehaviour
 
         StageSelectCanvasDisappearing();
     }
+
+    public void BackToMainBtnPressed()
+    {
+        canvas[0].SetActive(true);
+
+        StageSelectCanvasDisappearing();
+    }
     
     public void StageSelectCanvasDisappearing()
     {
         this.gameObject.SetActive(false);
     }
+
     // Start is called before the first frame update
     void Start()
     {
