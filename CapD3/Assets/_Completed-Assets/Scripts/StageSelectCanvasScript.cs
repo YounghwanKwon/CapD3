@@ -10,15 +10,20 @@ public class StageSelectCanvasScript : MonoBehaviour
     [SerializeField] private GameObject[] turretsset;
     public void Stage1BtnPressed()
     {
-        canvas[1].SetActive(true);
-        canvas[2].SetActive(true);
-        canvas[3].SetActive(true);
+        Canvasturnon();
         maps[0].SetActive(true);
         tanks[0].SetActive(true);
+        turretsset[0].SetActive(true);
 
         StageSelectCanvasDisappearing();
     }
 
+    public void Canvasturnon()
+    {
+        canvas[1].SetActive(true);
+        canvas[2].SetActive(true);
+        canvas[3].SetActive(true);
+    }
     public void BackToMainBtnPressed()
     {
         canvas[0].SetActive(true);
