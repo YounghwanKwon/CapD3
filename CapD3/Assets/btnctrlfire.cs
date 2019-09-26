@@ -29,6 +29,14 @@ public class btnctrlfire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             firebtn = 3;
         }
+        if (MenuButton.PauseBtn == true)
+        {
+            gameObject.SetActive(false);
+        }
+        if (MenuButton.PauseBtn == false)
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)

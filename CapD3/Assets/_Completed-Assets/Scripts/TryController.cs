@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
+     
     [SerializeField] private RectTransform rect_Background;
     [SerializeField] private RectTransform rect_Joystic;
 
@@ -22,6 +23,7 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
+
     }
 
     // Update is called once per frame
@@ -30,6 +32,14 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (isTouch)
         {
             go_Player.transform.position += movePosition;
+        }
+        if (MenuButton.PauseBtn == true)
+        {
+            
+        }
+        if (MenuButton.PauseBtn == false)
+        {
+            
         }
     }
     public void OnDrag(PointerEventData eventData)
