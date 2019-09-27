@@ -6,16 +6,18 @@ using UnityEngine.UI;
 
 public class CapturePoint : MonoBehaviour
 {
-    [SerializeField] private float count=0.0f;
-    [SerializeField] public int tencheck = 0;
-    [SerializeField] private GameObject tank;
-    [SerializeField] private Transform CapturePointPos;
-    [SerializeField] private float howfar;
-    [SerializeField] private bool capturing = false;
-    [SerializeField] private DateTime now;
-    [SerializeField] private GameObject test1;
-    [SerializeField] private GameObject resetbtn;
-    [SerializeField] private GameObject timer;
+    private float count=0.0f;
+    private int tencheck = 0;
+    [HideInInspector] private GameObject tank;
+    private Transform CapturePointPos;
+    private bool capturing = false;
+    
+    private DateTime now;
+    [HideInInspector] private GameObject Ingamecanvas1;
+    [HideInInspector] private InGameCanvasScript thatingamescript;
+    [HideInInspector] private Text text2;
+    //[SerializeField] private GameObject resetbtn;
+    //[SerializeField] private GameObject timer;
     [SerializeField] private Slider UICapturingSlider;
 
     private float realtimer = 0.0f;
@@ -44,9 +46,7 @@ public class CapturePoint : MonoBehaviour
             if (onlyone == false)
             {
                 Debug.Log("15초가지남 count: " + count);
-                test1.SetActive(true);
-                TimerScript temptimer = timer.GetComponent<TimerScript>();
-                temptimer.timepassoff();
+                thatingamescript.text2on();
 
                 Invoke("deactive", 5);
                 onlyone = true;
@@ -64,8 +64,8 @@ public class CapturePoint : MonoBehaviour
     }
     void deactive()
     {
-        test1.SetActive(false);
-        resetbtn.SetActive(true);
+        Ingamecanvas1.SetActive(false);
+        //resetbtn.SetActive(true);
     }
     public void CPreset()
     {
@@ -83,48 +83,43 @@ public class CapturePoint : MonoBehaviour
     }
     void tryaddcount()
     {
-        //float temp = 0;
-        //temp += Time.deltaTime;
-        //count += Mathf.Round(temp * 10) * 0.1f;
-
         count += Time.deltaTime;
         SetUICapturingSlider();
         Debug.Log("count: " + count);
-
-
-        //Debug.Log("now.tolocaltime: " + now.ToLocalTime());
-        /*TimeSpan span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
-        while (span.TotalSeconds <= 1)
-        {
-            span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
-        }
-        if (capturing == true)
-            count++;*/
     }
+
     void OneSeclaterfunc()
     {
-        
         OneSecLater = DateTime.Now;
         span = OneSecLater - now;
         Debug.Log("span.totalSeconds: " + span.TotalSeconds);
         Debug.Log("span.TotalMilliseconds: " + span.TotalMilliseconds);
-        //count += span.TotalMilliseconds;
         
         Debug.Log("count: " + count);
         span = TimeSpan.Zero;
         now = DateTime.Now;
-        //capturing = false;
-        
+    }
 
+    public void settingtank(GameObject tankfromout) {
+        tank = tankfromout;
+        Debug.Log(tank + "from CP.cs");
+    }
+
+    public void settingUIslider(Slider Sliderfromout)
+    {
+        UICapturingSlider = Sliderfromout;
     }
     void Start()
     {
+        CapturePointPos = this.transform;
+        settingScript();
         SetUICapturingSlider();
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetUICapturingSlider();
         if (capturing == false && Istotallycaptured == false)
             distancecheck();
         else
@@ -148,5 +143,14 @@ public class CapturePoint : MonoBehaviour
     void SetUICapturingSlider()
     {
         UICapturingSlider.value = count;
+    }
+
+    public void settingScript()
+    {
+        thatingamescript = Ingamecanvas1.GetComponent<InGameCanvasScript>();
+    }
+    public void settingCanvas(GameObject canvasfromout)
+    {
+        Ingamecanvas1 = canvasfromout;
     }
 }

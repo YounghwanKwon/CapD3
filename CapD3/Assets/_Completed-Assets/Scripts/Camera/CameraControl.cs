@@ -17,6 +17,10 @@ namespace Complete
         private Vector3 m_DesiredPosition;              // The position the camera is moving towards.
 
 
+        private void Start()
+        {
+            
+        }
         private void Awake ()
         {
             m_Camera = GetComponentInChildren<Camera> ();
@@ -97,7 +101,8 @@ namespace Complete
 
             // The desired position is the average position;
             //m_DesiredPosition = BackPos;
-            m_DesiredPosition = new Vector3(oldtank.transform.position.x, 0, oldtank.transform.position.z);
+            if(oldtank != null)
+                m_DesiredPosition = new Vector3(oldtank.transform.position.x, 0, oldtank.transform.position.z);
         }
 
 

@@ -11,6 +11,7 @@ public class StageSelectCanvasScript : MonoBehaviour
     [SerializeField] private GameObject[] turretsset;
     [SerializeField] private GameObject[] HPset;
     [SerializeField] private GameObject[] GCset;
+    [SerializeField] private GameObject[] CPset;
 
     [SerializeField] private GameObject tankcontroller;
     [SerializeField] private GameObject cameracontroller;
@@ -32,6 +33,9 @@ public class StageSelectCanvasScript : MonoBehaviour
         thiscontroller.go_Player = thistank;
         Complete.CameraControl thiscameracontroller = cameracontroller.gameObject.GetComponent<Complete.CameraControl>();
         thiscameracontroller.oldtank = thistank;
+        Complete.TankHealth thistankhealth = thistank.GetComponent<Complete.TankHealth>();
+        thistankhealth.settingcanvas(canvas[3]);
+
         GameObject thisHPset = Instantiate(HPset[0]);
         thisHPset.SetActive(true);
         //turretsset[0].SetActive(true);
@@ -42,6 +46,15 @@ public class StageSelectCanvasScript : MonoBehaviour
         thisGCset.SetActive(true);
         GameCore songamecore = thisGCset.GetComponentInChildren<GameCore>();
         songamecore.settingcanvas(canvas[3]);
+
+        GameObject thisCPset = Instantiate(CPset[0]);
+        thisCPset.SetActive(true);
+        CapturePoint thisCP = thisCPset.GetComponentInChildren<CapturePoint>();
+        thisCP.settingtank(thistank);
+        thisCP.settingCanvas(canvas[3]);
+        Slider[] thisslider = canvas[3].GetComponentsInChildren<Slider>();
+        thisCP.settingUIslider(thisslider[1]);
+
         
 
         StageSelectCanvasDisappearing();
