@@ -6,20 +6,18 @@ using UnityEngine.UI;
 public class GameCore : MonoBehaviour
 {
     [HideInInspector] public GameObject Ingamecanvas;
-    private Text[] texts;
+    //private Text[] texts;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
-            texts[0].text = "Player win \n: condition 1 Activated";
+            //texts[0].text = "Player win \n: condition 1 Activated";
+            InGameCanvasScript thiscanvas = Ingamecanvas.GetComponent<InGameCanvasScript>();
+            thiscanvas.text1on();
+            Debug.Log(thiscanvas);
 
-            //Ingamecanvas.text1on();
-            //gamecanvas.text1on();
-            //TimerScript temptimer = GetComponent<TimerScript>();
-            //temptimer.timepassoff();
-            //this.gameObject.SetActive(false);
             Invoke("deavtivate", 5);
         }
         else
@@ -30,7 +28,7 @@ public class GameCore : MonoBehaviour
     public void settingcanvas(GameObject ingamecanvasfromout)
     {
         Ingamecanvas = ingamecanvasfromout;
-        texts = Ingamecanvas.GetComponentsInChildren<Text>();
+        //texts = Ingamecanvas.GetComponentsInChildren<Text>();
     }
 
     void deavtivate()

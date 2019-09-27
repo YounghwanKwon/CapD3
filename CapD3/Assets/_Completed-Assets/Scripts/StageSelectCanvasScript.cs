@@ -37,13 +37,12 @@ public class StageSelectCanvasScript : MonoBehaviour
         //turretsset[0].SetActive(true);
         GameObject thisTurretset = Instantiate(turretsset[0]);
         thisTurretset.SetActive(true);
+
         GameObject thisGCset = Instantiate(GCset[0]);
         thisGCset.SetActive(true);
         GameCore songamecore = thisGCset.GetComponentInChildren<GameCore>();
         songamecore.settingcanvas(canvas[3]);
-        texts = canvas[3].GetComponentsInChildren<Text>();
-        Debug.Log(texts[0]);
-        Debug.Log(texts[1]);
+        
 
         StageSelectCanvasDisappearing();
     }
