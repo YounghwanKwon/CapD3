@@ -20,7 +20,7 @@ public class ResumeButton : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        MenuButton.PauseBtn = false;
+        PauseButton.PauseBtn = false;
     }
 
 }

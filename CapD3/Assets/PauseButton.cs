@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MenuButton : MonoBehaviour, IPointerClickHandler
+public class PauseButton : MonoBehaviour, IPointerClickHandler
 {
     public static bool PauseBtn = false;
     public GameObject MoveImage;

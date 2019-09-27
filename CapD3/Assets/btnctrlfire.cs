@@ -29,11 +29,11 @@ public class btnctrlfire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             firebtn = 3;
         }
-        if (MenuButton.PauseBtn == true)
+        if (PauseButton.PauseBtn == true)
         {
             gameObject.SetActive(false);
         }
-        if (MenuButton.PauseBtn == false)
+        if (PauseButton.PauseBtn == false)
         {
             gameObject.SetActive(true);
         }
