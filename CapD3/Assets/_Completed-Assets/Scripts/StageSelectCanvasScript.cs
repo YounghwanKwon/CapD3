@@ -21,7 +21,7 @@ public class StageSelectCanvasScript : MonoBehaviour
     public void Canvasturnon()
     {
         canvas[1].SetActive(true);
-        canvas[2].SetActive(true);
+        //canvas[2].SetActive(true);
         canvas[3].SetActive(true);
     }
     public void BackToMainBtnPressed()

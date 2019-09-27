@@ -14,6 +14,7 @@ public class ResetBtnScript : MonoBehaviour
     [SerializeField] private GameObject oldtank;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject exitBtn;
+    [SerializeField] private Transform oldcamerarig;
     //[SerializeField] private GameObject completedtuesdaymap;
     // Start is called before the first frame update
 
@@ -44,7 +45,10 @@ public class ResetBtnScript : MonoBehaviour
         temptimer.timezerofy();
         temptimer.timepasson();
 
-        this.gameObject.SetActive(false);
+        oldcamerarig.transform.position = Vector3.zero;
+        oldcamerarig.transform.rotation = Quaternion.Euler(new Vector3(60, 0, 0));
+
+        //this.gameObject.SetActive(false);
         /*
         destorypart();
         instantiatepart();
