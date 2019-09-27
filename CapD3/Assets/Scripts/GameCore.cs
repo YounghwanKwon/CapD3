@@ -11,7 +11,8 @@ public class GameCore : MonoBehaviour
     //[SerializeField] private GameObject resetbtn;
     //[SerializeField] private GameObject timer;
 
-    private InGameCanvasScript gamecanvas;
+    private InGameCanvasScript gamecanvas1;
+    [SerializeField] private InGameCanvasScript gamecanvas;
 
     private void OnTriggerEnter(Collider other)
     {
