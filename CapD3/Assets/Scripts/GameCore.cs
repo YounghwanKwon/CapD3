@@ -1,25 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
-    //[SerializeField] private GameObject tank;
-    //[SerializeField] private Canvas Maincanvas;
-    //[SerializeField] private GameObject text1;
-    // Start is called before the first frame update
-    //[SerializeField] private GameObject resetbtn;
-    //[SerializeField] private GameObject timer;
-
-    private InGameCanvasScript gamecanvas1;
-    [SerializeField] private InGameCanvasScript gamecanvas;
+    [HideInInspector] public GameObject Ingamecanvas;
+    private Text[] texts;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
+            texts[0].text = "Player win \n: condition 1 Activated";
 
+            //Ingamecanvas.text1on();
             //gamecanvas.text1on();
             //TimerScript temptimer = GetComponent<TimerScript>();
             //temptimer.timepassoff();
@@ -31,16 +27,20 @@ public class GameCore : MonoBehaviour
             Debug.Log("예외발생 예상치못한 물체 코어에접촉");
         }
     }
+    public void settingcanvas(GameObject ingamecanvasfromout)
+    {
+        Ingamecanvas = ingamecanvasfromout;
+        texts = Ingamecanvas.GetComponentsInChildren<Text>();
+    }
 
     void deavtivate()
     {
-        gamecanvas.text1off();
+        //gamecanvas1.text1off();
         //resetbtn.SetActive(true);
     }
     void Start()
     {
-        gamecanvas = GetComponent<InGameCanvasScript>();
-        Debug.Log(gamecanvas);
+        
     }
 
     // Update is called once per frame

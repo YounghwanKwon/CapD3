@@ -27,7 +27,7 @@ public class TimerScript : MonoBehaviour
             timeclock1 += Time.deltaTime;
             timeclock2 = Mathf.Round(timeclock1 * 10) * 0.1f;
 
-            timertext.text = "Time : " + timeclock2;
+            timertext.text = "Time : " + timeclock2;    
 
             //timeclock = Time.deltaTime;
             //timertext.text = "Time : " + ;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageSelectCanvasScript : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class StageSelectCanvasScript : MonoBehaviour
 
     [SerializeField] private GameObject tankcontroller;
     [SerializeField] private GameObject cameracontroller;
+
+    private Text[] texts;
 
     public static int stage = 0;
     public void Stage1BtnPressed()
@@ -36,6 +39,11 @@ public class StageSelectCanvasScript : MonoBehaviour
         thisTurretset.SetActive(true);
         GameObject thisGCset = Instantiate(GCset[0]);
         thisGCset.SetActive(true);
+        GameCore songamecore = thisGCset.GetComponentInChildren<GameCore>();
+        songamecore.settingcanvas(canvas[3]);
+        texts = canvas[3].GetComponentsInChildren<Text>();
+        Debug.Log(texts[0]);
+        Debug.Log(texts[1]);
 
         StageSelectCanvasDisappearing();
     }
