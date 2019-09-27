@@ -9,6 +9,7 @@ public class StageSelectCanvasScript : MonoBehaviour
     [SerializeField] private GameObject[] tanks;
     [SerializeField] private GameObject[] turretsset;
     [SerializeField] private GameObject[] HPset;
+    [SerializeField] private GameObject[] GCset;
 
     [SerializeField] private GameObject tankcontroller;
     [SerializeField] private GameObject cameracontroller;
@@ -33,6 +34,8 @@ public class StageSelectCanvasScript : MonoBehaviour
         //turretsset[0].SetActive(true);
         GameObject thisTurretset = Instantiate(turretsset[0]);
         thisTurretset.SetActive(true);
+        GameObject thisGCset = Instantiate(GCset[0]);
+        thisGCset.SetActive(true);
 
         StageSelectCanvasDisappearing();
     }
