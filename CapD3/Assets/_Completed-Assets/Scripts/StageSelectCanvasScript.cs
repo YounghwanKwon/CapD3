@@ -8,6 +8,8 @@ public class StageSelectCanvasScript : MonoBehaviour
     [SerializeField] private GameObject[] canvas;
     [SerializeField] private GameObject[] tanks;
     [SerializeField] private GameObject[] turretsset;
+    [SerializeField] private GameObject tankcontroller;
+    [SerializeField] private GameObject cameracontroller;
     public void Stage1BtnPressed()
     {
         Canvasturnon();
@@ -17,6 +19,12 @@ public class StageSelectCanvasScript : MonoBehaviour
         //tanks[0].SetActive(true);
         GameObject thistank = Instantiate(tanks[0], Vector3.zero, Quaternion.Euler(new Vector3(0, 90, 0)));
         thistank.SetActive(true);
+        TryController thiscontroller = tankcontroller.gameObject.GetComponent<TryController>();
+        thiscontroller.go_Player = thistank;
+        Complete.CameraControl thiscameracontroller = cameracontroller.gameObject.GetComponent<Complete.CameraControl>();
+        thiscameracontroller.oldtank = thistank;
+        
+
         //turretsset[0].SetActive(true);
 
         StageSelectCanvasDisappearing();

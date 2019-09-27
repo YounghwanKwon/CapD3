@@ -10,7 +10,8 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     private float radius;
 
-    [SerializeField] private GameObject go_Player;
+    [SerializeField] private GameObject go_Player1;
+    [HideInInspector] public GameObject go_Player;
     [SerializeField] private float movespeed;
 
     private bool isTouch = false;
