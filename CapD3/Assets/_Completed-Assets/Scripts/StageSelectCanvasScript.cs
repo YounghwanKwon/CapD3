@@ -11,9 +11,13 @@ public class StageSelectCanvasScript : MonoBehaviour
     public void Stage1BtnPressed()
     {
         Canvasturnon();
-        maps[0].SetActive(true);
-        tanks[0].SetActive(true);
-        turretsset[0].SetActive(true);
+        //maps[0].SetActive(true);
+        GameObject thismap = Instantiate(maps[0]);
+        thismap.SetActive(true);
+        //tanks[0].SetActive(true);
+        GameObject thistank = Instantiate(tanks[0], Vector3.zero, Quaternion.Euler(new Vector3(0, 90, 0)));
+        thistank.SetActive(true);
+        //turretsset[0].SetActive(true);
 
         StageSelectCanvasDisappearing();
     }
