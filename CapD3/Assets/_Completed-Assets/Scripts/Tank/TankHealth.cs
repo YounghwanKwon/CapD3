@@ -24,13 +24,16 @@ namespace Complete
         [SerializeField] private GameObject[] Canvass;
         private PauseCanvasScript canvascript1;
         private IngameCanvasScript canvascript2;
+        private ButtonCanvasScript1 canvascript3;
 
         private void Start()
         {
             if(canvascript1 == null)
                 canvascript1 = Canvass[0].GetComponent<PauseCanvasScript>();
             if(canvascript2 == null)
-            canvascript2 = Canvass[1].GetComponent<IngameCanvasScript>();
+                canvascript2 = Canvass[1].GetComponent<IngameCanvasScript>();
+            if (canvascript3 == null)
+                canvascript3 = Canvass[2].GetComponent<ButtonCanvasScript1>();
         }
 
         private void Awake ()
@@ -132,6 +135,7 @@ namespace Complete
         {
             canvascript1.whenuserdead();
             canvascript2.whenuserdead();
+            canvascript3.whenuserdead();
         }
 
     }
