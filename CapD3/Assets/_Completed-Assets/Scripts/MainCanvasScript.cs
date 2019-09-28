@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainCanvasScript : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class MainCanvasScript : MonoBehaviour
     [SerializeField] private GameObject StageSelectCanvas;
     public void StartBtnPressed()
     {
-        StageSelectCanvas.SetActive(true);
-        MainCanvasDisappearing();
+        SceneManager.LoadScene("StageSelect");
+
+        //StageSelectCanvas.SetActive(true);
+        //MainCanvasDisappearing();
     }
 
     public void MainCanvasDisappearing()

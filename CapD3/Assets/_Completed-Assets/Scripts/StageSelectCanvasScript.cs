@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageSelectCanvasScript : MonoBehaviour
 {
@@ -10,12 +11,7 @@ public class StageSelectCanvasScript : MonoBehaviour
     [SerializeField] private GameObject[] turretsset;
     public void Stage1BtnPressed()
     {
-        Canvasturnon();
-        maps[0].SetActive(true);
-        tanks[0].SetActive(true);
-        turretsset[0].SetActive(true);
-
-        StageSelectCanvasDisappearing();
+        SceneManager.LoadScene("Stage1");
     }
 
     public void Canvasturnon()

@@ -19,10 +19,11 @@ public class ResetBtnScript : MonoBehaviour
 
     public void whenresetbtnpressed()
     {
-        Debug.Log("reset버튼이 눌림");
-        ExitScript escscript = exitBtn.GetComponent<ExitScript>();
-        escscript.countup();
-        tryreset();
+
+        //Debug.Log("reset버튼이 눌림");
+        //ExitScript escscript = exitBtn.GetComponent<ExitScript>();
+        //escscript.countup();
+        //tryreset();
     }
 
     void tryreset()
