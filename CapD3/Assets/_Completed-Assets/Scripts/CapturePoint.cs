@@ -24,6 +24,7 @@ public class CapturePoint : MonoBehaviour
     private DateTime OneSecLater;
     private TimeSpan span;
     // Start is called before the first frame update
+    [SerializeField] private GameObject canvas;
 
     void tryCapturing()
     {
@@ -47,8 +48,10 @@ public class CapturePoint : MonoBehaviour
                 test1.SetActive(true);
                 TimerScript temptimer = timer.GetComponent<TimerScript>();
                 temptimer.timepassoff();
+                PauseCanvasScript canvasscript = canvas.GetComponent<PauseCanvasScript>();
+                canvasscript.whenuserdead();
 
-                Invoke("deactive", 5);
+                Invoke("deactive", 2);
                 onlyone = true;
             }
 
