@@ -13,6 +13,8 @@ namespace Complete
         public GameObject m_ExplosionPrefab;                // A prefab that will be instantiated in Awake, then used whenever the tank dies.
         [SerializeField] private Slider UIHealthslider;
         [SerializeField] private Image UIHealthImage;
+        [SerializeField] private GameObject Tmanager;
+        private TutorialManagerScript Tmanagerscript;
 
 
         private bool deathable = true;
@@ -34,6 +36,7 @@ namespace Complete
                 canvascript2 = Canvass[1].GetComponent<IngameCanvasScript>();
             if (canvascript3 == null)
                 canvascript3 = Canvass[2].GetComponent<ButtonCanvasScript1>();
+            Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
         }
 
         private void Awake ()
@@ -70,6 +73,14 @@ namespace Complete
 
             // Change the UI elements appropriately.
             SetHealthUI ();
+            if(Tmanagerscript)
+            {
+                deathable = false;
+                int i = Tmanagerscript.gettercontine();
+                if(i == 2 || i == 3)
+                    Tmanagerscript.addcontinue();
+            }
+
 
             // If the current health is at or below zero and it has not yet been registered, call OnDeath.
             if (m_CurrentHealth <= 0f && !m_Dead)
@@ -85,6 +96,13 @@ namespace Complete
                 m_CurrentHealth = 100.0f;
             }
             SetHealthUI();
+            if (Tmanagerscript)
+            {
+                deathable = false;
+                int i = Tmanagerscript.gettercontine();
+                if (i == 4 || i == 4)
+                    Tmanagerscript.addcontinue();
+            }
         }
 
         private void SetHealthUI ()
