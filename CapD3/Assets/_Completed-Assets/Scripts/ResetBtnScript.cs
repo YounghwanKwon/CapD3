@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResetBtnScript : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class ResetBtnScript : MonoBehaviour
 
     public void whenresetbtnpressed()
     {
-
+        SceneManager.LoadScene("stage1");
         //Debug.Log("reset버튼이 눌림");
         //ExitScript escscript = exitBtn.GetComponent<ExitScript>();
         //escscript.countup();
