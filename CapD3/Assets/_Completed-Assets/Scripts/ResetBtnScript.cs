@@ -25,6 +25,8 @@ public class ResetBtnScript : MonoBehaviour
             SceneManager.LoadScene("stage1");
         else if (stagenumber == 2)
             SceneManager.LoadScene("stage2");
+        else if (stagenumber == 0)
+            SceneManager.LoadScene("Tutorial");
         else
             Debug.Log("망함.. stagenumber : " + stagenumber);
         //Debug.Log("reset버튼이 눌림");

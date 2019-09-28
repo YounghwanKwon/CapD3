@@ -9,12 +9,15 @@ public class TutorialManagerScript : MonoBehaviour
     private IngameCanvasScript ingamecanvascript1;
     private int continuing;
     [SerializeField] private GameObject particle;
+    [SerializeField] private GameObject resetbtn;
 
     // Start is called before the first frame update
     void Start()
     {
         continuing = 0;
         ingamecanvascript1 = canvass[2].GetComponent<IngameCanvasScript>();
+        ResetBtnScript resetbtnscript = resetbtn.GetComponent<ResetBtnScript>();
+        resetbtnscript.setstage(0);
     }
     public void addcontinue()
     {
@@ -92,7 +95,30 @@ public class TutorialManagerScript : MonoBehaviour
         }
         else if (continuing == 10)
         {
-            
+            sentence("거점 점령 시에는 거점과 가까운 거리 내에\n플레이어가 존재해야합니다." + continuing);
+        }
+        else if (continuing == 11)
+        {
+            particle.SetActive(false);
+            sentence("이번에는 게임 승리 조건이 '특정 목표' 획득일 때\n 승리 하는 방법에 대해 알아보겠습니다." + continuing);
+        }
+        else if (continuing == 12)
+        {
+            sentence("빨간색 불꽃이 일어나는곳으로 가보십시요" + continuing);
+            particle.transform.position = new Vector3(30, 0, 0);
+            particle.SetActive(true);
+        }
+        else if (continuing == 13)
+        {
+            sentence("특정목표 획득은 특정 목표를 찾아서 획득하는 것으로 게임을 승리하게 됩니다." + continuing);
+            particle.SetActive(false);
+        }
+        else if (continuing == 14)
+        {
+            sentence("모든 튜토리얼을 끝냈습니다. 축하합니다.!" + continuing);
+            PauseCanvasScript canvasscipt2 = canvass[1].GetComponent<PauseCanvasScript>();
+            canvasscipt2.whenuserdead();
+            ingamecanvascript1.setactive(11);
         }
         else
         {

@@ -12,18 +12,32 @@ public class GameCore : MonoBehaviour
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject timer;
 
+    [SerializeField] private GameObject Tmanager;
+    private TutorialManagerScript Tmanagerscript;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
-
+            if (!Tmanager)
+            {
+                text1.SetActive(true);
+                TimerScript temptimer = timer.GetComponent<TimerScript>();
+                temptimer.timepassoff();
+                this.gameObject.SetActive(false);
+                Invoke("deavtivate", 2);
+            }
+            else
+            {
+                int i = Tmanagerscript.gettercontine();
+                if(i == 12)
+                {
+                    Tmanagerscript.addcontinue();
+                }
+            }
             
-            text1.SetActive(true);
-            TimerScript temptimer = timer.GetComponent<TimerScript>();
-            temptimer.timepassoff();
-            this.gameObject.SetActive(false);
-            Invoke("deavtivate", 2);
+            
         }
         else
         {
@@ -39,7 +53,8 @@ public class GameCore : MonoBehaviour
     }
     void Start()
     {
-        
+        if (Tmanager)
+            Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
     }
 
     // Update is called once per frame

@@ -25,6 +25,8 @@ public class CapturePoint : MonoBehaviour
     private TimeSpan span;
     // Start is called before the first frame update
     [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject Tmanager;
+    private TutorialManagerScript Tmanagerscript;
 
     void tryCapturing()
     {
@@ -39,20 +41,38 @@ public class CapturePoint : MonoBehaviour
             }
             distancecheck();
         }
+        if (Tmanager)
+        {
+            int i = Tmanagerscript.gettercontine();
+            if(count !=0f && i == 9)
+            {
+                Tmanagerscript.addcontinue();
+            }
+        }
         if (count >= 15.0f)
         {
             Istotallycaptured = true;
             if (onlyone == false)
             {
-                Debug.Log("15초가지남 count: " + count);
-                test1.SetActive(true);
-                TimerScript temptimer = timer.GetComponent<TimerScript>();
-                temptimer.timepassoff();
-                PauseCanvasScript canvasscript = canvas.GetComponent<PauseCanvasScript>();
-                canvasscript.whenuserdead();
+                if (Tmanager)
+                {
+                    int i = Tmanagerscript.gettercontine();
+                    if(i == 10)
+                        Tmanagerscript.addcontinue();
+                }
+                else
+                {
+                    Debug.Log("15초가지남 count: " + count);
+                    test1.SetActive(true);
+                    TimerScript temptimer = timer.GetComponent<TimerScript>();
+                    temptimer.timepassoff();
+                    PauseCanvasScript canvasscript = canvas.GetComponent<PauseCanvasScript>();
+                    canvasscript.whenuserdead();
 
-                Invoke("deactive", 2);
-                onlyone = true;
+                    Invoke("deactive", 2);
+                    onlyone = true;
+                }
+                
             }
 
         }
@@ -72,8 +92,9 @@ public class CapturePoint : MonoBehaviour
     }
     public void CPreset()
     {
-        count = 0; SetUICapturingSlider();
-         tencheck = 0;
+        count = 0;
+        SetUICapturingSlider();
+        tencheck = 0;
         onlyone = false;
         Istotallycaptured = false;
         Invoke("countreset", 1);
@@ -123,6 +144,10 @@ public class CapturePoint : MonoBehaviour
     void Start()
     {
         SetUICapturingSlider();
+        if (Tmanager)
+        {
+            Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
+        }
     }
 
     // Update is called once per frame
