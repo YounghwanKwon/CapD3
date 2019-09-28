@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class TankHealth : MonoBehaviour
@@ -50,5 +51,10 @@ public class TankHealth : MonoBehaviour
     private void OnDeath()
     {
         // Play the effects for the death of the tank and deactivate it.
+    }
+
+    public static implicit operator TankHealth(int v)
+    {
+        throw new NotImplementedException();
     }
 }
