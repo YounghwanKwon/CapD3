@@ -26,9 +26,7 @@ public class StageSelectCanvasScript : MonoBehaviour
     }
     public void BackToMainBtnPressed()
     {
-        canvas[0].SetActive(true);
-
-        StageSelectCanvasDisappearing();
+        SceneManager.LoadScene("Main");
     }
     
     public void StageSelectCanvasDisappearing()

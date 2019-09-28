@@ -27,7 +27,9 @@ namespace Complete
 
         private void Start()
         {
-            canvascript1 = Canvass[0].GetComponent<PauseCanvasScript>();
+            if(canvascript1 == null)
+                canvascript1 = Canvass[0].GetComponent<PauseCanvasScript>();
+            if(canvascript2 == null)
             canvascript2 = Canvass[1].GetComponent<IngameCanvasScript>();
         }
 

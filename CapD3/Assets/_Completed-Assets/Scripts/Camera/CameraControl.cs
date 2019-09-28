@@ -33,18 +33,22 @@ namespace Complete
         }
 
 
-        private void Move ()
+        private void Move()
         {
-            // Find the average position of the targets.
-            FindPosition();
+            if (oldtank != null)
+            {
+                // Find the average position of the targets.
+                FindPosition();
 
-            // Smoothly transition to that position.
-            //transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
-            transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
+                // Smoothly transition to that position.
+                //transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
+                transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
+
+            }
         }
 
 
-        private void FindAveragePosition()
+                private void FindAveragePosition()
         {
             Vector3 averagePos = new Vector3();
             int numTargets = 0;
