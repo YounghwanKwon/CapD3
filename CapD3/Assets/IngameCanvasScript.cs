@@ -29,4 +29,18 @@ public class IngameCanvasScript : MonoBehaviour
         Text text1 = childrens[7].GetComponent<Text>();
         text1.text = "Stage Number : " + number;
     }
+
+    public void setsentence(int i,string strings)
+    {
+        Text text1 = childrens[i].GetComponent<Text>();
+        text1.text = strings;
+    }
+    public void setactive(int i)
+    {
+        childrens[i].SetActive(true);
+    }
+    public void setdisactive(int i)
+    {
+        childrens[i].SetActive(false);
+    }
 }
