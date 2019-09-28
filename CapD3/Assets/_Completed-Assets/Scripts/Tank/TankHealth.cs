@@ -15,12 +15,21 @@ namespace Complete
         [SerializeField] private Image UIHealthImage;
 
 
-        private bool deathable = false;
+        private bool deathable = true;
         private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
         private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
         private float m_CurrentHealth;                      // How much health the tank currently has.
         private bool m_Dead;                                // Has the tank been reduced beyond zero health yet?
 
+        [SerializeField] private GameObject[] Canvass;
+        private PauseCanvasScript canvascript1;
+        private IngameCanvasScript canvascript2;
+
+        private void Start()
+        {
+            canvascript1 = Canvass[0].GetComponent<PauseCanvasScript>();
+            canvascript2 = Canvass[1].GetComponent<IngameCanvasScript>();
+        }
 
         private void Awake ()
         {
@@ -106,6 +115,8 @@ namespace Complete
 
                 // Turn the tank off.
                 gameObject.SetActive (false);
+                gameend();
+
 
             }
         }
@@ -113,6 +124,12 @@ namespace Complete
         {
             m_CurrentHealth = 100;
             SetHealthUI();
+        }
+
+        public void gameend()
+        {
+            canvascript1.whenuserdead();
+            canvascript2.whenuserdead();
         }
 
     }

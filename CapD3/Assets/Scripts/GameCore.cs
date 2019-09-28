@@ -45,6 +45,6 @@ public class GameCore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -40,13 +40,13 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         rect_Joystic.localPosition = value;
 
         float distance = Vector2.Distance(rect_Background.position, rect_Joystic.position) / radius;
-        Debug.Log(distance);
+        //Debug.Log(distance);
         value = value.normalized;
         movePosition = new Vector3(value.x * movespeed * distance * Time.deltaTime, 0f, value.y * movespeed * distance * Time.deltaTime);
 
         //go_Player.transform.rotation = Quaternion.Euler(Mathf.Acos(value.x), 0, Mathf.Asin(value.y));
         go_Player.transform.rotation = Quaternion.Euler(0, Mathf.Atan2(value.x, value.y) * Mathf.Rad2Deg, 0);
-        Debug.Log(value.x + " "+value.y);
+        //Debug.Log(value.x + " "+value.y);
 
 
     }

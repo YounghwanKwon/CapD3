@@ -15,6 +15,11 @@ public class MainCanvasScript : MonoBehaviour
         //MainCanvasDisappearing();
     }
 
+    public void exitapp()
+    {
+        Application.Quit();
+    }
+
     public void MainCanvasDisappearing()
     {
         this.gameObject.SetActive(false);
