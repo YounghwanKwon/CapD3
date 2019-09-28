@@ -13,6 +13,10 @@ public class StageSelectCanvasScript : MonoBehaviour
     {
         SceneManager.LoadScene("Stage1");
     }
+    public void Stage2BtnPressed()
+    {
+        SceneManager.LoadScene("Stage2");
+    }
 
     public void Canvasturnon()
     {

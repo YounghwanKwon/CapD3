@@ -8,6 +8,7 @@ public class GameCore : MonoBehaviour
     //[SerializeField] private Canvas Maincanvas;
     [SerializeField] private GameObject text1;
     // Start is called before the first frame update
+    [SerializeField] private GameObject StageSelectBtn;
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject timer;
 
@@ -16,12 +17,13 @@ public class GameCore : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
+
             
             text1.SetActive(true);
             TimerScript temptimer = timer.GetComponent<TimerScript>();
             temptimer.timepassoff();
             this.gameObject.SetActive(false);
-            Invoke("deavtivate", 5);
+            Invoke("deavtivate", 2);
         }
         else
         {
@@ -33,6 +35,7 @@ public class GameCore : MonoBehaviour
     {
         text1.SetActive(false);
         resetbtn.SetActive(true);
+        StageSelectBtn.SetActive(true);
     }
     void Start()
     {

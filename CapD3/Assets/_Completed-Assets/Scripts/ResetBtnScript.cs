@@ -27,6 +27,10 @@ public class ResetBtnScript : MonoBehaviour
         //tryreset();
     }
 
+    public void whenStageSelectBtnpressed()
+    {
+        SceneManager.LoadScene("StageSelect");
+    }
     void tryreset()
     {
         oldtank.transform.position = new Vector3(0, 0, 0);
