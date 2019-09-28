@@ -62,12 +62,37 @@ public class TutorialManagerScript : MonoBehaviour
         }
         else if (continuing == 4)
         {
-            sentence("빨간색 불꽃이 일어나는곳으로 가보십시요" + continuing);
+            sentence("체력을 회복하고싶을 때는 힐링 캡슐을 찾으십시요.\n빨간색 불꽃이 일어나는곳으로 가보십시요" + continuing);
             particle.transform.position = new Vector3(15, 0, 0);
         }
         else if (continuing == 5)
         {
-            sentence("체력을 회복하고싶을 때는 힐링 캡슐을 찾으십시요" + continuing);
+            sentence("" + continuing);
+            addcontinue();
+        }
+        else if (continuing == 6)
+        {
+            particle.SetActive(false);
+            sentence("유저의 탱크도 사격 버튼을 이용하여 공격 할 수 있습니다.\n 사격 버튼을 누르십시요" + continuing);
+        }
+        else if (continuing == 7)
+        {
+            sentence("튜토리얼 맵에서는 탄의 제한이 없으나\n 실전맵에서는 탄을 아껴야합니다." + continuing);
+        }
+        else if (continuing == 8)
+        {
+            sentence("게임에서 승리하기 위해서는 승리 조건을 달성시켜야 합니다.\n 승리 조건이 거점 점령일 경우부터 알아 보도록하겠습니다." + continuing);
+        }
+        else if (continuing == 9)
+        {
+            sentence("빨간색 불꽃이 일어나는곳으로 가보십시요" + continuing);
+            particle.transform.position = new Vector3(-15, 0, -1.7f);
+            particle.SetActive(true);
+            ingamecanvascript1.setactive(3);
+        }
+        else if (continuing == 10)
+        {
+            
         }
         else
         {

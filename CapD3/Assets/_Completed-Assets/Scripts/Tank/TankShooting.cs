@@ -18,6 +18,8 @@ namespace Complete
         [SerializeField] private int m_MaxBullet = 20;
         [SerializeField] private Text LastBullet;
         //[SerializeField] private GameObject firebtn;
+        [SerializeField] private GameObject Tmanager;
+        private TutorialManagerScript Tmanagerscript;
 
         private int m_CurrentBullet;
         private string m_FireButton;                // The input axis that is used for launching shells.
@@ -43,6 +45,11 @@ namespace Complete
             // The rate that the launch force charges up is the range of possible forces by the max charge time.
             m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
             LastBullet.text = "Lasting bullet: "+m_CurrentBullet;
+
+            if (Tmanager)
+            {
+                Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
+            }
 
             //btnctrlfire newfire = firebtn.GetComponent<btnctrlfire>();
         }
@@ -137,6 +144,15 @@ namespace Complete
             Debug.Log("사격 후 남은 총알 수: " + m_CurrentBullet);
             SetUIBulletCount();
             m_Fired = false;
+            if (Tmanager)
+            {
+                int i = Tmanagerscript.gettercontine();
+                if(i == 6)
+                {
+                    Tmanagerscript.addcontinue();
+                }
+                m_CurrentBullet = m_MaxBullet;
+            }
         }
 
         public void refillbullet()

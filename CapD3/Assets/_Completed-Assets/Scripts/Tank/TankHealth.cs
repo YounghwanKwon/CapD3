@@ -36,7 +36,8 @@ namespace Complete
                 canvascript2 = Canvass[1].GetComponent<IngameCanvasScript>();
             if (canvascript3 == null)
                 canvascript3 = Canvass[2].GetComponent<ButtonCanvasScript1>();
-            Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
+            if(Tmanager)
+                Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
         }
 
         private void Awake ()
