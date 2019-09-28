@@ -28,6 +28,10 @@ public class StageSelectCanvasScript : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+    public void TutorialBtnPressed()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
     
     public void StageSelectCanvasDisappearing()
     {

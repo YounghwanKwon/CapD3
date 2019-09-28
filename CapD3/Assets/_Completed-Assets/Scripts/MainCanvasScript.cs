@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 public class MainCanvasScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] buttons;
-    [SerializeField] private GameObject StageSelectCanvas;
+    //[SerializeField] private GameObject StageSelectCanvas;
     public void StartBtnPressed()
     {
         SceneManager.LoadScene("StageSelect");
 
         //StageSelectCanvas.SetActive(true);
         //MainCanvasDisappearing();
+    }
+    public void TutorialBtnPressed()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void exitapp()
