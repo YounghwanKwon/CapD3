@@ -23,4 +23,8 @@ public class PauseCanvasScript : MonoBehaviour
         childrens[2].SetActive(true);
         childrens[4].SetActive(true);
     }
+    public void checkstage(int number)
+    {
+
+    }
 }

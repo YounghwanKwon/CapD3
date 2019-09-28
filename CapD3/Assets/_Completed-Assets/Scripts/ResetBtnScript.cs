@@ -15,16 +15,26 @@ public class ResetBtnScript : MonoBehaviour
     [SerializeField] private GameObject oldtank;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject exitBtn;
+    private int stagenumber;
     //[SerializeField] private GameObject completedtuesdaymap;
     // Start is called before the first frame update
 
     public void whenresetbtnpressed()
     {
-        SceneManager.LoadScene("stage1");
+        if (stagenumber == 1)
+            SceneManager.LoadScene("stage1");
+        else if (stagenumber == 2)
+            SceneManager.LoadScene("stage2");
+        else
+            Debug.Log("망함.. stagenumber : " + stagenumber);
         //Debug.Log("reset버튼이 눌림");
         //ExitScript escscript = exitBtn.GetComponent<ExitScript>();
         //escscript.countup();
         //tryreset();
+    }
+    public void setstage(int number)
+    {
+        stagenumber = number;
     }
 
     public void whenStageSelectBtnpressed()
