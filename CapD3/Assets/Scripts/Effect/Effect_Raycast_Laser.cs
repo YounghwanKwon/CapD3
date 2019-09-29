@@ -40,48 +40,55 @@ public class Effect_Raycast_Laser : MonoBehaviour {
     void Update () {
 
         //레이캐스팅 결과정보를 hit라는 이름으로 정한다.
-        RaycastHit hit; 
+        RaycastHit hit;
 
         //레이캐스트 쏘는 위치, 방향, 결과값, 최대인식거리
-        Physics.Raycast(transform.position, transform.forward, out hit, 200);
-
-        //거리에 따른 레이저 스케일 변화
-        ScaleDistance.transform.localScale = new Vector3(1, hit.distance, 1);
-
-        //레이캐스트가 닿은 곳에 오브젝트를 옮긴다.
-        RayResult.transform.position = hit.point;
-
-        //해당하는 오브젝트의 회전값을 닿은 면적의 노멀방향와 일치시킨다.
-        RayResult.transform.rotation = Quaternion.LookRotation(hit.normal);
-        if(hit.point != null)
+        //Physics.Raycast(transform.position, transform.forward, out hit, 200);
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 200))
         {
-            Debug.Log("hit point not null");
-            target = hit.transform.GetComponent<Rigidbody>();
+            ScaleDistance.transform.localScale = new Vector3(1, hit.distance, 1);
+
+            //레이캐스트가 닿은 곳에 오브젝트를 옮긴다.
+            RayResult.transform.position = hit.point;
+
+            //해당하는 오브젝트의 회전값을 닿은 면적의 노멀방향와 일치시킨다.
+            RayResult.transform.rotation = Quaternion.LookRotation(hit.normal);
+            if (hit.point != null)
+            {
+                Debug.Log("hit point not null");
+                //target = hit.transform.GetComponent<Rigidbody>();
+            }
+            
+            if (target)
+            {
+                targetHealth = target.GetComponent<Complete.TankHealth>();
+                if (targetHealth)
+                    targetHealth.TakeDamage(0.1f);
+                if (Tmanager)
+                {
+                    int i = Tmanagerscript.gettercontine();
+                    if (i == 14)
+                    {
+                        Tmanagerscript.addcontinue();
+                    }
+                }
+            }
         }
         else
         {
             Debug.Log("hit point null");
         }
-         
-        if (target)
-        {
-            targetHealth = target.GetComponent<Complete.TankHealth>();
-            if(targetHealth)
-                targetHealth.TakeDamage(0.1f);
-            if (Tmanager)
-            {
-                int i = Tmanagerscript.gettercontine();
-                if (i == 14)
-                {
-                    Tmanagerscript.addcontinue();
-                }
-            }
-        }
+
+        //거리에 따른 레이저 스케일 변화
+
+
+
+
         //else
-            //Debug.Log("no target");
+        //Debug.Log("no target");
 
 
-        
+
         // Add an explosion force.
         //targetRigidbody.AddExplosionForce(m_ExplosionForce, transform.position, m_ExplosionRadius);
 
