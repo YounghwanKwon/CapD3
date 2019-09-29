@@ -57,7 +57,6 @@ public class TutorialManagerScript : MonoBehaviour
             sentence("빨간색 불꽃이 일어나는곳으로 가보십시요" + continuing);
             particle.transform.position = new Vector3(10, 0, 0);
             particle.SetActive(true);
-
         }
         else if (continuing == 3)
         {

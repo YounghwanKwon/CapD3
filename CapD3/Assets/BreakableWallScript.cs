@@ -8,6 +8,9 @@ public class BreakableWallScript : MonoBehaviour
     [SerializeField] private GameObject deadparticle;
     private int CurrentHPcount;
     private bool m_Dead = false;
+    [SerializeField] private GameObject Tmanager;
+    private TutorialManagerScript Tmanagerscript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,10 @@ public class BreakableWallScript : MonoBehaviour
     public void TakeDamage(int i)
     {
         CurrentHPcount -= i;
+        if (Tmanager)
+        {
+            CurrentHPcount = MaxHPcount;
+        }
         if (CurrentHPcount <= 0 && m_Dead == false)
         {
             OnDeath();

@@ -5,9 +5,8 @@ using UnityEngine.AI;
 
 public class MovementE : MonoBehaviour
 {
-    public GameObject player;
-    public NavMeshAgent nav;
-    public GameObject MovePoint1;
+    private GameObject player;
+    private NavMeshAgent nav;
 
     void Awake()
     {
@@ -25,10 +24,6 @@ public class MovementE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(MovePoint1);
-        Debug.Log(MovePoint1.transform.position);
-        Debug.Log(nav);
-        nav.SetDestination(MovePoint1.transform.position);
-        //nav.SetDestination(player.transform.position);
+        nav.SetDestination(player.transform.position);
     }
 }
