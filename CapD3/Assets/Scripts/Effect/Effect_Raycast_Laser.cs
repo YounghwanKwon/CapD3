@@ -53,8 +53,15 @@ public class Effect_Raycast_Laser : MonoBehaviour {
 
         //해당하는 오브젝트의 회전값을 닿은 면적의 노멀방향와 일치시킨다.
         RayResult.transform.rotation = Quaternion.LookRotation(hit.normal);
-
-        target = hit.transform.GetComponent<Rigidbody>();
+        if(hit.point != null)
+        {
+            Debug.Log("hit point not null");
+            target = hit.transform.GetComponent<Rigidbody>();
+        }
+        else
+        {
+            Debug.Log("hit point null");
+        }
          
         if (target)
         {
