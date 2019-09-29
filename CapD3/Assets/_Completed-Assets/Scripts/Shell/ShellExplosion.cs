@@ -34,28 +34,44 @@ namespace Complete
 
                 // If they don't have a rigidbody, go on to the next collider.
                 if (!targetRigidbody)
+                {
+                    Debug.Log("강체없음1");
                     continue;
+                }
                 Debug.Log("강체있음1");
 
                 // Add an explosion force.
-                targetRigidbody.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius);
+                targetRigidbody.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius/2);
 
                 // Find the TankHealth script associated with the rigidbody.
                 TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth> ();
                 HealthForTurret targetHealth2 = targetRigidbody.GetComponent<HealthForTurret>();
+                BreakableWallScript targetHealth3 = targetRigidbody.GetComponent<BreakableWallScript>();
 
                 float damage = CalculateDamage(targetRigidbody.position);
+                Debug.Log("0did we in?");
 
                 if (targetHealth)
                 {
+                    Debug.Log("1did we in?");
                     targetHealth.TakeDamage(damage);
                 }
                 else if (targetHealth2)
                 {
+
+                    Debug.Log("2did we in?");
                     targetHealth2.TakeDamage(damage);
                 }
+                else if (targetHealth3)
+                {
+                    Debug.Log("3did we in?");
+                    targetHealth3.TakeDamage(1);
+                }
                 else
+                {
+                    Debug.Log("4did we in?");
                     continue;
+                }
 
                 // If there is no TankHealth script attached to the gameobject, go on to the next collider.
                 /*

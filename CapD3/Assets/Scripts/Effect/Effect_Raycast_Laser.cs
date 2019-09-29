@@ -66,8 +66,8 @@ public class Effect_Raycast_Laser : MonoBehaviour {
                 Tmanagerscript.addcontinue();
             }
         }
-        else
-            Debug.Log("no target");
+        //else
+            //Debug.Log("no target");
 
 
         
