@@ -22,6 +22,9 @@ public class Effect_Raycast_Laser : MonoBehaviour {
     private PauseCanvasScript canvascript1;
     private IngameCanvasScript canvascript2;
     private ButtonCanvasScript1 canvascript3;
+    private Rigidbody target;
+    private GameObject targetgameobj;
+    private Complete.TankHealth targetHealth;
 
     // Use this for initialization
     void Start () {
@@ -46,23 +49,18 @@ public class Effect_Raycast_Laser : MonoBehaviour {
         //해당하는 오브젝트의 회전값을 닿은 면적의 노멀방향와 일치시킨다.
         RayResult.transform.rotation = Quaternion.LookRotation(hit.normal);
 
-        Rigidbody target = hit.transform.GetComponent<Rigidbody>();
-        
-
-        if (target == null)
+        target = hit.transform.GetComponent<Rigidbody>();
+         
+        if (target)
         {
-            Debug.Log("안됨ㄷㄷ");
+            targetHealth = target.GetComponent<Complete.TankHealth>();
+            targetHealth.TakeDamage(100.0f);
         }
-
         else
-        {
-            TankHealth targetHealth = target.GetComponent<TankHealth>();
-            Debug.Log(targetHealth);
-            Debug.Log("됨ㄷㄷ");
-            OnDeath();
+            Debug.Log("no target");
 
 
-        }
+        
         // Add an explosion force.
         //targetRigidbody.AddExplosionForce(m_ExplosionForce, transform.position, m_ExplosionRadius);
 
@@ -81,7 +79,7 @@ public class Effect_Raycast_Laser : MonoBehaviour {
 
 
         TankObj.SetActive(false);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         ResetBtn.SetActive(true);
         SSBtn.SetActive(true);
     }
