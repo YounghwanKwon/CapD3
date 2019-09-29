@@ -36,6 +36,7 @@ public class ResetBtnScript : MonoBehaviour
     }
     public void setstage(int number)
     {
+        Time.timeScale = 1;
         stagenumber = number;
     }
 
