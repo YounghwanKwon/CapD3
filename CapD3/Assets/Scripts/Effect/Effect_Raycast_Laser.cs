@@ -25,10 +25,15 @@ public class Effect_Raycast_Laser : MonoBehaviour {
     private Rigidbody target;
     private GameObject targetgameobj;
     private Complete.TankHealth targetHealth;
+    [SerializeField] private GameObject Tmanager;
+    private TutorialManagerScript Tmanagerscript;
 
     // Use this for initialization
     void Start () {
-
+        if (Tmanager)
+        {
+            Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
+        }
     }
 	
     // Update is called once per frame
@@ -55,6 +60,11 @@ public class Effect_Raycast_Laser : MonoBehaviour {
         {
             targetHealth = target.GetComponent<Complete.TankHealth>();
             targetHealth.TakeDamage(100.0f);
+            int i = Tmanagerscript.gettercontine();
+            if (i == 14)
+            {
+                Tmanagerscript.addcontinue();
+            }
         }
         else
             Debug.Log("no target");

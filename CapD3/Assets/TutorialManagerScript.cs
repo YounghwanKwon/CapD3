@@ -65,13 +65,12 @@ public class TutorialManagerScript : MonoBehaviour
         }
         else if (continuing == 4)
         {
-            sentence("체력을 회복하고싶을 때는 힐링 캡슐을 찾으십시요.\n빨간색 불꽃이 일어나는곳으로 가보십시요" + continuing);
+            sentence("빨간색 불꽃이 일어나는곳으로 가보십시요." + continuing);
             particle.transform.position = new Vector3(15, 0, 0);
         }
         else if (continuing == 5)
         {
-            sentence("" + continuing);
-            addcontinue();
+            sentence("체력을 회복하고싶을 때는 힐링 캡슐을 찾으십시요." + continuing);
         }
         else if (continuing == 6)
         {
@@ -114,6 +113,17 @@ public class TutorialManagerScript : MonoBehaviour
             particle.SetActive(false);
         }
         else if (continuing == 14)
+        {
+            sentence("다음은 새로 추가된 방해 요소에 대해서 알아보겠습니다.\n빨간 불꽃이 일어나는 곳으로 이동하십시오" + continuing);
+            particle.transform.position = new Vector3(10, 0, -7.5f);
+            particle.SetActive(true);
+        }
+        else if (continuing == 15)
+        {
+            sentence("레이저의 데미지는 100입니다.\n 튜토리얼이 아닌 맵에서는 레이저를 조심하세요." + continuing);
+            particle.SetActive(false);
+        }
+        else if (continuing == 16)
         {
             sentence("모든 튜토리얼을 끝냈습니다. 축하합니다.!" + continuing);
             PauseCanvasScript canvasscipt2 = canvass[1].GetComponent<PauseCanvasScript>();

@@ -35,6 +35,7 @@ public class GameCore : MonoBehaviour
                 {
                     Tmanagerscript.addcontinue();
                 }
+                this.gameObject.SetActive(false);
             }
             
             

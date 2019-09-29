@@ -64,6 +64,8 @@ public class CapturePoint : MonoBehaviour
                 {
                     Debug.Log("15초가지남 count: " + count);
                     test1.SetActive(true);
+
+                    //UICapturingSlider.gameObject.SetActive(false);
                     TimerScript temptimer = timer.GetComponent<TimerScript>();
                     temptimer.timepassoff();
                     PauseCanvasScript canvasscript = canvas.GetComponent<PauseCanvasScript>();
@@ -153,6 +155,13 @@ public class CapturePoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (count > 0f && count <= 15.0f)
+        {
+            UICapturingSlider.gameObject.SetActive(true);
+        }
+        else
+            UICapturingSlider.gameObject.SetActive(false);
+
         if (capturing == false && Istotallycaptured == false)
             distancecheck();
         else

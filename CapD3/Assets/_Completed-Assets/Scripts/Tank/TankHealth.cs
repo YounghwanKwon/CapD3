@@ -101,7 +101,7 @@ namespace Complete
             {
                 deathable = false;
                 int i = Tmanagerscript.gettercontine();
-                if (i == 4 || i == 4)
+                if (i == 4)
                     Tmanagerscript.addcontinue();
             }
         }
