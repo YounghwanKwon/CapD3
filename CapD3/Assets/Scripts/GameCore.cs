@@ -22,9 +22,14 @@ public class GameCore : MonoBehaviour
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
             if (!Tmanager)
             {
-                text1.SetActive(true);
-                TimerScript temptimer = timer.GetComponent<TimerScript>();
-                temptimer.timepassoff();
+                if(text1)
+                    text1.SetActive(true);
+                if (timer)
+                {
+                    TimerScript temptimer = timer.GetComponent<TimerScript>();
+                    temptimer.timepassoff();
+                }
+                
                 this.gameObject.SetActive(false);
                 Invoke("deavtivate", 2);
             }
@@ -48,9 +53,12 @@ public class GameCore : MonoBehaviour
 
     void deavtivate()
     {
-        text1.SetActive(false);
-        resetbtn.SetActive(true);
-        StageSelectBtn.SetActive(true);
+        if(text1)
+            text1.SetActive(false);
+        if(resetbtn)
+            resetbtn.SetActive(true);
+        if(StageSelectBtn)
+            StageSelectBtn.SetActive(true);
     }
     void Start()
     {
