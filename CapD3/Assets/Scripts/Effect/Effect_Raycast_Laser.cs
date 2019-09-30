@@ -55,8 +55,8 @@ public class Effect_Raycast_Laser : MonoBehaviour {
             RayResult.transform.rotation = Quaternion.LookRotation(hit.normal);
             if (hit.point != null)
             {
-                Debug.Log("hit point not null");
-                //target = hit.transform.GetComponent<Rigidbody>();
+                //Debug.Log("hit point not null");
+                target = hit.transform.GetComponent<Rigidbody>();
             }
             
             if (target)
@@ -76,7 +76,7 @@ public class Effect_Raycast_Laser : MonoBehaviour {
         }
         else
         {
-            Debug.Log("hit point null");
+            //Debug.Log("hit point null");
         }
 
         //거리에 따른 레이저 스케일 변화

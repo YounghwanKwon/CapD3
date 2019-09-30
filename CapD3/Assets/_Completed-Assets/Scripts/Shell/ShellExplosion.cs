@@ -7,7 +7,7 @@ namespace Complete
         public LayerMask m_TankMask;                        // Used to filter what the explosion affects, this should be set to "Players".
         public ParticleSystem m_ExplosionParticles;         // Reference to the particles that will play on explosion.
         public AudioSource m_ExplosionAudio;                // Reference to the audio that will play on explosion.
-        public float m_MaxDamage = 100f;                    // The amount of damage done if the explosion is centred on a tank.
+        public float m_MaxDamage = 20f;                    // The amount of damage done if the explosion is centred on a tank.
         public float m_ExplosionForce = 1000f;              // The amount of force added to a tank at the centre of the explosion.
         public float m_MaxLifeTime = 2f;                    // The time in seconds before the shell is removed.
         public float m_ExplosionRadius = 5f;                // The maximum distance away from the explosion tanks can be and are still affected.
@@ -41,7 +41,7 @@ namespace Complete
                 Debug.Log("강체있음1");
 
                 // Add an explosion force.
-                targetRigidbody.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius/2);
+                targetRigidbody.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius);
 
                 // Find the TankHealth script associated with the rigidbody.
                 TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth> ();
@@ -126,6 +126,7 @@ namespace Complete
 
             // Make sure that the minimum damage is always 0.
             damage = Mathf.Max (0f, damage);
+            Debug.Log(damage);
 
             return damage;
         }
