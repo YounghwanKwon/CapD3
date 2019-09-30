@@ -8,21 +8,18 @@ public class Lab2ManagerScript : MonoBehaviour
     [SerializeField] private GameObject shell2;
 
     [SerializeField] private Transform BombPlacingPoint1;
-<<<<<<< HEAD
     [SerializeField] private Transform BombPlacingPoint2;
     [SerializeField] private Transform BombPlacingPoint3;
     [SerializeField] private Transform BombPlacingPoint4;
     [SerializeField] private Transform BombPlacingPoint5;
-=======
     private float xvalue=2.5f;
     private Transform transs;
     private int transnumber = 15;
     private bool needboom = true;
     private float frequency = 1.5f;
->>>>>>> #9_trystage1_down
-    // Start is called before the first frame update
     void Start()
     {
+        DropB();
         //setxpos(BombPlacingPoint1);
         //DropA(BombPlacingPoint1);
         setandbombattranss();
@@ -34,20 +31,21 @@ public class Lab2ManagerScript : MonoBehaviour
         xvalue *= -1;
         Atransform.transform.position = new Vector3(xvalue, Atransform.transform.position.y, Atransform.transform.position.z);
     }
-    void DropA(Transform Atransform)
+    void DropB()
     {
-<<<<<<< HEAD
         Instantiate(shell1, BombPlacingPoint1);
         Instantiate(shell2, BombPlacingPoint2);
         Instantiate(shell2, BombPlacingPoint3);
         Instantiate(shell2, BombPlacingPoint4);
         Instantiate(shell2, BombPlacingPoint5);
-=======
+        Invoke("DropB", 1.5f);
+    }
+    void DropA(Transform Atransform)
+    {
         //Debug.Log("called Drop258");
         //setxpos(Atransform);
         GameObject thisshell = Instantiate(shell1, Atransform);
         thisshell.transform.parent = null;
->>>>>>> #9_trystage1_down
         //Instantiate(shell1,new Vector3(0,0.1f,0),Quaternion.Euler(Vector3.zero));
         //Invoke("DropA", 2);
     }
