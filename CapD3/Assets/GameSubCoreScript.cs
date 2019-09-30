@@ -7,12 +7,14 @@ public class GameSubCoreScript : MonoBehaviour
     public static int SubCorecount = 0;
 
     [SerializeField] private GameObject gamecore;
+    [SerializeField] private GameObject Lab2Manager;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
             SubCorecount++;
             Debug.Log("플레이어가 서브코어접촉 정상 감지1 subcorecount : "+SubCorecount);
+            boomstopcheck();
             this.gameObject.SetActive(false);
             check3();
         }
@@ -20,6 +22,24 @@ public class GameSubCoreScript : MonoBehaviour
         {
             Debug.Log("예외발생 예상치못한 물체 코어에접촉");
         }
+    }
+
+    void boomstopcheck()
+    {
+        if (Lab2Manager)
+        {
+            Lab2ManagerScript lab2script = Lab2Manager.GetComponent<Lab2ManagerScript>();
+            if (lab2script)
+            {
+                lab2script.makeboomstop();
+                Debug.Log("stop?");
+            }
+            else
+                Debug.Log("no lab2script");
+        }
+        else
+            Debug.Log("no lab2manager");
+
     }
     // Start is called before the first frame update
     void Start()
