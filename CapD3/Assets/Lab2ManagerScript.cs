@@ -19,24 +19,15 @@ public class Lab2ManagerScript : MonoBehaviour
     [SerializeField] private GameObject motherpipe;
     [SerializeField] private GameObject[] pipes;
     [SerializeField] private GameObject dropshell2;
+    [SerializeField] private float leftdifficulty = 0.85f;
 
     // Start is called before the first frame update
     void Start()
     {
         bombleftA();
+        setandbombattranss();
 
-        /*
-        planes = new Transform[motherpipe.transform.childCount];
-        Debug.Log(motherpipe.transform.childCount);
 
-        planes[0] = motherpipe.GetComponentInChildren<Transform>();
-        planes[1] = motherpipe.GetComponentInChildren<Transform>();
-
-        Debug.Log(planes[0]);
-        Debug.Log(planes[1]);
-        */
-        //for (int i = 0; i < 14; i++) {
-        //}
 
 
         //Debug.Log(planes);
@@ -82,7 +73,7 @@ public class Lab2ManagerScript : MonoBehaviour
                     Drophere2(air.transform);
                 }
             }
-            Invoke("bombleftB", 0.5f);
+            Invoke("bombleftB", leftdifficulty);
         }
     }
 
@@ -101,7 +92,7 @@ public class Lab2ManagerScript : MonoBehaviour
                     Drophere2(air.transform);
                 }
             }
-            Invoke("bombleftA", 0.5f);
+            Invoke("bombleftA", leftdifficulty);
         }
     }
     void setpipes()

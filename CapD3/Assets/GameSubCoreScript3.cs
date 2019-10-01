@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSubCoreScript : MonoBehaviour
+public class GameSubCoreScript3 : MonoBehaviour
 {
     public static int SubCorecount = 0;
 
@@ -12,15 +12,29 @@ public class GameSubCoreScript : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            SubCorecount++;
-            Debug.Log("플레이어가 서브코어접촉 정상 감지1 subcorecount : "+SubCorecount);
+            boomstopcheck2();
             this.gameObject.SetActive(false);
-            check3();
         }
         else
         {
             Debug.Log("예외발생 예상치못한 물체 코어에접촉");
         }
+    }
+    void boomstopcheck2()
+    {
+        if (Lab2Manager)
+        {
+            Lab2ManagerScript lab2script = Lab2Manager.GetComponent<Lab2ManagerScript>();
+            if (lab2script)
+            {
+                //lab2script.makeboomstop2();
+                Debug.Log("Need Func()");
+            }
+            else
+                Debug.Log("no lab2script");
+        }
+        else
+            Debug.Log("no lab2manager");
     }
 
     void boomstopcheck()
@@ -58,7 +72,7 @@ public class GameSubCoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void checkreset()
@@ -68,7 +82,7 @@ public class GameSubCoreScript : MonoBehaviour
 
     private void check3()
     {
-        if(SubCorecount == 3)
+        if (SubCorecount == 3)
         {
             gamecore.SetActive(true);
             checkreset();
@@ -77,6 +91,6 @@ public class GameSubCoreScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
