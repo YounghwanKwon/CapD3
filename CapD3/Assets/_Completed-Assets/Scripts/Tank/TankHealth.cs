@@ -140,9 +140,7 @@ namespace Complete
                 // Turn the tank off.
                 gameObject.SetActive (false);
                 gameend();
-
-
-            }
+                }
         }
         public void fullrecovery()
         {
