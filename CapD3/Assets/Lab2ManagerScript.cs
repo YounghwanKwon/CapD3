@@ -5,22 +5,42 @@ using UnityEngine;
 public class Lab2ManagerScript : MonoBehaviour
 {
     [SerializeField] private GameObject shell1;
-    [SerializeField] private GameObject shell2;
 
     [SerializeField] private Transform BombPlacingPoint1;
     private float xvalue=2.5f;
     private Transform transs;
     private int transnumber = 15;
-    private bool needboom = true;
+    private bool needboom1 = true;
     private float frequency = 1.5f;
+
+    [SerializeField] private GameObject motherplane;
+    [SerializeField] private GameObject motherpipe;
+    private GameObject[] planes=new GameObject[14];
+    private GameObject[] pipes=new GameObject[14];
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         //setxpos(BombPlacingPoint1);
         //DropA(BombPlacingPoint1);
-        setandbombattranss();
-        
+        //setandbombattranss();
+        setpipes();
+
+
     }
+    void setpipes()
+    {
+        GameObject[] planes1 = new GameObject[transform.childCount];
+        GameObject[] planes1 = motherplane.GetComponentsInChildren<GameObject>();
+        for (int i = 0; i<planes1.Length; i++)
+        {
+            pipes[i] = planes1[i].gameObject;
+        }
+    }
+
+
     void setxpos(Transform Atransform)
     {
         //Debug.Log("called setxpos169");
@@ -28,7 +48,7 @@ public class Lab2ManagerScript : MonoBehaviour
         Atransform.transform.position = new Vector3(xvalue, Atransform.transform.position.y, Atransform.transform.position.z);
     }
     
-    void DropA(Transform Atransform)
+    void Drophere(Transform Atransform)
     {
         
         //Debug.Log("called Drop258");
@@ -38,17 +58,11 @@ public class Lab2ManagerScript : MonoBehaviour
         //Instantiate(shell1,new Vector3(0,0.1f,0),Quaternion.Euler(Vector3.zero));
         //Invoke("DropA", 2);
     }
-    void checktime(float atime)
-    {
-        float a = 0;
-        a += Time.deltaTime;
-        //needboom = true;
-        Debug.Log("2sec");
-    }
+    
     
     void setandbombattranss()
     {
-        if (needboom == true)
+        if (needboom1 == true)
         {
             transs = transform;
             //Debug.Log(BombPlacingPoint1.transform+"3");
@@ -61,7 +75,7 @@ public class Lab2ManagerScript : MonoBehaviour
                 transs.transform.position = new Vector3(xvalue, BombPlacingPoint1.transform.position.y, BombPlacingPoint1.transform.position.z - 5.0f * i);
                 //Debug.Log(i);
                 setxpos(transs);
-                DropA(transs);
+                Drophere(transs);
             }
             Invoke("setandbombattranss", frequency);
         }
@@ -69,19 +83,20 @@ public class Lab2ManagerScript : MonoBehaviour
 
     public void makeboomstop()
     {
-        needboom = false;
+        needboom1 = false;
     }
-    void bombs()
-    {
-        for(int i = 0; i < transnumber; i++)
-        {
-            DropA(transs);
-        }
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    void checktime(float atime)
+    {
+        float a = 0;
+        a += Time.deltaTime;
+        //needboom = true;
+        Debug.Log("2sec");
     }
 }
