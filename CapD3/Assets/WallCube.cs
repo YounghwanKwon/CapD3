@@ -92,7 +92,7 @@ public class WallCube : MonoBehaviour
             if (SettingTime == 50)
             {
                 this.gameObject.SetActive(false);
-                FrontWall.SetActive(false);
+                //FrontWall.SetActive(false);
                 BackWall.SetActive(false);
             }
             yield return new WaitForSeconds(1);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameSubCoreScript : MonoBehaviour
 {
-    public static int SubCorecount = 0;
+    public static int SubCorecount;
 
     [SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject Lab2Manager;
@@ -58,7 +58,7 @@ public class GameSubCoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SubCorecount = 0;
     }
 
     public void checkreset()

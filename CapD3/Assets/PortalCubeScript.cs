@@ -16,14 +16,4 @@ public class PortalCubeScript : MonoBehaviour
             playerTF.transform.position = Destination.position;
         }
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
