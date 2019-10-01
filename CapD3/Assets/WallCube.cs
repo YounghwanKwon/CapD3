@@ -16,6 +16,7 @@ public class WallCube : MonoBehaviour
     public GameObject BallBomb9;
     public GameObject FrontWall;
     public GameObject BackWall;
+    public GameObject exitarrow;
     public float time = 0;
     public float SettingTime = 0;
     public bool TrapStart = false;
@@ -89,10 +90,11 @@ public class WallCube : MonoBehaviour
             {
                 BallBomb9.SetActive(true);
             }
-            if (SettingTime == 50)
+            if (SettingTime == 30)
             {
                 this.gameObject.SetActive(false);
                 //FrontWall.SetActive(false);
+                exitarrow.SetActive(true);
                 BackWall.SetActive(false);
             }
             yield return new WaitForSeconds(1);
