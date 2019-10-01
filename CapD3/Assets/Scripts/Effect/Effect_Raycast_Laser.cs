@@ -63,7 +63,7 @@ public class Effect_Raycast_Laser : MonoBehaviour {
             {
                 targetHealth = target.GetComponent<Complete.TankHealth>();
                 if (targetHealth)
-                    targetHealth.TakeDamage(0.1f);
+                    targetHealth.TakeDamage(2f);
                 if (Tmanager)
                 {
                     int i = Tmanagerscript.gettercontine();
