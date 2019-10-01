@@ -14,7 +14,7 @@ public class GameSubCoreScript : MonoBehaviour
         {
             SubCorecount++;
             Debug.Log("플레이어가 서브코어접촉 정상 감지1 subcorecount : "+SubCorecount);
-            boomstopcheck();
+            boomstopcheck1();
             this.gameObject.SetActive(false);
             check3();
         }
@@ -39,7 +39,22 @@ public class GameSubCoreScript : MonoBehaviour
         }
         else
             Debug.Log("no lab2manager");
-
+    }
+    void boomstopcheck1()
+    {
+        if (Lab2Manager)
+        {
+            Lab2ManagerScript lab2script = Lab2Manager.GetComponent<Lab2ManagerScript>();
+            if (lab2script)
+            {
+                lab2script.makeboomstop1();
+                Debug.Log("stop?");
+            }
+            else
+                Debug.Log("no lab2script");
+        }
+        else
+            Debug.Log("no lab2manager");
     }
     // Start is called before the first frame update
     void Start()

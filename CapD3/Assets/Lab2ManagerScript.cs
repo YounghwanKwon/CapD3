@@ -11,33 +11,110 @@ public class Lab2ManagerScript : MonoBehaviour
     private Transform transs;
     private int transnumber = 15;
     private bool needboom1 = true;
+    private bool needboomleft = true;
     private float frequency = 1.5f;
 
-    [SerializeField] private GameObject motherplane;
+    [SerializeField] private GameObject air;
+    [SerializeField] private GameObject ground;
     [SerializeField] private GameObject motherpipe;
-    private GameObject[] planes=new GameObject[14];
-    private GameObject[] pipes=new GameObject[14];
-
-
+    [SerializeField] private GameObject[] pipes;
+    [SerializeField] private GameObject dropshell2;
 
     // Start is called before the first frame update
     void Start()
     {
+        bombleftA();
+
+        /*
+        planes = new Transform[motherpipe.transform.childCount];
+        Debug.Log(motherpipe.transform.childCount);
+
+        planes[0] = motherpipe.GetComponentInChildren<Transform>();
+        planes[1] = motherpipe.GetComponentInChildren<Transform>();
+
+        Debug.Log(planes[0]);
+        Debug.Log(planes[1]);
+        */
+        //for (int i = 0; i < 14; i++) {
+        //}
+
+
+        //Debug.Log(planes);
+
         //setxpos(BombPlacingPoint1);
         //DropA(BombPlacingPoint1);
         //setandbombattranss();
-        setpipes();
+        //setpipes();
 
+    }
+    public void makeboomstop1()
+    {
+        needboomleft = false;
+    }
 
+    void bombleft()
+    {
+        if(needboomleft == true)
+        {
+            air.transform.position = ground.transform.position;
+
+            for (int i = 0; i < 15; i++)
+            {
+                ground = pipes[i];
+                air.transform.position = ground.transform.position;
+                Drophere2(air.transform);
+            }
+            Invoke("bombleft", 3f);
+        }
+    }
+    void bombleftA()
+    {
+        if(needboomleft == true)
+        {
+            air.transform.position = ground.transform.position;
+
+            for (int i = 0; i < 15; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    ground = pipes[i];
+                    air.transform.position = ground.transform.position;
+                    Drophere2(air.transform);
+                }
+            }
+            Invoke("bombleftB", 1f);
+        }
+    }
+
+    void bombleftB()
+    {
+        if (needboomleft)
+        {
+            air.transform.position = ground.transform.position;
+
+            for (int i = 0; i < 15; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    ground = pipes[i];
+                    air.transform.position = ground.transform.position;
+                    Drophere2(air.transform);
+                }
+            }
+            Invoke("bombleftA", 1f);
+        }
     }
     void setpipes()
     {
-        GameObject[] planes1 = new GameObject[transform.childCount];
-        GameObject[] planes1 = motherplane.GetComponentsInChildren<GameObject>();
+        Debug.Log(transform.childCount);
+        //GameObject[] planes1 = new GameObject[transform.childCount];
+        //GameObject[] planes1 = motherplane.GetComponentsInChildren<GameObject>();
+        /*
         for (int i = 0; i<planes1.Length; i++)
         {
             pipes[i] = planes1[i].gameObject;
         }
+        */
     }
 
 
@@ -58,8 +135,13 @@ public class Lab2ManagerScript : MonoBehaviour
         //Instantiate(shell1,new Vector3(0,0.1f,0),Quaternion.Euler(Vector3.zero));
         //Invoke("DropA", 2);
     }
-    
-    
+    void Drophere2(Transform Atransform)
+    {
+        GameObject thisshell = Instantiate(dropshell2, Atransform);
+        thisshell.transform.parent = null;
+    }
+
+
     void setandbombattranss()
     {
         if (needboom1 == true)
