@@ -58,7 +58,7 @@ public class Lab2ManagerScript : MonoBehaviour
         {
             air.transform.position = ground.transform.position;
 
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 18; i++)
             {
                 ground = pipes[i];
                 air.transform.position = ground.transform.position;
@@ -73,7 +73,7 @@ public class Lab2ManagerScript : MonoBehaviour
         {
             air.transform.position = ground.transform.position;
 
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 18; i++)
             {
                 if (i % 2 == 0)
                 {
@@ -82,7 +82,7 @@ public class Lab2ManagerScript : MonoBehaviour
                     Drophere2(air.transform);
                 }
             }
-            Invoke("bombleftB", 1f);
+            Invoke("bombleftB", 0.5f);
         }
     }
 
@@ -92,7 +92,7 @@ public class Lab2ManagerScript : MonoBehaviour
         {
             air.transform.position = ground.transform.position;
 
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 18; i++)
             {
                 if (i % 2 == 1)
                 {
@@ -101,7 +101,7 @@ public class Lab2ManagerScript : MonoBehaviour
                     Drophere2(air.transform);
                 }
             }
-            Invoke("bombleftA", 1f);
+            Invoke("bombleftA", 0.5f);
         }
     }
     void setpipes()
