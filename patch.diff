@@ -1,0 +1,14 @@
+diff --git a/CapD3/Assets/plugins.meta b/CapD3/Assets/plugins.meta
+deleted file mode 100644
+index dec4e61..0000000
+--- a/CapD3/Assets/plugins.meta
++++ /dev/null
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 1669b8ee691edea4f81fe775056448d3
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
