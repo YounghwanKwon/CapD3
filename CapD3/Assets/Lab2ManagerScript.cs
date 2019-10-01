@@ -18,13 +18,16 @@ public class Lab2ManagerScript : MonoBehaviour
     [SerializeField] private GameObject ground;
     [SerializeField] private GameObject motherpipe;
     [SerializeField] private GameObject[] pipes;
+    [SerializeField] private GameObject[] planes;
     [SerializeField] private GameObject dropshell2;
+    [SerializeField] private GameObject dropshell3;
     [SerializeField] private float leftdifficulty = 0.85f;
 
     // Start is called before the first frame update
     void Start()
     {
         bombleftA();
+        //bombleftC();
         setandbombattranss();
 
 
@@ -95,6 +98,43 @@ public class Lab2ManagerScript : MonoBehaviour
             Invoke("bombleftA", leftdifficulty);
         }
     }
+    void bombleftC()
+    {
+        if (needboomleft == true)
+        {
+            air.transform.position = ground.transform.position;
+
+            for (int i = 0; i < 11; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    ground = planes[i];
+                    air.transform.position = ground.transform.position;
+                    Drophere3(air.transform);
+                }
+            }
+            Invoke("bombleftD", leftdifficulty);
+        }
+    }
+
+    void bombleftD()
+    {
+        if (needboomleft)
+        {
+            air.transform.position = ground.transform.position;
+
+            for (int i = 0; i < 11; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    ground = planes[i];
+                    air.transform.position = ground.transform.position;
+                    Drophere3(air.transform);
+                }
+            }
+            Invoke("bombleftC", leftdifficulty);
+        }
+    }
     void setpipes()
     {
         Debug.Log(transform.childCount);
@@ -129,6 +169,11 @@ public class Lab2ManagerScript : MonoBehaviour
     void Drophere2(Transform Atransform)
     {
         GameObject thisshell = Instantiate(dropshell2, Atransform);
+        thisshell.transform.parent = null;
+    }
+    void Drophere3(Transform Atransform)
+    {
+        GameObject thisshell = Instantiate(dropshell3, Atransform);
         thisshell.transform.parent = null;
     }
 

@@ -9,6 +9,7 @@ public class GameSubCoreScript2 : MonoBehaviour
     [SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject Lab2Manager;
     [SerializeField] private GameObject Ingamehealpack;
+    [SerializeField] private GameObject image;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -47,6 +48,7 @@ public class GameSubCoreScript2 : MonoBehaviour
             if (lab2script)
             {
                 lab2script.makeboomstop1();
+                ///////////////////////////////////
                 Debug.Log("stop?");
             }
             else
@@ -54,6 +56,11 @@ public class GameSubCoreScript2 : MonoBehaviour
         }
         else
             Debug.Log("no lab2manager");
+    }
+
+    void deactive()
+    {
+        image.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
