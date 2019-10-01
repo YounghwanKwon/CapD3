@@ -6,8 +6,9 @@ public class GameSubCoreScript1 : MonoBehaviour
 {
     public static int SubCorecount = 0;
 
-    [SerializeField] private GameObject gamecore;
+    //[SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject Lab2Manager;
+    [SerializeField] private GameObject downarrow;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -29,6 +30,7 @@ public class GameSubCoreScript1 : MonoBehaviour
             if (lab2script)
             {
                 lab2script.makeboomstop();
+                deactive();
                 Debug.Log("stop?");
             }
             else
@@ -53,6 +55,11 @@ public class GameSubCoreScript1 : MonoBehaviour
         else
             Debug.Log("no lab2manager");
     }
+
+    void deactive()
+    {
+        downarrow.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +75,7 @@ public class GameSubCoreScript1 : MonoBehaviour
     {
         if (SubCorecount == 3)
         {
-            gamecore.SetActive(true);
+            //gamecore.SetActive(true);
             checkreset();
         }
     }

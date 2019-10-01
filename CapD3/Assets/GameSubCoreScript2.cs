@@ -6,7 +6,7 @@ public class GameSubCoreScript2 : MonoBehaviour
 {
     public static int SubCorecount = 0;
 
-    [SerializeField] private GameObject gamecore;
+    //[SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject Lab2Manager;
     [SerializeField] private GameObject Ingamehealpack;
     [SerializeField] private GameObject image;
@@ -48,7 +48,7 @@ public class GameSubCoreScript2 : MonoBehaviour
             if (lab2script)
             {
                 lab2script.makeboomstop1();
-                ///////////////////////////////////
+                deactive();
                 Debug.Log("stop?");
             }
             else
@@ -77,7 +77,7 @@ public class GameSubCoreScript2 : MonoBehaviour
     {
         if (SubCorecount == 3)
         {
-            gamecore.SetActive(true);
+            //gamecore.SetActive(true);
             checkreset();
         }
     }
