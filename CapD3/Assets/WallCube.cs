@@ -96,6 +96,7 @@ public class WallCube : MonoBehaviour
             }
             if (SettingTime == 30)
             {
+                setslider();
                 this.gameObject.SetActive(false);
                 //FrontWall.SetActive(false);
                 exitarrow.SetActive(true);
