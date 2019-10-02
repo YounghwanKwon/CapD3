@@ -17,6 +17,7 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject timer;
     [SerializeField] private Slider UICapturingSlider;
+    [SerializeField] private float timeamount;
 
     private float realtimer = 0.0f;
     private bool onlyone = false;
@@ -30,7 +31,7 @@ public class CapturePoint : MonoBehaviour
 
     void tryCapturing()
     {
-        if (count < 15.0f && capturing == true)
+        if (count < timeamount && capturing == true)
         {
             tryaddcount();
             
@@ -62,7 +63,7 @@ public class CapturePoint : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("15초가지남 count: " + count);
+                    Debug.Log("n초가지남 count: " + count);
                     test1.SetActive(true);
 
                     //UICapturingSlider.gameObject.SetActive(false);
@@ -145,6 +146,8 @@ public class CapturePoint : MonoBehaviour
     }
     void Start()
     {
+        if (timeamount == 0)
+            timeamount = 30.0f;
         SetUICapturingSlider();
         if (Tmanager)
         {
@@ -170,7 +173,7 @@ public class CapturePoint : MonoBehaviour
 
     void distancecheck()
     {
-        if (Vector3.Distance(CapturePointPos.transform.position, tank.transform.position) <= 5.0f)
+        if (Vector3.Distance(CapturePointPos.transform.position, tank.transform.position) <= 24.0f)
         {
             if (capturing == false)
             {

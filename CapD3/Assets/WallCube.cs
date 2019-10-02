@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WallCube : MonoBehaviour
 {
+    [SerializeField] private Slider UICaptureslider;
+
     public GameObject BallBomb0;
     public GameObject BallBomb1;
     public GameObject BallBomb2;
@@ -53,6 +56,7 @@ public class WallCube : MonoBehaviour
         while (true)
         {
             time++;
+            setslider();
             SettingTime = Mathf.Round(time);
             if (SettingTime == 2)
             {
@@ -99,6 +103,20 @@ public class WallCube : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
         }
+    }
+    void setslider()
+    {
+        if (time > 0 || time < 30.0f)
+        {
+            UICaptureslider.gameObject.SetActive(true);
+            UICaptureslider.value = time;
+        }
+        else
+        {
+            UICaptureslider.gameObject.SetActive(false);
+            Debug.Log("i hoped this slider disable");
+        }
+
     }
 
 }
