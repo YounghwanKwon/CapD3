@@ -10,11 +10,13 @@ public class GameSubCoreScript2 : MonoBehaviour
     [SerializeField] private GameObject Lab2Manager;
     [SerializeField] private GameObject Ingamehealpack;
     [SerializeField] private GameObject image;
+    [SerializeField] private GameObject bots;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
             boomstopcheck1();
+            Destroy(bots);
             Ingamehealpack.SetActive(true);
             this.gameObject.SetActive(false);
         }

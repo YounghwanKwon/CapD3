@@ -11,6 +11,9 @@ public class GameCore : MonoBehaviour
     [SerializeField] private GameObject StageSelectBtn;
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject timer;
+    [SerializeField] private GameObject btncanvas;
+    [SerializeField] private GameObject pausecanvas;
+    [SerializeField] private GameObject resumebtn;
 
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
@@ -20,8 +23,12 @@ public class GameCore : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
+            Time.timeScale = 0;
             if (!Tmanager)
             {
+                btncanvas.SetActive(false);
+                pausecanvas.SetActive(true);
+                resumebtn.SetActive(false);
                 if(text1)
                     text1.SetActive(true);
                 if (timer)
@@ -71,4 +78,5 @@ public class GameCore : MonoBehaviour
     {
 
     }
+    
 }

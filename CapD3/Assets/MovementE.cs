@@ -7,6 +7,7 @@ public class MovementE : MonoBehaviour
 {
     private GameObject player;
     private NavMeshAgent nav;
+    private bool poweron = false;
 
     void Awake()
     {
@@ -20,10 +21,18 @@ public class MovementE : MonoBehaviour
         
     }
     
-
+    public void poweronfunc()
+    {
+        poweron = true;
+    }
+    public void powerofffunc()
+    {
+        poweron = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        nav.SetDestination(player.transform.position);
+        if(poweron)
+            nav.SetDestination(player.transform.position);
     }
 }

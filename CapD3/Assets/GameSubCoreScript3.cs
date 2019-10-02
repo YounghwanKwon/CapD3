@@ -9,12 +9,14 @@ public class GameSubCoreScript3 : MonoBehaviour
     //[SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject Lab2Manager;
     [SerializeField] private GameObject Rightarrow;
+    [SerializeField] private GameObject chasetrap;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
             boomstopcheck2();
             deactive();
+            chasetrap.SetActive(false);
             this.gameObject.SetActive(false);
         }
         else

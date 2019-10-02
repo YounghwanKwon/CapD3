@@ -14,6 +14,8 @@ public class PortalCubeScript : MonoBehaviour
         {
             Transform playerTF = other.GetComponent<Transform>();
             playerTF.transform.position = Destination.position;
+            Complete.TankHealth th = player.GetComponent<Complete.TankHealth>();
+            th.GetHealing(60.0f);
         }
     }
 }

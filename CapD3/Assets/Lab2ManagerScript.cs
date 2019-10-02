@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lab2ManagerScript : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Lab2ManagerScript : MonoBehaviour
     [SerializeField] private GameObject dropshell2;
     [SerializeField] private GameObject dropshell3;
     [SerializeField] private float leftdifficulty = 0.85f;
+    [SerializeField] private Text text1;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class Lab2ManagerScript : MonoBehaviour
         setandbombattranss();
         ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         rsbtnscript.setstage(3);
+        text1.text = "Stage : 1";
 
 
 
@@ -53,7 +56,7 @@ public class Lab2ManagerScript : MonoBehaviour
     {
         if(needboomleft == true)
         {
-            air.transform.position = ground.transform.position;
+            //air.transform.position = ground.transform.position;
 
             for (int i = 0; i < 18; i++)
             {
@@ -68,7 +71,7 @@ public class Lab2ManagerScript : MonoBehaviour
     {
         if(needboomleft == true)
         {
-            air.transform.position = ground.transform.position;
+            //air.transform.position = ground.transform.position;
 
             for (int i = 0; i < 18; i++)
             {
@@ -87,7 +90,7 @@ public class Lab2ManagerScript : MonoBehaviour
     {
         if (needboomleft)
         {
-            air.transform.position = ground.transform.position;
+            //air.transform.position = ground.transform.position;
 
             for (int i = 0; i < 18; i++)
             {

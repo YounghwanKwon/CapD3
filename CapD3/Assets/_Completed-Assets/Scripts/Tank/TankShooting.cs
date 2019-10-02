@@ -39,6 +39,7 @@ namespace Complete
         private void Start ()
         {
             refillbullet();
+            addbullet();
             // The fire axis is based on the player number.
             m_FireButton = "Fire" + m_PlayerNumber;
 
@@ -164,6 +165,16 @@ namespace Complete
         public void SetUIBulletCount()
         {
             LastBullet.text = "Lasting bullet: " + m_CurrentBullet;
+        }
+        public void addbullet()
+        {
+            m_CurrentBullet++;
+            if (m_CurrentBullet > m_MaxBullet)
+            {
+                m_CurrentBullet = m_MaxBullet;
+            }
+            SetUIBulletCount();
+            Invoke("addbullet", 3);
         }
     }
 }

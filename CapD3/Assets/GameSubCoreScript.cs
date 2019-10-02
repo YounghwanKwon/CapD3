@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameSubCoreScript : MonoBehaviour
 {
     public static int SubCorecount;
-
+    [SerializeField] private GameObject drone;
     [SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject Lab2Manager;
+    [SerializeField] private GameObject captureslider;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -70,10 +71,15 @@ public class GameSubCoreScript : MonoBehaviour
     {
         if(SubCorecount == 3)
         {
-            gamecore.SetActive(true);
+            //gamecore.SetActive(true);
+            drone.SetActive(true);
+            MovementE moveE = drone.GetComponent<MovementE>();
+            moveE.poweronfunc();
+            captureslider.gameObject.SetActive(false);
             checkreset();
         }
     }
+  
     // Update is called once per frame
     void Update()
     {
