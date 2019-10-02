@@ -123,7 +123,7 @@ namespace Complete
         {
             if(deathable == true)
             {
-
+                Time.timeScale = 0;
                 // Set the flag so that this function is only called once.
                 m_Dead = true;
 

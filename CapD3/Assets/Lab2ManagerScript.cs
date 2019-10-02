@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lab2ManagerScript : MonoBehaviour
 {
+    [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject shell1;
 
     [SerializeField] private Transform BombPlacingPoint1;
@@ -29,6 +30,8 @@ public class Lab2ManagerScript : MonoBehaviour
         bombleftA();
         //bombleftC();
         setandbombattranss();
+        ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
+        rsbtnscript.setstage(3);
 
 
 

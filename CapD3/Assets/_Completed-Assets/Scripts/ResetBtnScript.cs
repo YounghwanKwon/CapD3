@@ -21,12 +21,15 @@ public class ResetBtnScript : MonoBehaviour
 
     public void whenresetbtnpressed()
     {
+        Time.timeScale = 1;
         if (stagenumber == 1)
             SceneManager.LoadScene("stage1");
         else if (stagenumber == 2)
             SceneManager.LoadScene("stage2");
         else if (stagenumber == 0)
             SceneManager.LoadScene("Tutorial");
+        else if (stagenumber == 3)
+            SceneManager.LoadScene("Lab2");
         else
             Debug.Log("망함.. stagenumber : " + stagenumber);
         //Debug.Log("reset버튼이 눌림");
@@ -42,6 +45,7 @@ public class ResetBtnScript : MonoBehaviour
 
     public void whenStageSelectBtnpressed()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("StageSelect");
     }
     void tryreset()
