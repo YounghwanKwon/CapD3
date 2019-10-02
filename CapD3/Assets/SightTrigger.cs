@@ -11,7 +11,6 @@ public class SightTrigger : MonoBehaviour
     void Start()
     {
         SightCat = false;
-        InvokeRepeating("OnTriggerEnter", 0f, 0.1f);
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class SightTrigger : MonoBehaviour
         }
         else
         {
-            Debug.Log("에러남");
+            
         }
     }
 }
