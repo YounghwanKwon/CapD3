@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ResetBtnScript : MonoBehaviour
+public class NextBtnScript : MonoBehaviour
 {
     [SerializeField] private GameObject newtestmap;
     [SerializeField] private GameObject newtesttank;
@@ -19,15 +19,16 @@ public class ResetBtnScript : MonoBehaviour
     //[SerializeField] private GameObject completedtuesdaymap;
     // Start is called before the first frame update
 
-    public void whenresetbtnpressed()
+    public void whennextbtnpressed()
     {
+        Debug.Log(stagenumber);
         Time.timeScale = 1;
         if (StageSaveScript.StageNum == 1)
-            SceneManager.LoadScene("stage1");
-        else if (StageSaveScript.StageNum == 2)
             SceneManager.LoadScene("stage2");
+        else if (StageSaveScript.StageNum == 2)
+            SceneManager.LoadScene("stage3");
         else if (StageSaveScript.StageNum == 0)
-            SceneManager.LoadScene("Tutorial");
+            SceneManager.LoadScene("stage1");
         else if (StageSaveScript.StageNum == 3)
             SceneManager.LoadScene("Lab2");
         else
@@ -88,12 +89,12 @@ public class ResetBtnScript : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

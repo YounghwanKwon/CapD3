@@ -10,6 +10,7 @@ public class stage2ManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StageSaveScript.StageNum = 2;
         stagenumber = 2;
         IngameCanvasScript canvasscript = canvas.GetComponent<IngameCanvasScript>();
         canvasscript.setstagenumber(stagenumber);

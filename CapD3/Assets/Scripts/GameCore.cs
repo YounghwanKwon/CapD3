@@ -14,6 +14,7 @@ public class GameCore : MonoBehaviour
     [SerializeField] private GameObject btncanvas;
     [SerializeField] private GameObject pausecanvas;
     [SerializeField] private GameObject resumebtn;
+    [SerializeField] private GameObject NextStgBtn;
 
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
@@ -28,6 +29,7 @@ public class GameCore : MonoBehaviour
                 Time.timeScale = 0;
                 btncanvas.SetActive(false);
                 pausecanvas.SetActive(true);
+                NextStgBtn.SetActive(true);
                 resumebtn.SetActive(false);
                 if(text1)
                     text1.SetActive(true);

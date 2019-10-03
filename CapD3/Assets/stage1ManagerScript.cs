@@ -32,6 +32,7 @@ public class stage1ManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StageSaveScript.StageNum = 1;
         //bombleftA();
         //bombleftC();
         //setandbombattranss();

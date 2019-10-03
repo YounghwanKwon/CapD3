@@ -10,11 +10,12 @@ public class TutorialManagerScript : MonoBehaviour
     private int continuing;
     [SerializeField] private GameObject particle;
     [SerializeField] private GameObject resetbtn;
+    [SerializeField] private GameObject NextStgBtn;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StageSaveScript.StageNum = 0;
         continuing = 0;
         ingamecanvascript1 = canvass[2].GetComponent<IngameCanvasScript>();
         ingamecanvascript1.fortutorial();
@@ -130,6 +131,7 @@ public class TutorialManagerScript : MonoBehaviour
             PauseCanvasScript canvasscipt2 = canvass[1].GetComponent<PauseCanvasScript>();
             canvasscipt2.whenuserdead();
             ingamecanvascript1.setactive(11);
+            NextStgBtn.SetActive(true);
         }
         else
         {
