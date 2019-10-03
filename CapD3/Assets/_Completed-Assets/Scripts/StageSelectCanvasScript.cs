@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageSelectCanvasScript : MonoBehaviour
 {
@@ -9,13 +10,27 @@ public class StageSelectCanvasScript : MonoBehaviour
     [SerializeField] private GameObject[] canvas;
     [SerializeField] private GameObject[] tanks;
     [SerializeField] private GameObject[] turretsset;
+    [SerializeField] private Text[] texts;
+    private int stagenumber=-1;
+    public void TutorialBtnPressed()
+    {
+        texts[0].text = "Learning how to play this game";
+        texts[1].text = "You can learn \nhow to move, shoot, heal\n what to do to win";
+        stagenumber = 0;
+        //SceneManager.LoadScene("Tutorial");
+    }
     public void Stage1BtnPressed()
     {
-        SceneManager.LoadScene("Stage1");
+        texts[0].text = "Destroy 'the Boss'(drone type)";
+        texts[1].text = "Collect blue cube 3 times\n(Follow the yellow arrow direction)";
+        stagenumber = 1;
+        //SceneManager.LoadScene("Stage1");
     }
     public void Stage2BtnPressed()
     {
-        SceneManager.LoadScene("Stage2");
+        texts[0].text = "Developing";
+        texts[1].text = "Developing";
+        //SceneManager.LoadScene("Stage2");
     }
     public void Lab2BtnPressed()
     {
@@ -32,11 +47,26 @@ public class StageSelectCanvasScript : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
-    public void TutorialBtnPressed()
+
+    public void whenstartbtnpressed()
     {
-        SceneManager.LoadScene("Tutorial");
+        if (stagenumber == -1)
+            whenstartfored();
+        else if (stagenumber == 0)
+            SceneManager.LoadScene("Tutorial");
+        else if (stagenumber == 1)
+            SceneManager.LoadScene("Stage1");
+        else
+            Debug.Log(stagenumber);
+
     }
-    
+    public void whenstartfored()
+    {
+        texts[0].text = "";
+        texts[1].text = "Select stage first\n And Enjoy it";
+        Debug.Log(stagenumber);
+    }
+
     public void StageSelectCanvasDisappearing()
     {
         this.gameObject.SetActive(false);
@@ -45,7 +75,8 @@ public class StageSelectCanvasScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        texts[0].text = "";
+        texts[1].text = "";
     }
 
     // Update is called once per frame
