@@ -33,7 +33,7 @@ public class stage1ManagerScript : MonoBehaviour
         //bombleftC();
         setandbombattranss();
         ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
-        rsbtnscript.setstage(3);
+        rsbtnscript.setstage(1);
         text1.text = "Stage : 1";
 
 
