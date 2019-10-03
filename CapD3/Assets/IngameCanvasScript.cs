@@ -60,6 +60,6 @@ public class IngameCanvasScript : MonoBehaviour
     }
     public void upsentenceoffonly()
     {
-        childrens[8].SetActive(true);
+        childrens[8].SetActive(false);
     }
 }

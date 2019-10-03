@@ -52,14 +52,19 @@ public class stage1ManagerScript : MonoBehaviour
     }
     public void order1fneww()
     {
+        igcvsscript.upsentenceononly();
         igcvsscript.setupsentence("다음 노란색 화살표를 찾아서 화살표 방향으로 이동하시오");
+        Invoke("bookingoff", 4);
     }
     public void order2fbc()
     {
+        igcvsscript.upsentenceononly();
         igcvsscript.setupsentence("현재 이동방향으로 이동하여 장애물을 극복하고 파란색 큐브를 획득하시오");
+        Invoke("bookingoff", 4);
     }
     public void order3gooutright()
     {
+        igcvsscript.upsentenceononly();
         igcvsscript.setupsentence("탈출 가능!! 녹색 화살표를 따라서 탈출하고 파란색 큐브를 획득하시오");
     }
     public void order4bosson()
