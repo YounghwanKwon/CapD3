@@ -18,6 +18,7 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] private GameObject timer;
     [SerializeField] private Slider UICapturingSlider;
     [SerializeField] private float timeamount;
+    private float distanceamount;
 
     private float realtimer = 0.0f;
     private bool onlyone = false;
@@ -146,11 +147,13 @@ public class CapturePoint : MonoBehaviour
     }
     void Start()
     {
+        distanceamount = 24.0f;
         if (timeamount == 0)
             timeamount = 30.0f;
         SetUICapturingSlider();
         if (Tmanager)
         {
+            distanceamount = 5.0f;
             Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
         }
     }
@@ -173,7 +176,7 @@ public class CapturePoint : MonoBehaviour
 
     void distancecheck()
     {
-        if (Vector3.Distance(CapturePointPos.transform.position, tank.transform.position) <= 24.0f)
+        if (Vector3.Distance(CapturePointPos.transform.position, tank.transform.position) <= distanceamount)
         {
             if (capturing == false)
             {
