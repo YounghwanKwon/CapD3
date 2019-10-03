@@ -30,7 +30,7 @@ public class tankmove2 : MonoBehaviour
     {
        // float x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
        // float z = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        float y = -1;
+        float y = -9.8f;
 
         Vector3 moveDelta = new Vector3(0, y, 0);
         //controller.Move(moveDelta);

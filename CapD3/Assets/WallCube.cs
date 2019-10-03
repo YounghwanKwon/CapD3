@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WallCube : MonoBehaviour
 {
     [SerializeField] private Slider UICaptureslider;
+    [SerializeField] private GameObject lazerturret;
 
     public GameObject BallBomb0;
     public GameObject BallBomb1;
@@ -41,6 +42,7 @@ public class WallCube : MonoBehaviour
         {
             this.transform.position = new Vector3(0f, 0f, -1f);
             BallBomb0.SetActive(true);
+            lazerturret.SetActive(true);
             FrontWall.SetActive(true);
             BackWall.SetActive(true);
             StartCoroutine(Timer());

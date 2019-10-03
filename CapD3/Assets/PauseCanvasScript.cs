@@ -30,7 +30,7 @@ public class PauseCanvasScript : MonoBehaviour
 
     public void whenResumeBtnpressed()
     {
-        //Btncanvas.SetActive(true);
+        Btncanvas.SetActive(true);
         pausecanvas.SetActive(false);
         Time.timeScale = 1;
     }

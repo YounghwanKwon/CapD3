@@ -11,6 +11,7 @@ public class GameSubCoreScript3 : MonoBehaviour
     [SerializeField] private GameObject Rightarrow;
     [SerializeField] private GameObject chasetrap;
     [SerializeField] private GameObject uicapslider;
+    [SerializeField] private GameObject lazerturret;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -19,6 +20,7 @@ public class GameSubCoreScript3 : MonoBehaviour
             deactive();
             chasetrap.SetActive(false);
             uicapslider.gameObject.SetActive(false);
+            lazerturret.SetActive(false);
             this.gameObject.SetActive(false);
         }
         else
