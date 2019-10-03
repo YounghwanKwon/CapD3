@@ -23,9 +23,9 @@ public class GameCore : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
-            Time.timeScale = 0;
             if (!Tmanager)
             {
+                Time.timeScale = 0;
                 btncanvas.SetActive(false);
                 pausecanvas.SetActive(true);
                 resumebtn.SetActive(false);
