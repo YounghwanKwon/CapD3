@@ -7,7 +7,7 @@ public class GameSubCoreScript : MonoBehaviour
     public static int SubCorecount;
     [SerializeField] private GameObject drone;
     [SerializeField] private GameObject gamecore;
-    [SerializeField] private GameObject Lab2Manager;
+    //[SerializeField] private GameObject stage1Manager;
     [SerializeField] private GameObject captureslider;
     private void OnTriggerEnter(Collider other)
     {
@@ -24,38 +24,7 @@ public class GameSubCoreScript : MonoBehaviour
         }
     }
 
-    void boomstopcheck()
-    {
-        if (Lab2Manager)
-        {
-            Lab2ManagerScript lab2script = Lab2Manager.GetComponent<Lab2ManagerScript>();
-            if (lab2script)
-            {
-                lab2script.makeboomstop();
-                Debug.Log("stop?");
-            }
-            else
-                Debug.Log("no lab2script");
-        }
-        else
-            Debug.Log("no lab2manager");
-    }
-    void boomstopcheck1()
-    {
-        if (Lab2Manager)
-        {
-            Lab2ManagerScript lab2script = Lab2Manager.GetComponent<Lab2ManagerScript>();
-            if (lab2script)
-            {
-                lab2script.makeboomstop1();
-                Debug.Log("stop?");
-            }
-            else
-                Debug.Log("no lab2script");
-        }
-        else
-            Debug.Log("no lab2manager");
-    }
+    
     // Start is called before the first frame update
     void Start()
     {

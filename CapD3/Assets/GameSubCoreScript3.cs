@@ -7,7 +7,7 @@ public class GameSubCoreScript3 : MonoBehaviour
     public static int SubCorecount = 0;
 
     //[SerializeField] private GameObject gamecore;
-    [SerializeField] private GameObject Lab2Manager;
+    //[SerializeField] private GameObject Lab2Manager;
     [SerializeField] private GameObject Rightarrow;
     [SerializeField] private GameObject chasetrap;
     [SerializeField] private GameObject uicapslider;
@@ -16,7 +16,7 @@ public class GameSubCoreScript3 : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            boomstopcheck2();
+            //boomstopcheck2();
             deactive();
             chasetrap.SetActive(false);
             uicapslider.gameObject.SetActive(false);
@@ -28,6 +28,7 @@ public class GameSubCoreScript3 : MonoBehaviour
             Debug.Log("예외발생 예상치못한 물체 코어에접촉");
         }
     }
+    /*
     void boomstopcheck2()
     {
         if (Lab2Manager)
@@ -44,7 +45,7 @@ public class GameSubCoreScript3 : MonoBehaviour
         else
             Debug.Log("no lab2manager");
     }
-
+    
     void boomstopcheck()
     {
         if (Lab2Manager)
@@ -77,7 +78,7 @@ public class GameSubCoreScript3 : MonoBehaviour
         else
             Debug.Log("no lab2manager");
     }
-
+    */
     void deactive()
     {
         Rightarrow.SetActive(false);

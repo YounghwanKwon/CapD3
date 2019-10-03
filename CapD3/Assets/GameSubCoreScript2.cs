@@ -7,7 +7,7 @@ public class GameSubCoreScript2 : MonoBehaviour
     public static int SubCorecount = 0;
 
     //[SerializeField] private GameObject gamecore;
-    [SerializeField] private GameObject Lab2Manager;
+    [SerializeField] private GameObject stage1Manager;
     [SerializeField] private GameObject Ingamehealpack;
     [SerializeField] private GameObject image;
     [SerializeField] private GameObject bots;
@@ -28,12 +28,13 @@ public class GameSubCoreScript2 : MonoBehaviour
 
     void boomstopcheck()
     {
-        if (Lab2Manager)
+        if (stage1Manager)
         {
-            Lab2ManagerScript lab2script = Lab2Manager.GetComponent<Lab2ManagerScript>();
-            if (lab2script)
+            stage1ManagerScript stage1script = stage1Manager.GetComponent<stage1ManagerScript>();
+            if (stage1script)
             {
-                lab2script.makeboomstop();
+                stage1script.makeboomstop();
+                deactive();
                 Debug.Log("stop?");
             }
             else
@@ -44,13 +45,12 @@ public class GameSubCoreScript2 : MonoBehaviour
     }
     void boomstopcheck1()
     {
-        if (Lab2Manager)
+        if (stage1Manager)
         {
-            Lab2ManagerScript lab2script = Lab2Manager.GetComponent<Lab2ManagerScript>();
-            if (lab2script)
+            stage1ManagerScript stage1script = stage1Manager.GetComponent<stage1ManagerScript>();
+            if (stage1script)
             {
-                lab2script.makeboomstop1();
-                deactive();
+                stage1script.makeboomstop1();
                 Debug.Log("stop?");
             }
             else

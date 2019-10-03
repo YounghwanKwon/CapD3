@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubewallleftScript : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject s1manager;
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -16,6 +17,9 @@ public class CubewallleftScript : MonoBehaviour
     public void func1()
     {
         wall.SetActive(true);
+        stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
+        s1managerScript.bombleftA();
+
         this.gameObject.SetActive(false);
 
     }

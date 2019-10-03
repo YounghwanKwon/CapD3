@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cubewallrighttrigger : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
+    //[SerializeField] private GameObject s1manager;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,7 @@ public class Cubewallrighttrigger : MonoBehaviour
     public void func1()
     {
         wall.SetActive(true);
+        //stage1ManagerScript s1managerscript = s1manager.GetComponent<stage1ManagerScript>();
         this.gameObject.SetActive(false);
     }
     // Start is called before the first frame update

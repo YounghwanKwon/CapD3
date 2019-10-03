@@ -29,9 +29,9 @@ public class stage1ManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bombleftA();
+        //bombleftA();
         //bombleftC();
-        setandbombattranss();
+        //setandbombattranss();
         ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         rsbtnscript.setstage(1);
         text1.text = "Stage : 1";
@@ -52,7 +52,7 @@ public class stage1ManagerScript : MonoBehaviour
         needboomleft = false;
     }
 
-    void bombleft()
+    private void bombleft()
     {
         if (needboomleft == true)
         {
@@ -67,7 +67,7 @@ public class stage1ManagerScript : MonoBehaviour
             Invoke("bombleft", 3f);
         }
     }
-    void bombleftA()
+    public void bombleftA()
     {
         if (needboomleft == true)
         {
@@ -184,7 +184,7 @@ public class stage1ManagerScript : MonoBehaviour
     }
 
 
-    void setandbombattranss()
+    public void setandbombattranss()
     {
         if (needboom1 == true)
         {

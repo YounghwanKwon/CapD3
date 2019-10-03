@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubewalldownScript : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject s1manager;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,8 @@ public class CubewalldownScript : MonoBehaviour
     public void func1()
     {
         wall.SetActive(true);
+        stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
+        s1managerScript.setandbombattranss();
         this.gameObject.SetActive(false);
     }
     // Start is called before the first frame update
