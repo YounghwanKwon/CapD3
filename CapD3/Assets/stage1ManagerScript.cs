@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class stage1ManagerScript : MonoBehaviour
 {
+    [SerializeField] private GameObject igcanvas;
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject shell1;
 
@@ -26,6 +27,8 @@ public class stage1ManagerScript : MonoBehaviour
     [SerializeField] private float leftdifficulty = 0.85f;
     [SerializeField] private Text text1;
 
+    private IngameCanvasScript igcvsscript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +39,9 @@ public class stage1ManagerScript : MonoBehaviour
         rsbtnscript.setstage(1);
         text1.text = "Stage : 1";
 
-
-
+        igcvsscript = igcanvas.GetComponent<IngameCanvasScript>();
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("다음 지시사항을 참고하여 임무를 완료하시오 \n 지시사항 : 노란색 화살표를 찾아서 이동할것");
 
         //Debug.Log(planes);
 
@@ -45,7 +49,27 @@ public class stage1ManagerScript : MonoBehaviour
         //DropA(BombPlacingPoint1);
         //setandbombattranss();
         //setpipes();
-
+    }
+    public void order1fneww()
+    {
+        igcvsscript.setupsentence("다음 노란색 화살표를 찾아서 화살표 방향으로 이동하시오");
+    }
+    public void order2fbc()
+    {
+        igcvsscript.setupsentence("현재 이동방향으로 이동하여 장애물을 극복하고 파란색 큐브를 획득하시오");
+    }
+    public void order3gooutright()
+    {
+        igcvsscript.setupsentence("탈출 가능!! 녹색 화살표를 따라서 탈출하고 파란색 큐브를 획득하시오");
+    }
+    public void order4bosson()
+    {
+        igcvsscript.setupsentence("보스 출현!! 보스를 제거하고 보스에게서 빨간색 전리품을 획득하시오");
+        Invoke("bookingoff", 5);
+    }
+    public void bookingoff()
+    {
+        igcvsscript.upsentenceoffonly();
     }
     public void makeboomstop1()
     {

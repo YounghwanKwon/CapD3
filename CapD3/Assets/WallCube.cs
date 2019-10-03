@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class WallCube : MonoBehaviour
 {
+    [SerializeField] private GameObject s1manager;
+    private stage1ManagerScript s1mscript;
     [SerializeField] private Slider UICaptureslider;
     [SerializeField] private GameObject lazerturret;
 
@@ -27,7 +29,8 @@ public class WallCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (s1manager)
+            s1mscript = s1manager.GetComponent<stage1ManagerScript>();
     }
 
     // Update is called once per frame
@@ -103,13 +106,14 @@ public class WallCube : MonoBehaviour
                 //FrontWall.SetActive(false);
                 exitarrow.SetActive(true);
                 BackWall.SetActive(false);
+                s1mscript.order3gooutright();
             }
             yield return new WaitForSeconds(1);
         }
     }
     void setslider()
     {
-        if (time > 0 || time < 30.0f)
+        if (time > 0 && time < 30.0f)
         {
             UICaptureslider.gameObject.SetActive(true);
             UICaptureslider.value = time;

@@ -7,7 +7,8 @@ public class GameSubCoreScript : MonoBehaviour
     public static int SubCorecount;
     [SerializeField] private GameObject drone;
     [SerializeField] private GameObject gamecore;
-    //[SerializeField] private GameObject stage1Manager;
+    [SerializeField] private GameObject stage1Manager;
+    private stage1ManagerScript s1mscript;
     [SerializeField] private GameObject captureslider;
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,9 @@ public class GameSubCoreScript : MonoBehaviour
         {
             SubCorecount++;
             Debug.Log("플레이어가 서브코어접촉 정상 감지1 subcorecount : "+SubCorecount);
+            if (SubCorecount == 1 || SubCorecount == 2)
+                s1mscript.order1fneww();
+            
             this.gameObject.SetActive(false);
             check3();
         }
@@ -28,6 +32,8 @@ public class GameSubCoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (stage1Manager)
+            s1mscript = stage1Manager.GetComponent<stage1ManagerScript>();
         SubCorecount = 0;
     }
 
@@ -45,6 +51,7 @@ public class GameSubCoreScript : MonoBehaviour
             MovementE moveE = drone.GetComponent<MovementE>();
             moveE.poweronfunc();
             captureslider.gameObject.SetActive(false);
+            s1mscript.order4bosson();
             checkreset();
         }
     }

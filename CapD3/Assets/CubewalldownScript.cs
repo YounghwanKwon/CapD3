@@ -20,6 +20,7 @@ public class CubewalldownScript : MonoBehaviour
         wall.SetActive(true);
         stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
         s1managerScript.setandbombattranss();
+        s1managerScript.order2fbc();
         this.gameObject.SetActive(false);
     }
     // Start is called before the first frame update

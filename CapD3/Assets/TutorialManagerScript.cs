@@ -14,8 +14,10 @@ public class TutorialManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         continuing = 0;
         ingamecanvascript1 = canvass[2].GetComponent<IngameCanvasScript>();
+        ingamecanvascript1.fortutorial();
         ResetBtnScript resetbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         resetbtnscript.setstage(0);
     }

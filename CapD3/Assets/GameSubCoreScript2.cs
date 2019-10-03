@@ -51,6 +51,7 @@ public class GameSubCoreScript2 : MonoBehaviour
             if (stage1script)
             {
                 stage1script.makeboomstop1();
+                deactive();
                 Debug.Log("stop?");
             }
             else

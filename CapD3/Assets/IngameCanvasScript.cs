@@ -35,6 +35,11 @@ public class IngameCanvasScript : MonoBehaviour
         Text text1 = childrens[i].GetComponent<Text>();
         text1.text = strings;
     }
+    public void setupsentence(string strings)
+    {
+        Text text1 = childrens[8].GetComponent<Text>();
+        text1.text = strings;
+    }
     public void setactive(int i)
     {
         childrens[i].SetActive(true);
@@ -42,5 +47,19 @@ public class IngameCanvasScript : MonoBehaviour
     public void setdisactive(int i)
     {
         childrens[i].SetActive(false);
+    }
+    public void fortutorial()
+    {
+        childrens[8].SetActive(true);
+        childrens[9].SetActive(true);
+        childrens[10].SetActive(true);
+    }
+    public void upsentenceononly()
+    {
+        childrens[8].SetActive(true);
+    }
+    public void upsentenceoffonly()
+    {
+        childrens[8].SetActive(true);
     }
 }
