@@ -86,7 +86,7 @@ public class stage1ManagerScript : MonoBehaviour
         }
     }
 
-    void bombleftB()
+    public void bombleftB()
     {
         if (needboomleft)
         {

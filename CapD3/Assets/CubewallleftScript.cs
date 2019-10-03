@@ -18,7 +18,7 @@ public class CubewallleftScript : MonoBehaviour
     {
         wall.SetActive(true);
         stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
-        s1managerScript.bombleftA();
+        s1managerScript.bombleftB();
 
         this.gameObject.SetActive(false);
 
