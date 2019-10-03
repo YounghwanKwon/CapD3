@@ -20,6 +20,7 @@ public class IngameCanvasScript : MonoBehaviour
     public void whenuserdead()
     {
         childrens[4].SetActive(true);
+        childrens[12].SetActive(false);
         TimerScript timer = childrens[6].GetComponent<TimerScript>();
         timer.timepassoff();
 
