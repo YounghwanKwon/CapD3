@@ -24,13 +24,23 @@ public class TutorialManagerScript : MonoBehaviour
     }
     public void addcontinue()
     {
-        continuing++;
-        Debug.Log(continuing);
+        if (continuing >= 0) {
+            if (continuing <= 15)
+            {
+                continuing++;
+                Debug.Log(continuing);
+            }
+        }
     }
     public void minuscontine()
     {
-        continuing--;
-        Debug.Log(continuing);
+        if (continuing >= 1)
+        {
+            if(continuing <= 16)
+            continuing--;
+            Debug.Log(continuing);
+
+        }
     }
     public void sentence(string strings)
     {
