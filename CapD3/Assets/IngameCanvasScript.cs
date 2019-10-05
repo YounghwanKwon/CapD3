@@ -18,6 +18,10 @@ public class IngameCanvasScript : MonoBehaviour
     {
         makefpstext();
     }
+    private void Awake()
+    {
+        Application.targetFrameRate = 30;
+    }
     public void whenuserdead()
     {
         childrens[4].SetActive(true);
