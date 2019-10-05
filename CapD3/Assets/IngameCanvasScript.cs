@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class IngameCanvasScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] childrens;
+    private float deltaTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class IngameCanvasScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        makefpstext();
     }
     public void whenuserdead()
     {
@@ -62,5 +63,16 @@ public class IngameCanvasScript : MonoBehaviour
     public void upsentenceoffonly()
     {
         childrens[8].SetActive(false);
+    }
+    public void makefpstext()
+    {
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+        float fps = Mathf.Round(1f / deltaTime);
+        if (childrens[13])
+        {
+            Text FPSText = childrens[13].GetComponent<Text>();
+            FPSText.text = "FPS : " + fps.ToString();
+        }
+        
     }
 }
