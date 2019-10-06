@@ -22,15 +22,14 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
+        InvokeRepeating("MoveStart", 0f, 0.03f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isTouch)
-        {
-            go_Player.transform.position += movePosition;
-        }
+
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -61,5 +60,12 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         isTouch = false;
         rect_Joystic.localPosition = Vector3.zero;
         //movePosition = Vector3.zero;
+    }
+    public void MoveStart()
+    {
+        if (isTouch)
+        {
+            go_Player.transform.position += movePosition;
+        }
     }
 }

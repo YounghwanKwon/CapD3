@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeadPlaneScript : MonoBehaviour
 {
+
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -14,7 +15,7 @@ public class DeadPlaneScript : MonoBehaviour
             Complete.TankHealth targetHealth = targetRigidbody.GetComponent<Complete.TankHealth>();
             targetHealth.TakeDamage(100.0f);
 
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
         }
     }
         // Start is called before the first frame update
