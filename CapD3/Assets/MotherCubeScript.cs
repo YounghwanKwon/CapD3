@@ -14,8 +14,8 @@ public class MotherCubeScript : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-            meshcube.SetActive(false);
+        //if (other.CompareTag("Player"))
+         //   meshcube.SetActive(false);
     }
 
     // Start is called before the first frame update
