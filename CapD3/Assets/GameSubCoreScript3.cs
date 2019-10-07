@@ -20,7 +20,8 @@ public class GameSubCoreScript3 : MonoBehaviour
             deactive();
             chasetrap.SetActive(false);
             uicapslider.gameObject.SetActive(false);
-            lazerturret.SetActive(false);
+            if(lazerturret)
+                lazerturret.SetActive(false);
             this.gameObject.SetActive(false);
         }
         else
