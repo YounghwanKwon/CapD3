@@ -9,6 +9,8 @@ public class WallCube : MonoBehaviour
     private stage1ManagerScript s1mscript;
     [SerializeField] private Slider UICaptureslider;
     [SerializeField] private GameObject lazerturret;
+    [SerializeField] private GameObject lazerturret2;
+    [SerializeField] private GameObject CM;
 
     public GameObject BallBomb0;
     public GameObject BallBomb1;
@@ -46,8 +48,10 @@ public class WallCube : MonoBehaviour
             this.transform.position = new Vector3(0f, 0f, -1f);
             BallBomb0.SetActive(true);
             lazerturret.SetActive(true);
+            //lazerturret2.SetActive(true);
             FrontWall.SetActive(true);
             BackWall.SetActive(true);
+            CM.SetActive(true);
             StartCoroutine(Timer());
         }
         else
