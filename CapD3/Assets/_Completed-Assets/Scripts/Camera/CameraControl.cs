@@ -27,6 +27,7 @@ namespace Complete
             mainobject = new GameObject();
             mainobject = oldtank;
             nextcounter = 0;
+            Invoke("setmainobj", 2.5f);
         }
         private void Awake ()
         {
@@ -45,17 +46,22 @@ namespace Complete
         public void setmainobj()
         {
             binder = Instantiate(bindingobj, oldtank.transform);
+            binder.SetActive(true);
+            binder.transform.parent = null;
             if (nextcounter < nextobj.Length)
             {
                 mainobject = nextobj[nextcounter];
                 nextcounter++;
             }
-                
             Invoke("setbacktotank", 2f);
         }
         public void setbacktotank()
         {
             mainobject = oldtank;
+            Invoke("destorybinder", 2.5f);
+        }
+        public void destorybinder()
+        {
             Destroy(binder);
         }
 
