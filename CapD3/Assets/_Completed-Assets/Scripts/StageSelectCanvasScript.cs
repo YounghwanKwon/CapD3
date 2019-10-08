@@ -30,11 +30,12 @@ public class StageSelectCanvasScript : MonoBehaviour
     {
         texts[0].text = "Developing";
         texts[1].text = "Developing";
+        stagenumber = 2;
         //SceneManager.LoadScene("Stage2");
     }
     public void Lab2BtnPressed()
     {
-        SceneManager.LoadScene("Lab2");
+        SceneManager.LoadScene("Stage1hardmode");
     }
 
     public void Canvasturnon()
@@ -56,6 +57,8 @@ public class StageSelectCanvasScript : MonoBehaviour
             SceneManager.LoadScene("Tutorial");
         else if (stagenumber == 1)
             SceneManager.LoadScene("Stage1");
+        else if (stagenumber == 2)
+            SceneManager.LoadScene("Stage2");
         else
             Debug.Log(stagenumber);
 

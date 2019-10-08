@@ -23,11 +23,15 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
-        InvokeRepeating("MoveStart", 0f, 0.03f);
-        Invoke("timestop", 10f);
+        MoveStart();
+        //InvokeRepeating("MoveStart", 0f, 0.025f);
+        //Invoke("timestop", 10f);
 
     }
-
+    public void oneseclater()
+    {
+        Invoke("MoveStart", 0f);
+    }
     public void timestop()
     {
         Time.timeScale = 0;
@@ -46,9 +50,10 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         rect_Joystic.localPosition = value;
 
         float distance = Vector2.Distance(rect_Background.position, rect_Joystic.position) / radius;
-        //Debug.Log(distance);
+        //Debug.Log("distance: "+distance+" deltime: "+Time.deltaTime);
         value = value.normalized;
-        movePosition = new Vector3(value.x * movespeed * distance * Time.deltaTime, 0f, value.y * movespeed * distance * Time.deltaTime);
+        //movePosition = new Vector3(value.x * movespeed * distance * Time.deltaTime, 0f, value.y * movespeed * distance * Time.deltaTime);
+        movePosition = new Vector3(value.x * movespeed * distance , 0f, value.y * movespeed * distance);
 
         //go_Player.transform.rotation = Quaternion.Euler(Mathf.Acos(value.x), 0, Mathf.Asin(value.y));
         go_Player.transform.rotation = Quaternion.Euler(0, Mathf.Atan2(value.x, value.y) * Mathf.Rad2Deg, 0);
@@ -72,9 +77,12 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (isTouch)
         {
-            go_Player.transform.position += movePosition;
-            i++;
-            Debug.Log(i);
+            go_Player.transform.position += movePosition / Time.deltaTime;
         }
+        i++;
+        Debug.Log(i);
+        if (i < 10)
+            Debug.Log(Time.deltaTime);
+        Invoke("MoveStart", Time.deltaTime);
     }
 }
