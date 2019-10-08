@@ -40,7 +40,7 @@ namespace Complete
 
         private void Move()
         {
-            if (oldtank != null)
+            if (mainobject != null)
             {
                 // Find the average position of the targets.
                 FindPosition();
@@ -48,7 +48,8 @@ namespace Complete
                 // Smoothly transition to that position.
                 //transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
                 transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
-
+                //외부함수 하나만들어서 객체를 하나더 입력받아서 잠시 탱크 조정을 정지한후 다음오브젝트 알림
+                //탱크 추적을 중지하게 시키기위한 불변수 한개더 필요하고 필요시 새로운 러프함수 제작요구
             }
         }
 
