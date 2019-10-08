@@ -15,6 +15,7 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     private bool isTouch = false;
     private Vector3 movePosition;
+    private int i = 0;
 
 
 
@@ -23,7 +24,13 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         radius = rect_Background.rect.width * 0.5f;
         InvokeRepeating("MoveStart", 0f, 0.03f);
+        Invoke("timestop", 10f);
 
+    }
+
+    public void timestop()
+    {
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -63,9 +70,11 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     }
     public void MoveStart()
     {
-        if (isTouch)
+        if (!isTouch)
         {
             go_Player.transform.position += movePosition;
+            i++;
+            Debug.Log(i);
         }
     }
 }
