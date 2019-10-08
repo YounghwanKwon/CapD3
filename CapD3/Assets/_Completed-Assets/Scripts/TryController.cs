@@ -70,7 +70,7 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     }
     public void MoveStart()
     {
-        if (!isTouch)
+        if (isTouch)
         {
             go_Player.transform.position += movePosition;
             i++;
