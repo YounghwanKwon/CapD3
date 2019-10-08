@@ -77,7 +77,7 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (isTouch)
         {
-            go_Player.transform.position += movePosition / Time.deltaTime;
+            go_Player.transform.position += movePosition * Time.deltaTime;
         }
         i++;
         Debug.Log(i);
