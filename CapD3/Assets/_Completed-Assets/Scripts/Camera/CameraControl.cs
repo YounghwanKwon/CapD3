@@ -10,6 +10,8 @@ namespace Complete
         [HideInInspector] public Transform[] m_Targets; // All the targets the camera needs to encompass.
         [SerializeField] private GameObject oldtank;
         private GameObject mainobject;
+        [SerializeField] private GameObject[] nextobj;
+        public static int nextcounter;
 
 
         private Camera m_Camera;                        // Used for referencing the camera.
@@ -20,7 +22,11 @@ namespace Complete
 
         private void Start()
         {
+            mainobject = new GameObject();
             mainobject = oldtank;
+            nextcounter = 0;
+            Invoke("setmainobj", 4);
+            Invoke("setmainobj", 10);
         }
         private void Awake ()
         {
@@ -35,6 +41,17 @@ namespace Complete
 
             // Change the size of the camera based.
             Zoom ();
+        }
+        public void setmainobj()
+        {
+            if(nextcounter<nextobj.Length)
+            mainobject = nextobj[nextcounter];
+            nextcounter++;
+            Invoke("setbacktotank", 1f);
+        }
+        public void setbacktotank()
+        {
+            mainobject = oldtank;
         }
 
 
@@ -54,7 +71,7 @@ namespace Complete
         }
 
 
-                private void FindAveragePosition()
+        private void FindAveragePosition()
         {
             Vector3 averagePos = new Vector3();
             int numTargets = 0;
@@ -107,7 +124,7 @@ namespace Complete
 
             // The desired position is the average position;
             //m_DesiredPosition = BackPos;
-            m_DesiredPosition = new Vector3(oldtank.transform.position.x, 0, oldtank.transform.position.z);
+            m_DesiredPosition = new Vector3(mainobject.transform.position.x, 0, mainobject.transform.position.z);
         }
 
 

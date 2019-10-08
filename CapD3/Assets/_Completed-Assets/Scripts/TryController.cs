@@ -22,7 +22,7 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     void Start()
     {
         radius = rect_Background.rect.width * 0.5f;
-        InvokeRepeating("MoveStart", 0f, 0.01f);
+        InvokeRepeating("MoveStart", 0f, 0.03f);
 
     }
 
@@ -65,7 +65,7 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (isTouch)
         {
-            go_Player.transform.position += 0.33f * movePosition;
+            go_Player.transform.position += movePosition;
         }
     }
 }
