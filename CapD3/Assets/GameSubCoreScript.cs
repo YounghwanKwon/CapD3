@@ -8,7 +8,9 @@ public class GameSubCoreScript : MonoBehaviour
     [SerializeField] private GameObject drone;
     [SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject stage1Manager;
+    [SerializeField] private GameObject stage1HDMDManager;
     private stage1ManagerScript s1mscript;
+    private stage1HDMDManagerScript s1HDMDmscript;
     [SerializeField] private GameObject captureslider;
     private void OnTriggerEnter(Collider other)
     {
@@ -17,8 +19,14 @@ public class GameSubCoreScript : MonoBehaviour
             SubCorecount++;
             Debug.Log("플레이어가 서브코어접촉 정상 감지1 subcorecount : "+SubCorecount);
             if (SubCorecount == 1 || SubCorecount == 2)
-                s1mscript.order1fneww();
-            
+                if (stage1Manager)
+                    s1mscript.order1fneww();
+                else if(stage1HDMDManager)
+                    s1HDMDmscript.order1fneww();
+                else
+                    Debug.Log("error4");
+
+
             this.gameObject.SetActive(false);
             check3();
         }
@@ -34,6 +42,11 @@ public class GameSubCoreScript : MonoBehaviour
     {
         if (stage1Manager)
             s1mscript = stage1Manager.GetComponent<stage1ManagerScript>();
+        else if (stage1HDMDManager)
+            s1HDMDmscript = stage1HDMDManager.GetComponent<stage1HDMDManagerScript>();
+        else
+            Debug.Log("error2");
+
         SubCorecount = 0;
     }
 
@@ -51,7 +64,12 @@ public class GameSubCoreScript : MonoBehaviour
             MovementE moveE = drone.GetComponent<MovementE>();
             moveE.poweronfunc();
             captureslider.gameObject.SetActive(false);
-            s1mscript.order4bosson();
+            if (stage1Manager)
+                s1mscript.order4bosson();
+            else if (stage1HDMDManager)
+                s1HDMDmscript.order4bosson();
+            else
+                Debug.Log("error3");
             checkreset();
         }
     }

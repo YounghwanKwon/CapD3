@@ -45,9 +45,16 @@ namespace Complete
         }
         public void setmainobj()
         {
-            binder = Instantiate(bindingobj, oldtank.transform);
-            binder.SetActive(true);
-            binder.transform.parent = null;
+            if(bindingobj)
+            {
+                Debug.Log("binder if on");
+                binder = Instantiate(bindingobj, oldtank.transform);
+                binder.SetActive(true);
+                binder.transform.parent = null;
+            }
+            else
+                Debug.Log("no binder err");
+
             if (nextcounter < nextobj.Length)
             {
                 mainobject = nextobj[nextcounter];
@@ -57,8 +64,11 @@ namespace Complete
         }
         public void setbacktotank()
         {
-            mainobject = oldtank;
-            Invoke("destorybinder", 2.5f);
+            if (oldtank)
+            {
+                mainobject = oldtank;
+                Invoke("destorybinder", 1f);
+            }
         }
         public void destorybinder()
         {

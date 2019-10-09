@@ -32,13 +32,13 @@ public class stage1HDMDManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StageSaveScript.StageNum = 1;
+        StageSaveScript.StageNum = 101;
         //bombleftA();
         //bombleftC();
         //setandbombattranss();
         ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         rsbtnscript.setstage(1);
-        text1.text = "Stage : 1";
+        text1.text = "Stage : 1hardmode";
 
         igcvsscript = igcanvas.GetComponent<IngameCanvasScript>();
         igcvsscript.upsentenceononly();

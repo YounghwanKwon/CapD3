@@ -6,6 +6,7 @@ public class CubewallleftScript : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject s1manager;
+    [SerializeField] private GameObject s1HDMDmanager;
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -17,9 +18,21 @@ public class CubewallleftScript : MonoBehaviour
     public void func1()
     {
         wall.SetActive(true);
-        stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
-        s1managerScript.bombleftB();
-        s1managerScript.order2fbc();
+        if (s1manager)
+        {
+            stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
+            s1managerScript.bombleftB();
+            s1managerScript.order2fbc();
+        }
+        else if (s1HDMDmanager)
+        {
+            stage1HDMDManagerScript s1managerScript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
+            s1managerScript.bombleftB();
+            s1managerScript.order2fbc();
+        }
+        else
+            Debug.Log("error1");
+        
         this.gameObject.SetActive(false);
 
     }

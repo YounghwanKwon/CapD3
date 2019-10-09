@@ -28,6 +28,8 @@ public class ResetBtnScript : MonoBehaviour
             SceneManager.LoadScene("stage2");
         else if (StageSaveScript.StageNum == 0)
             SceneManager.LoadScene("Tutorial");
+        else if (StageSaveScript.StageNum == 101)
+            SceneManager.LoadScene("Stage1hardmode");
         else if (StageSaveScript.StageNum == 3)
             SceneManager.LoadScene("Lab2");
         else
