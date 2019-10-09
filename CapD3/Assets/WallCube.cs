@@ -7,6 +7,8 @@ public class WallCube : MonoBehaviour
 {
     [SerializeField] private GameObject s1manager;
     private stage1ManagerScript s1mscript;
+    [SerializeField] private GameObject s1HDMDmanager;
+    private stage1HDMDManagerScript s1HDMDmscript;
     [SerializeField] private Slider UICaptureslider;
     [SerializeField] private GameObject lazerturret;
     [SerializeField] private GameObject lazerturret2;
@@ -33,6 +35,10 @@ public class WallCube : MonoBehaviour
     {
         if (s1manager)
             s1mscript = s1manager.GetComponent<stage1ManagerScript>();
+        else if (s1HDMDmanager)
+            s1HDMDmscript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
+        else
+            Debug.Log("error8");
     }
 
     // Update is called once per frame
@@ -110,7 +116,12 @@ public class WallCube : MonoBehaviour
                 //FrontWall.SetActive(false);
                 exitarrow.SetActive(true);
                 BackWall.SetActive(false);
-                s1mscript.order3gooutright();
+                if (s1manager)
+                    s1mscript.order3gooutright();
+                else if (s1HDMDmanager)
+                    s1HDMDmscript.order3gooutright();
+                else
+                    Debug.Log("error9");
             }
             yield return new WaitForSeconds(1);
         }
