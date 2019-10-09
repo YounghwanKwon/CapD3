@@ -15,7 +15,7 @@ public class stage1HDMDManagerScript : MonoBehaviour
     private int transnumber = 15;
     private bool needboom1 = true;
     private bool needboomleft = true;
-    private float frequency = 1.5f;
+    private float frequency;
 
     [SerializeField] private GameObject air;
     [SerializeField] private GameObject ground;
@@ -24,7 +24,7 @@ public class stage1HDMDManagerScript : MonoBehaviour
     [SerializeField] private GameObject[] planes;
     [SerializeField] private GameObject dropshell2;
     [SerializeField] private GameObject dropshell3;
-    [SerializeField] private float leftdifficulty = 0.85f;
+    [SerializeField] private float leftdifficulty;
     [SerializeField] private Text text1;
 
     private IngameCanvasScript igcvsscript;
@@ -39,6 +39,12 @@ public class stage1HDMDManagerScript : MonoBehaviour
         ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         rsbtnscript.setstage(1);
         text1.text = "Stage : 1hardmode";
+        if(leftdifficulty == 0)
+        {
+            leftdifficulty = 0.85f;
+        }
+        if (frequency == 0)
+            frequency = 2.25f;
 
         igcvsscript = igcanvas.GetComponent<IngameCanvasScript>();
         igcvsscript.upsentenceononly();
