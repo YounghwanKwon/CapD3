@@ -79,8 +79,6 @@ public class TryController : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         {
             go_Player.transform.position += movePosition / Time.deltaTime;
         }
-        i++;
-        Debug.Log(i);
         if (i < 10)
             Debug.Log(Time.deltaTime);
         Invoke("MoveStart", Time.deltaTime);
