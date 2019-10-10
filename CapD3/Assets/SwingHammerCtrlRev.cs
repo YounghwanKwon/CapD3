@@ -13,8 +13,8 @@ public class SwingHammerCtrlRev : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("HammerSwing", 0f, 0.01f);
-        InvokeRepeating("setpos", 0f, 0.01f);
+        InvokeRepeating("HammerSwing", 0f, 0.02f);
+        InvokeRepeating("setpos", 0f, 0.02f);
     }
 
     // Update is called once per frame
@@ -24,19 +24,27 @@ public class SwingHammerCtrlRev : MonoBehaviour
     }
     void HammerSwing()
     {
-        if (QuadrantChk < 100)
+        if (QuadrantChk < 400)
+        {
+            QuadrantChk++;
+        }
+        else if (QuadrantChk >= 400 && QuadrantChk < 500)
         {
             QuadrantChk++;
             xpos -= 0.1f;
             zpos = Mathf.Sqrt((-xpos * -xpos * -1) + 100);
         }
-        if (QuadrantChk >= 100)
+        else if (QuadrantChk >= 500 && QuadrantChk < 600)
         {
             QuadrantChk++;
             xpos += 0.1f;
             zpos = Mathf.Sqrt((-xpos * -xpos * -1) + 100);
         }
-        if (QuadrantChk == 200)
+        else if (QuadrantChk >= 600 && QuadrantChk < 800)
+        {
+            QuadrantChk++;
+        }
+        else if (QuadrantChk >= 800)
         {
             QuadrantChk = 0;
         }
