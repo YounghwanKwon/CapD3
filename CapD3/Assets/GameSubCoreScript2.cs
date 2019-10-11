@@ -9,6 +9,7 @@ public class GameSubCoreScript2 : MonoBehaviour
     //[SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject stage1Manager;
     [SerializeField] private GameObject stage1HDMDManager;
+    [SerializeField] private GameObject stage2Manager;
     [SerializeField] private GameObject Ingamehealpack;
     [SerializeField] private GameObject image;
     [SerializeField] private GameObject bots;
@@ -64,6 +65,18 @@ public class GameSubCoreScript2 : MonoBehaviour
             if (stage1HDMDscript)
             {
                 stage1HDMDscript.makeboomstop1();
+                deactive();
+                Debug.Log("stop?");
+            }
+            else
+                Debug.Log("no lab2script");
+        }
+        if (stage2Manager)
+        {
+            stage2ManagerScript stage2script = stage2Manager.GetComponent<stage2ManagerScript>();
+            if (stage2script)
+            {
+                stage2script.makeboomstop1();
                 deactive();
                 Debug.Log("stop?");
             }

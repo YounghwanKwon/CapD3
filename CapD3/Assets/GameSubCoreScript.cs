@@ -9,8 +9,10 @@ public class GameSubCoreScript : MonoBehaviour
     [SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject stage1Manager;
     [SerializeField] private GameObject stage1HDMDManager;
+    [SerializeField] private GameObject stage2Manager;
     private stage1ManagerScript s1mscript;
     private stage1HDMDManagerScript s1HDMDmscript;
+    private stage1ManagerScript s2mscript;
     [SerializeField] private GameObject captureslider;
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +25,8 @@ public class GameSubCoreScript : MonoBehaviour
                     s1mscript.order1fneww();
                 else if(stage1HDMDManager)
                     s1HDMDmscript.order1fneww();
+                else if (stage2Manager)
+                    s2mscript.order1fneww();
                 else
                     Debug.Log("error4");
 
@@ -44,6 +48,8 @@ public class GameSubCoreScript : MonoBehaviour
             s1mscript = stage1Manager.GetComponent<stage1ManagerScript>();
         else if (stage1HDMDManager)
             s1HDMDmscript = stage1HDMDManager.GetComponent<stage1HDMDManagerScript>();
+        else if (stage2Manager)
+            s2mscript = stage2Manager.GetComponent<stage1ManagerScript>();
         else
             Debug.Log("error2");
 
@@ -68,6 +74,8 @@ public class GameSubCoreScript : MonoBehaviour
                 s1mscript.order4bosson();
             else if (stage1HDMDManager)
                 s1HDMDmscript.order4bosson();
+            else if (stage2Manager)
+                s2mscript.order4bosson();
             else
                 Debug.Log("error3");
             checkreset();

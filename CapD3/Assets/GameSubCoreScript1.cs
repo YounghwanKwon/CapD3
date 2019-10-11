@@ -9,6 +9,7 @@ public class GameSubCoreScript1 : MonoBehaviour
     //[SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject stage1Manager;
     [SerializeField] private GameObject stage1HDMDManager;
+    [SerializeField] private GameObject stage2Manager;
     [SerializeField] private GameObject downarrow;
     private void OnTriggerEnter(Collider other)
     {
@@ -43,6 +44,18 @@ public class GameSubCoreScript1 : MonoBehaviour
             if (stage1HDMDscript)
             {
                 stage1HDMDscript.makeboomstop();
+                deactive();
+                Debug.Log("stop?");
+            }
+            else
+                Debug.Log("no lab2script");
+        }
+        else if (stage2Manager)
+        {
+            stage2ManagerScript stage2script = stage2Manager.GetComponent<stage2ManagerScript>();
+            if (stage2Manager)
+            {
+                //stage2script.makeboomstop();
                 deactive();
                 Debug.Log("stop?");
             }

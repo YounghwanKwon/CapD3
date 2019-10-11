@@ -16,7 +16,7 @@ public class dmgTrigger : MonoBehaviour
     {
         if (SightTrigger.SightCat == true)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             i++;
         }
     }
