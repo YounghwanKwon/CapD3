@@ -27,7 +27,7 @@ namespace Complete
             mainobject = new GameObject();
             mainobject = oldtank;
             nextcounter = 0;
-            Invoke("setmainobj", 2.5f);
+            //Invoke("setmainobj", 2.5f);
         }
         private void Awake ()
         {

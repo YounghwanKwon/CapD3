@@ -16,6 +16,7 @@ public class stage1HDMDManagerScript : MonoBehaviour
     private bool needboom1 = true;
     private bool needboomleft = true;
     private float frequency;
+    private bool readypolution = false;
 
     [SerializeField] private GameObject air;
     [SerializeField] private GameObject ground;
@@ -47,8 +48,6 @@ public class stage1HDMDManagerScript : MonoBehaviour
             frequency = 2.25f;
 
         igcvsscript = igcanvas.GetComponent<IngameCanvasScript>();
-        igcvsscript.upsentenceononly();
-        igcvsscript.setupsentence("다음 지시사항을 참고하여 임무를 완료하시오 \n 지시사항 : 노란색 화살표를 찾아서 이동할것");
 
         //Debug.Log(planes);
 
@@ -57,10 +56,22 @@ public class stage1HDMDManagerScript : MonoBehaviour
         //setandbombattranss();
         //setpipes();
     }
+    public void order0whenstart()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("다음 지시사항을 참고하여 임무를 완료하시오 \n 지시사항 : 노란색 화살표를 찾아서 이동할것");
+        Invoke("order0whenstart1", 1);
+    }
+        public void order0whenstart1()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("다음 지시사항을 참고하여 임무를 완료하시오 \n 지시사항 : 노란색 화살표를 찾아서 이동할것");
+    }
     public void order1fneww()
     {
         igcvsscript.upsentenceononly();
         igcvsscript.setupsentence("다음 노란색 화살표를 찾아서 화살표 방향으로 이동하시오");
+        Debug.Log("where?");
         Invoke("bookingoff", 4);
     }
     public void order2fbc()
@@ -250,7 +261,11 @@ public class stage1HDMDManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(IngameCanvasScript.fullready == true && readypolution == false)
+        {
+            readypolution = true;
+            order0whenstart();
+        }
     }
     void checktime(float atime)
     {

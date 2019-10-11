@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class IngameCanvasScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] childrens;
+    [SerializeField] private GameObject Buttoncanvas;
+    public static bool fullready=false;
     private float deltaTime = 0f;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,35 @@ public class IngameCanvasScript : MonoBehaviour
     {
         makefpstext();
     }
+    public void whenstartBtningamepressed()
+    {
+        setdisactive(15);
+        setsentence(14, "3");
+        Invoke("whencount2", 1);
+    }
+    private void whencount2()
+    {
+        setsentence(14, "2");
+        Invoke("whencount1", 1);
+    }
+    private void whencount1()
+    {
+        setsentence(14, "1");
+        Invoke("whencount0", 1);
+    }
+    private void whencount0()
+    {
+        setsentence(14, "Start !");
+        Invoke("whencount_1", 1);
+    }
+    private void whencount_1()
+    {
+        setdisactive(14);
+        Buttoncanvas.SetActive(true);
+        setactive(6);
+        fullready = true;
+    }
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -28,7 +59,6 @@ public class IngameCanvasScript : MonoBehaviour
         childrens[12].SetActive(false);
         TimerScript timer = childrens[6].GetComponent<TimerScript>();
         timer.timepassoff();
-
     }
     public void setstagenumber(int number)
     {
