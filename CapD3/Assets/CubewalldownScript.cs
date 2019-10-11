@@ -30,7 +30,7 @@ public class CubewalldownScript : MonoBehaviour
         {
             stage1HDMDManagerScript s1HDMDmanagerScript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
             s1HDMDmanagerScript.setandbombattranss();
-            s1HDMDmanagerScript.order2fbc();
+            s1HDMDmanagerScript.order2_1dfbc();
         }
         else
             Debug.Log("error5");

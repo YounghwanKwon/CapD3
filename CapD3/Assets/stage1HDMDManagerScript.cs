@@ -102,6 +102,12 @@ public class stage1HDMDManagerScript : MonoBehaviour
         igcvsscript.setupsentence("적의 함정입니다!! 30초간 버티세요!!\n(주의 : 빨간 레이저는 더 데미지가 강함)");
         Invoke("bookingoff", 8);
     }
+    public void order2_1dfbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("적의 방벽을 파괴하고 파란색 큐브를 획득하시오\n(주의 : 폭탄은 데미지가 강함)");
+        Invoke("bookingoff", 8);
+    }
     public void bookingoff()
     {
         igcvsscript.upsentenceoffonly();
