@@ -58,6 +58,7 @@ public class WallCube : MonoBehaviour
             FrontWall.SetActive(true);
             BackWall.SetActive(true);
             CM.SetActive(true);
+            s1HDMDmscript.order2_1rfbc();
             StartCoroutine(Timer());
         }
         else

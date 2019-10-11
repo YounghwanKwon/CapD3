@@ -90,6 +90,18 @@ public class stage1HDMDManagerScript : MonoBehaviour
         igcvsscript.setupsentence("보스 출현!! 보스를 제거하고 보스에게서 빨간색 전리품을 획득하시오");
         Invoke("bookingoff", 5);
     }
+    public void order2_1lfbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("숨겨진 큐브가 생성되었습니다. 다음 파란색 큐브를 획득하시오");
+        Invoke("bookingoff", 5);
+    }
+    public void order2_1rfbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("적의 함정입니다!! 30초간 버티세요!!\n(주의 : 빨간 레이저는 더 데미지가 강함)");
+        Invoke("bookingoff", 8);
+    }
     public void bookingoff()
     {
         igcvsscript.upsentenceoffonly();

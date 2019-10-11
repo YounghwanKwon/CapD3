@@ -6,6 +6,7 @@ public class HDMDforleft1Script : MonoBehaviour
 {
     [SerializeField] private GameObject camerarig;
     [SerializeField] private GameObject[] botsset;
+    [SerializeField] private GameObject s1HDMDmanager;
     // Start is called before the first frame update
 
     public void OnTriggerEnter(Collider other)
@@ -19,6 +20,11 @@ public class HDMDforleft1Script : MonoBehaviour
     {
         Complete.CameraControl camerascript = camerarig.GetComponent<Complete.CameraControl>();
         camerascript.setmainobj();
+        if (s1HDMDmanager)
+        {
+            stage1HDMDManagerScript s1HDMDmscript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
+            s1HDMDmscript.order2_1lfbc();
+        }
     }
     void Start()
     {

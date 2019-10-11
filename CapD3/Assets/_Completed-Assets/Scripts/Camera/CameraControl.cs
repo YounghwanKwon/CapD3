@@ -60,6 +60,9 @@ namespace Complete
                 mainobject = nextobj[nextcounter];
                 nextcounter++;
             }
+            else
+                Debug.Log("no nextobj err");
+
             Invoke("setbacktotank", 2f);
         }
         public void setbacktotank()
