@@ -39,7 +39,7 @@ public class stage1HDMDManagerScript : MonoBehaviour
         //setandbombattranss();
         ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         rsbtnscript.setstage(1);
-        text1.text = "Stage : 1hardmode";
+        text1.text = "Stage : hardmode1";
         if(leftdifficulty == 0)
         {
             leftdifficulty = 0.85f;

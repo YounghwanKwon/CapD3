@@ -11,6 +11,7 @@ public class TutorialManagerScript : MonoBehaviour
     [SerializeField] private GameObject particle;
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject NextStgBtn;
+    [SerializeField] private Text text1;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,9 @@ public class TutorialManagerScript : MonoBehaviour
         ingamecanvascript1.fortutorial();
         ResetBtnScript resetbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         resetbtnscript.setstage(0);
+        ingamecanvascript1.setdisactive(14);
+        ingamecanvascript1.setdisactive(15);
+        text1.text = "Tutorial Stage";
     }
     public void addcontinue()
     {
