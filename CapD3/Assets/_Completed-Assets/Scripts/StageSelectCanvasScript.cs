@@ -26,6 +26,13 @@ public class StageSelectCanvasScript : MonoBehaviour
         stagenumber = 1;
         //SceneManager.LoadScene("Stage1");
     }
+    public void Stage1HDMDBtnPressed()
+    {
+        texts[0].text = "Destroy 'the Boss'(drone type)";
+        texts[1].text = "Collect blue cube 3 times\n(Follow the yellow arrow direction)";
+        stagenumber = 101;
+        //SceneManager.LoadScene("Stage1");
+    }
     public void Stage2BtnPressed()
     {
         texts[0].text = "Developing";
@@ -59,6 +66,8 @@ public class StageSelectCanvasScript : MonoBehaviour
             SceneManager.LoadScene("Stage1");
         else if (stagenumber == 2)
             SceneManager.LoadScene("Stage2");
+        else if (stagenumber == 101)
+            SceneManager.LoadScene("Stage1hardmode");
         else
             Debug.Log(stagenumber);
 

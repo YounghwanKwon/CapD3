@@ -12,6 +12,7 @@ public class GameSubCoreScript3 : MonoBehaviour
     [SerializeField] private GameObject chasetrap;
     [SerializeField] private GameObject uicapslider;
     [SerializeField] private GameObject lazerturret;
+    [SerializeField] private GameObject CM;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -22,6 +23,13 @@ public class GameSubCoreScript3 : MonoBehaviour
             uicapslider.gameObject.SetActive(false);
             if(lazerturret)
                 lazerturret.SetActive(false);
+            if (CM)
+            {
+                CMScript cms = CM.GetComponent<CMScript>();
+                cms.needboomfalsefy();
+                CM.SetActive(false);
+            }
+                
             this.gameObject.SetActive(false);
         }
         else

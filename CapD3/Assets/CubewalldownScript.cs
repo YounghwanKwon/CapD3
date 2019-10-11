@@ -6,6 +6,8 @@ public class CubewalldownScript : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject s1manager;
+    [SerializeField] private GameObject s1HDMDmanager;
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -18,9 +20,21 @@ public class CubewalldownScript : MonoBehaviour
     public void func1()
     {
         wall.SetActive(true);
-        stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
-        s1managerScript.setandbombattranss();
-        s1managerScript.order2fbc();
+        if (s1manager)
+        {
+            stage1ManagerScript s1managerScript = s1manager.GetComponent<stage1ManagerScript>();
+            s1managerScript.setandbombattranss();
+            s1managerScript.order2fbc();
+        }
+        else if (s1HDMDmanager)
+        {
+            stage1HDMDManagerScript s1HDMDmanagerScript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
+            s1HDMDmanagerScript.setandbombattranss();
+            s1HDMDmanagerScript.order2_1dfbc();
+        }
+        else
+            Debug.Log("error5");
+        
         this.gameObject.SetActive(false);
     }
     // Start is called before the first frame update

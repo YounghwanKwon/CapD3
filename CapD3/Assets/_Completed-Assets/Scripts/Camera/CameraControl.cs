@@ -12,6 +12,8 @@ namespace Complete
         private GameObject mainobject;
         [SerializeField] private GameObject[] nextobj;
         public static int nextcounter;
+        [SerializeField] private GameObject bindingobj;
+        private GameObject binder;
 
 
         private Camera m_Camera;                        // Used for referencing the camera.
@@ -25,8 +27,7 @@ namespace Complete
             mainobject = new GameObject();
             mainobject = oldtank;
             nextcounter = 0;
-            Invoke("setmainobj", 4);
-            Invoke("setmainobj", 10);
+            //Invoke("setmainobj", 2.5f);
         }
         private void Awake ()
         {
@@ -44,14 +45,37 @@ namespace Complete
         }
         public void setmainobj()
         {
-            if(nextcounter<nextobj.Length)
-            mainobject = nextobj[nextcounter];
-            nextcounter++;
-            Invoke("setbacktotank", 1f);
+            if(bindingobj)
+            {
+                Debug.Log("binder if on");
+                binder = Instantiate(bindingobj, oldtank.transform);
+                binder.SetActive(true);
+                binder.transform.parent = null;
+            }
+            else
+                Debug.Log("no binder err");
+
+            if (nextcounter < nextobj.Length)
+            {
+                mainobject = nextobj[nextcounter];
+                nextcounter++;
+            }
+            else
+                Debug.Log("no nextobj err");
+
+            Invoke("setbacktotank", 2f);
         }
         public void setbacktotank()
         {
-            mainobject = oldtank;
+            if (oldtank)
+            {
+                mainobject = oldtank;
+                Invoke("destorybinder", 1f);
+            }
+        }
+        public void destorybinder()
+        {
+            Destroy(binder);
         }
 
 

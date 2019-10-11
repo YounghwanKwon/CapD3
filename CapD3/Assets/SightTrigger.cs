@@ -20,9 +20,12 @@ public class SightTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Tank_e1")
+
+        //if (other.name == "tank_e1")
+        if (other.transform.CompareTag("Player"))
         {            
             SightCat = true;
+            //Debug.Log("SightCat = true");
             Lighting.SetActive(true);
             this.gameObject.SetActive(false);
         }
