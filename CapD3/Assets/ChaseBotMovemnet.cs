@@ -10,6 +10,7 @@ public class ChaseBotMovemnet : MonoBehaviour
     int count = 0;
     private Transform Bot1;
     private NavMeshAgent nav;
+    private int countsecond = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +35,35 @@ public class ChaseBotMovemnet : MonoBehaviour
                 {
                     count = 0;
                 }
+                countsecond = 0;
+            }
+            else
+            {
+                countsecond++;
+                if (countsecond == 40)
+                {
+                    count += (int)((Random.value * 4)-2);
+                    if(count < 0 || count >9)
+                        count += (int)(Random.value * 9);
+                    Debug.Log("forced chaned destination");
+                    nav.SetDestination(WayPoint[count].position);
+                    if (count >= WayPoint.Length)
+                    {
+                        count = 0;
+                    }
+                    countsecond = 0;
+                }
             }
         }
         if(SightTrigger.SightCat == true)
         {
+            Debug.Log("SightCat = true123");
             nav.SetDestination(player.position);
         }
+    }
+
+    public void countchange()
+    {
+        nav.velocity = Vector3.zero;
     }
 }
