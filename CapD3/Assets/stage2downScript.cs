@@ -5,15 +5,33 @@ using UnityEngine;
 public class stage2downScript : MonoBehaviour
 {
     private GameObject player;
+    [SerializeField] private GameObject particle;
+    private GameObject ptcleobj;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            ptcleobj = Instantiate(particle, player.transform);
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            ptcleobj.transform.parent = null;
+            Destroy(ptcleobj);
+        }
+    }
 
     public void OnTriggerStay(Collider other)
     {
-        action1();
+        if(other.CompareTag("Player"))
+            action1();
     }
     public void condition1()
     {

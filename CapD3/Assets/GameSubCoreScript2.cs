@@ -71,7 +71,7 @@ public class GameSubCoreScript2 : MonoBehaviour
             else
                 Debug.Log("no lab2script");
         }
-        if (stage2Manager)
+        /*if (stage2Manager)
         {
             stage2ManagerScript stage2script = stage2Manager.GetComponent<stage2ManagerScript>();
             if (stage2script)
@@ -82,7 +82,7 @@ public class GameSubCoreScript2 : MonoBehaviour
             }
             else
                 Debug.Log("no lab2script");
-        }
+        }*/
         else
             Debug.Log("no lab2manager");
     }

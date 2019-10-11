@@ -83,7 +83,7 @@ public class stage2ManagerScript : MonoBehaviour
         needboomleft = false;
     }
     */
-
+    /*
     private void bombleft()
     {
         if (needboomleft == true)
@@ -173,6 +173,7 @@ public class stage2ManagerScript : MonoBehaviour
             Invoke("bombleftC", leftdifficulty);
         }
     }
+    */
     void setpipes()
     {
         Debug.Log(transform.childCount);
