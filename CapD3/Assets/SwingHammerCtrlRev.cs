@@ -32,7 +32,10 @@ public class SwingHammerCtrlRev : MonoBehaviour
         {
             QuadrantChk++;
             xpos -= 0.1f;
-            zpos = Mathf.Sqrt((-xpos * -xpos * -1) + 100);
+            float t = (-xpos * -xpos * -1) + 100;
+            t = Mathf.Round(t * 10) * 0.1f;
+            //Debug.Log("t:" + t + "xpos:" + xpos);
+            zpos = Mathf.Sqrt(t);
         }
         else if (QuadrantChk >= 500 && QuadrantChk < 600)
         {
