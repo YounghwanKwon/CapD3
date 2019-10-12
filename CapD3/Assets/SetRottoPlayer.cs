@@ -12,6 +12,7 @@ public class SetRottoPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         InvokeRepeating("SetRot", 0f, 0.01f);
     }
 

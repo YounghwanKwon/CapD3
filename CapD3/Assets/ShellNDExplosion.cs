@@ -49,7 +49,7 @@ public class ShellNDExplosion : MonoBehaviour
             BreakableWallScript targetHealth3 = targetRigidbody.GetComponent<BreakableWallScript>();
 
             float damage = 0;
-            Debug.Log("0did we in?");
+            //Debug.Log("0did we in?");
 
             if (targetHealth)
             {

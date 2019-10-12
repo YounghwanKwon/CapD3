@@ -18,6 +18,7 @@ public class BreakableWallScript : MonoBehaviour
     }
     public void TakeDamage(int i)
     {
+        Debug.Log("take damaged : " + this);
         CurrentHPcount -= i;
         if (Tmanager)
         {
