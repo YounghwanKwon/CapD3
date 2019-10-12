@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameSubCoreScript1 : MonoBehaviour
 {
-    public static int SubCorecount = 0;
 
     //[SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject stage1Manager;
@@ -92,19 +91,7 @@ public class GameSubCoreScript1 : MonoBehaviour
 
     }
 
-    public void checkreset()
-    {
-        SubCorecount = 0;
-    }
-
-    private void check3()
-    {
-        if (SubCorecount == 3)
-        {
-            //gamecore.SetActive(true);
-            checkreset();
-        }
-    }
+   
     // Update is called once per frame
     void Update()
     {

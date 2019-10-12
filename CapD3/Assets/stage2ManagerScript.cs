@@ -33,6 +33,7 @@ public class stage2ManagerScript : MonoBehaviour
     void Start()
     {
         StageSaveScript.StageNum = 2;
+        GameSubCoreScript.SubCorecount = 0;
         //bombleftA();
         //bombleftC();
         //setandbombattranss();
@@ -70,7 +71,7 @@ public class stage2ManagerScript : MonoBehaviour
     }
     public void order4bosson()
     {
-        igcvsscript.setupsentence("보스 출현!! 보스를 제거하고 보스에게서 빨간색 전리품을 획득하시오");
+        igcvsscript.setupsentence("need otherthing");
         Invoke("bookingoff", 5);
     }
     public void bookingoff()

@@ -12,7 +12,7 @@ public class GameSubCoreScript : MonoBehaviour
     [SerializeField] private GameObject stage2Manager;
     private stage1ManagerScript s1mscript;
     private stage1HDMDManagerScript s1HDMDmscript;
-    private stage1ManagerScript s2mscript;
+    private stage2ManagerScript s2mscript;
     [SerializeField] private GameObject captureslider;
     private void OnTriggerEnter(Collider other)
     {
@@ -32,7 +32,7 @@ public class GameSubCoreScript : MonoBehaviour
 
 
             this.gameObject.SetActive(false);
-            check3();
+            Invoke("check3", 0.3f);
         }
         else
         {
@@ -49,15 +49,20 @@ public class GameSubCoreScript : MonoBehaviour
         else if (stage1HDMDManager)
             s1HDMDmscript = stage1HDMDManager.GetComponent<stage1HDMDManagerScript>();
         else if (stage2Manager)
-            s2mscript = stage2Manager.GetComponent<stage1ManagerScript>();
+            s2mscript = stage2Manager.GetComponent<stage2ManagerScript>();
         else
             Debug.Log("error2");
-
-        SubCorecount = 0;
+        if(StageSaveScript.StageNum != 2)
+        {
+            Debug.Log("초기화1");
+            SubCorecount = 0;
+        }
+        
     }
 
     public void checkreset()
     {
+        Debug.Log("초기화2");
         SubCorecount = 0;
     }
 
@@ -66,22 +71,29 @@ public class GameSubCoreScript : MonoBehaviour
         if(SubCorecount == 3)
         {
             //gamecore.SetActive(true);
-            drone.SetActive(true);
-            MovementE moveE = drone.GetComponent<MovementE>();
-            moveE.poweronfunc();
-            captureslider.gameObject.SetActive(false);
+            settingbosson();
             if (stage1Manager)
                 s1mscript.order4bosson();
             else if (stage1HDMDManager)
                 s1HDMDmscript.order4bosson();
             else if (stage2Manager)
-                s2mscript.order4bosson();
+                //s2mscript.order4bosson();
+                Debug.Log("stage2 need otherthing");
             else
                 Debug.Log("error3");
-            checkreset();
         }
     }
   
+    void settingbosson()
+    {
+        if (StageSaveScript.StageNum != 2)
+        {
+            drone.SetActive(true);
+            MovementE moveE = drone.GetComponent<MovementE>();
+            moveE.poweronfunc();
+            captureslider.gameObject.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
