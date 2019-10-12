@@ -8,20 +8,17 @@ public class stage2ManagerScript : MonoBehaviour
     [SerializeField] private GameObject igcanvas;
     [SerializeField] private GameObject resetbtn1;
     [SerializeField] private GameObject shell1;
+    public static bool alive1;
+    public static bool alive2;
 
     //[SerializeField] private Transform BombPlacingPoint1;
     private float xvalue = 2.5f;
     private Transform transs;
     private int transnumber = 15;
-    //private bool needboom1 = true;
-    //private bool needboomleft = true;
     private float frequency = 1.5f;
 
     [SerializeField] private GameObject air;
     [SerializeField] private GameObject ground;
-    //[SerializeField] private GameObject motherpipe;
-    //[SerializeField] private GameObject[] pipes;
-    //[SerializeField] private GameObject[] planes;
     [SerializeField] private GameObject dropshell2;
     [SerializeField] private GameObject dropshell3;
     [SerializeField] private float leftdifficulty = 0.85f;
@@ -33,6 +30,8 @@ public class stage2ManagerScript : MonoBehaviour
     void Start()
     {
         StageSaveScript.StageNum = 2;
+        alive1 = true;
+        alive2 = true;
         GameSubCoreScript.SubCorecount = 0;
         //bombleftA();
         //bombleftC();
@@ -45,12 +44,6 @@ public class stage2ManagerScript : MonoBehaviour
         igcvsscript.upsentenceononly();
         igcvsscript.setupsentence("다음 지시사항을 참고하여 임무를 완료하시오 \n 지시사항 : 노란색 화살표를 찾아서 이동할것");
 
-        //Debug.Log(planes);
-
-        //setxpos(BombPlacingPoint1);
-        //DropA(BombPlacingPoint1);
-        //setandbombattranss();
-        //setpipes();
     }
     public void order1fneww()
     {

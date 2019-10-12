@@ -234,4 +234,8 @@ public class Stage2DodgeFieldScript : MonoBehaviour
         //Instantiate(shell1,new Vector3(0,0.1f,0),Quaternion.Euler(Vector3.zero));
         //Invoke("DropA", 2);
     }
+    public void needboomoff()
+    {
+        needboom1 = false;
+    }
 }

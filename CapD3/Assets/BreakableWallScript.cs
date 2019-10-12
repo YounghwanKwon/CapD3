@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BreakableWallScript : MonoBehaviour
 {
     [SerializeField] private int MaxHPcount;
     [SerializeField] private GameObject deadparticle;
+    [SerializeField] private Slider thisslider;
     private int CurrentHPcount;
     private bool m_Dead = false;
     [SerializeField] private GameObject Tmanager;
@@ -15,11 +17,13 @@ public class BreakableWallScript : MonoBehaviour
     void Start()
     {
         CurrentHPcount = MaxHPcount;
+        setUIHP();
     }
     public void TakeDamage(int i)
     {
         Debug.Log("take damaged : " + this);
         CurrentHPcount -= i;
+        setUIHP();
         if (Tmanager)
         {
             CurrentHPcount = MaxHPcount;
@@ -29,7 +33,13 @@ public class BreakableWallScript : MonoBehaviour
             OnDeath();
         }
     }
-
+    public void setUIHP()
+    {
+        if (thisslider)
+        {
+            thisslider.value = CurrentHPcount;
+        }
+    }
     private void OnDeath()
     {
         m_Dead = true;

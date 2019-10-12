@@ -7,8 +7,11 @@ public class Cubewallrighttrigger : MonoBehaviour
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject s1manager;
     [SerializeField] private GameObject s1HDMDmanager;
+    [SerializeField] private GameObject s2manager;
+    [SerializeField] private GameObject s2righttrigger;
     private stage1ManagerScript s1mscript;
     private stage1HDMDManagerScript s1HDMDmscript;
+    private stage2ManagerScript s2mscript;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -26,6 +29,11 @@ public class Cubewallrighttrigger : MonoBehaviour
             s1mscript.order2fbc();
         else if (s1HDMDmanager)
             s1HDMDmscript.order2fbc();
+        else if (s2manager)
+        {
+            s2mscript.order2fbc();
+            s2righttrigger.SetActive(true);
+        }
         else
             Debug.Log("error7");
 this.gameObject.SetActive(false);
@@ -37,6 +45,8 @@ this.gameObject.SetActive(false);
             s1mscript = s1manager.GetComponent<stage1ManagerScript>();
         else if (s1HDMDmanager)
             s1HDMDmscript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
+        else if (s2manager)
+            s2mscript = s2manager.GetComponent<stage2ManagerScript>();
         else
             Debug.Log("error6");
             
