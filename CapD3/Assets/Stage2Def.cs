@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stage2Def : MonoBehaviour
 {
+    public GameObject Tank;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class Stage2Def : MonoBehaviour
     }
     void OnDisable()
     {
-        
+        TankHealth targetHealth = Tank.GetComponent<TankHealth>();
+        targetHealth.TakeDamage(1000f);
     }
 }
