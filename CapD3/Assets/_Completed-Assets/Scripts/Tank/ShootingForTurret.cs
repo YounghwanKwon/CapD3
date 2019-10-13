@@ -46,14 +46,14 @@ public class ShootingForTurret : MonoBehaviour
 
             // Reset the launch force.  This is a precaution in case of missing button events.
             m_CurrentLaunchForce = m_MinLaunchForce;
-            Invoke("TurretFire", 5);
+            Invoke("TurretFire", 2.667f);
         }
         
     }
 
     void Start()
     {
-        Invoke("TurretFire", 2.5f);
+        Invoke("TurretFire", 1.65f);
     }
 
     // Update is called once per frame

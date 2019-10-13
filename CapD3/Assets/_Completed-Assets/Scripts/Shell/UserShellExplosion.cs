@@ -48,6 +48,7 @@ namespace Complete
                 HealthForTurret targetHealth2 = targetRigidbody.GetComponent<HealthForTurret>();
                 BreakableWallScript targetHealth3 = targetRigidbody.GetComponent<BreakableWallScript>();
                 dronebossScript targetHealth4 = targetRigidbody.GetComponent<dronebossScript>();
+                Stg2Boss targetHealth5 = targetRigidbody.GetComponent<Stg2Boss>();
 
                 float damage = CalculateDamage(targetRigidbody.position);
                 Debug.Log("0did we in?");
@@ -73,9 +74,14 @@ namespace Complete
                     Debug.Log("3did we in?");
                     targetHealth4.TakeDamage(1);
                 }
+                else if (targetHealth5)
+                {
+                    Debug.Log("5did we in?");
+                    targetHealth5.TakeDamage(1);
+                }
                 else
                 {
-                    Debug.Log("4did we in?");
+                    Debug.Log("6did we in?");
                     continue;
                 }
 
