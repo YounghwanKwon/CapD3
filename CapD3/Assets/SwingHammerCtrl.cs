@@ -9,12 +9,20 @@ public class SwingHammerCtrl : MonoBehaviour
     public float xpos;
     public float zpos;
     public bool plmn;
+    [SerializeField] private float hammerdownstart;
+    [SerializeField] private float hammerupstart;
+    [SerializeField] private float waittingstart;
+    [SerializeField] private float rotationtime;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("HammerSwing", 0f, 0.02f);
-        InvokeRepeating("setpos", 0f, 0.02f);
+        if (hammerdownstart == 0) hammerdownstart = 0f;
+        if (hammerupstart == 0) hammerupstart = 50.0f;
+        if (waittingstart == 0) waittingstart = 100.0f;
+        if (rotationtime == 0) rotationtime = 400.0f;
+        InvokeRepeating("HammerSwing", 0f, 0.01f);
+        InvokeRepeating("setpos", 0f, 0.01f);
     }
 
     // Update is called once per frame
@@ -24,7 +32,11 @@ public class SwingHammerCtrl : MonoBehaviour
     }
     void HammerSwing()
     {
-        if (QuadrantChk < 100)
+        if (QuadrantChk < hammerdownstart)//대기
+        {
+            QuadrantChk++;
+        }
+        else if (QuadrantChk >= hammerdownstart && QuadrantChk < hammerupstart)//망치내림
         {
             QuadrantChk++;
             xpos -= 0.1f;
@@ -34,17 +46,17 @@ public class SwingHammerCtrl : MonoBehaviour
             zpos = Mathf.Sqrt(t);
         }
         
-        else if (QuadrantChk >= 100 && QuadrantChk < 200)
+        else if (QuadrantChk >= hammerupstart && QuadrantChk < waittingstart)//망치올림
         {
             QuadrantChk++;
             xpos += 0.1f;
             zpos = Mathf.Sqrt((-xpos * -xpos * -1) + 100);
         }
-        else if (QuadrantChk >= 200 && QuadrantChk < 800)
+        else if (QuadrantChk >= waittingstart && QuadrantChk < rotationtime)//대기
         {
             QuadrantChk++;
         }
-        else if (QuadrantChk >= 800)
+        else if (QuadrantChk >= rotationtime)//초기화
         {
             QuadrantChk = 0;
         }

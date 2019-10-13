@@ -18,7 +18,7 @@ public class NextBtnScript : MonoBehaviour
         else if (StageSaveScript.StageNum == 1)
             SceneManager.LoadScene("stage2");
         else if (StageSaveScript.StageNum == 2)
-            SceneManager.LoadScene("stage3");
+            SceneManager.LoadScene("StageSelect");
         else if (StageSaveScript.StageNum == 3)
             SceneManager.LoadScene("Lab2");
         else

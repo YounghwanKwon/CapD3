@@ -9,12 +9,20 @@ public class SwingHammerCtrlRev : MonoBehaviour
     public float xpos;
     public float zpos;
     public bool plmn;
+    [SerializeField] private float hammerdownstart;
+    [SerializeField] private float hammerupstart;
+    [SerializeField] private float waittingstart;
+    [SerializeField] private float rotationtime;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("HammerSwing", 0f, 0.02f);
-        InvokeRepeating("setpos", 0f, 0.02f);
+        if (hammerdownstart == 0) hammerdownstart = 200.0f;
+        if (hammerupstart == 0) hammerupstart = 250.0f;
+        if (waittingstart == 0) waittingstart = 300.0f;
+        if (rotationtime == 0) rotationtime = 400.0f;
+        InvokeRepeating("HammerSwing", 0f, 0.01f);
+        InvokeRepeating("setpos", 0f, 0.01f);
     }
 
     // Update is called once per frame
@@ -24,11 +32,11 @@ public class SwingHammerCtrlRev : MonoBehaviour
     }
     void HammerSwing()
     {
-        if (QuadrantChk < 400)
+        if (QuadrantChk < hammerdownstart)//대기
         {
             QuadrantChk++;
         }
-        else if (QuadrantChk >= 400 && QuadrantChk < 500)
+        else if (QuadrantChk >= hammerdownstart && QuadrantChk < hammerupstart)//망치내림
         {
             QuadrantChk++;
             xpos -= 0.1f;
@@ -37,17 +45,17 @@ public class SwingHammerCtrlRev : MonoBehaviour
             //Debug.Log("t:" + t + "xpos:" + xpos);
             zpos = Mathf.Sqrt(t);
         }
-        else if (QuadrantChk >= 500 && QuadrantChk < 600)
+        else if (QuadrantChk >= hammerupstart && QuadrantChk < waittingstart)//망치올림
         {
             QuadrantChk++;
             xpos += 0.1f;
             zpos = Mathf.Sqrt((-xpos * -xpos * -1) + 100);
         }
-        else if (QuadrantChk >= 600 && QuadrantChk < 800)
+        else if (QuadrantChk >= waittingstart && QuadrantChk < rotationtime)//대기
         {
             QuadrantChk++;
         }
-        else if (QuadrantChk >= 800)
+        else if (QuadrantChk >= rotationtime)//초기화
         {
             QuadrantChk = 0;
         }

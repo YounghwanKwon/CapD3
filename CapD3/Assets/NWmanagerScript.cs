@@ -6,6 +6,12 @@ public class NWmanagerScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] hammers;
     [SerializeField] private GameObject[] boss;
+    [SerializeField] private GameObject winUI;
+    [SerializeField] private GameObject timer;
+    [SerializeField] private GameObject btncanvas;
+    [SerializeField] private GameObject pausecanvas;
+    [SerializeField] private GameObject resumebtn;
+    [SerializeField] private GameObject NextStgBtn;
     private bool alive1;
     private bool alive2;
     // Start is called before the first frame update
@@ -32,7 +38,20 @@ public class NWmanagerScript : MonoBehaviour
     {
         if(!alive1 && !alive2)
         {
+            Time.timeScale = 0;
             Debug.Log("UI player win need");
+            winUI.SetActive(true);
+            btncanvas.SetActive(false);
+            pausecanvas.SetActive(true);
+            NextStgBtn.SetActive(true);
+            resumebtn.SetActive(false);
+
+            if (timer)
+            {
+                TimerScript temptimer = timer.GetComponent<TimerScript>();
+                temptimer.timepassoff();
+            }
+
         }
         else
             Debug.Log("not enough : "+alive1 +" "+ alive2);
