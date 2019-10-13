@@ -5,7 +5,8 @@ using UnityEngine;
 public class portalcubetempScript : MonoBehaviour
 {
     [SerializeField] private Transform Destination;
-    [SerializeField] private GameObject[] sliders;
+    [SerializeField] private GameObject NWmanager;
+    //[SerializeField] private GameObject[] sliders;
     // Start is called before the first frame update
 
     private void OnTriggerEnter(Collider other)
@@ -14,8 +15,9 @@ public class portalcubetempScript : MonoBehaviour
         {
             Transform playerTF = other.GetComponent<Transform>();
             playerTF.transform.position = Destination.position;
-            sliders[0].SetActive(true);
-            sliders[1].SetActive(true);
+            NWmanager.SetActive(true);
+            //sliders[0].SetActive(true);
+            //sliders[1].SetActive(true);
         }
     }
 }

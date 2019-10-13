@@ -12,11 +12,14 @@ public class BreakableWallScript : MonoBehaviour
     private bool m_Dead = false;
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
+    [SerializeField] private GameObject NWmanager;
 
     // Start is called before the first frame update
     void Start()
     {
         CurrentHPcount = MaxHPcount;
+        if(thisslider)
+            thisslider.gameObject.SetActive(true);
         setUIHP();
     }
     public void TakeDamage(int i)
@@ -42,6 +45,16 @@ public class BreakableWallScript : MonoBehaviour
     }
     private void OnDeath()
     {
+        if (this.gameObject.CompareTag("golem1") && NWmanager)
+        {
+            NWmanagerScript nwscript = NWmanager.GetComponent<NWmanagerScript>();
+            nwscript.setdisactive1();
+        }
+        else if (this.gameObject.CompareTag("golem2") && NWmanager)
+        {
+            NWmanagerScript nwscript = NWmanager.GetComponent<NWmanagerScript>();
+            nwscript.setdisactive2();
+        }
         m_Dead = true;
         GameObject thisparticle = Instantiate(deadparticle, transform);
         thisparticle.SetActive(true);
