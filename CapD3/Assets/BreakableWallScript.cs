@@ -13,6 +13,8 @@ public class BreakableWallScript : MonoBehaviour
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
     [SerializeField] private GameObject NWmanager;
+    [SerializeField] private GameObject Roundmove1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,9 +57,16 @@ public class BreakableWallScript : MonoBehaviour
             NWmanagerScript nwscript = NWmanager.GetComponent<NWmanagerScript>();
             nwscript.setdisactive2();
         }
+        else if (this.gameObject.CompareTag("OilStorage"))
+        {
+            RoundMove rm = Roundmove1.GetComponent<RoundMove>();
+            rm.missionfail1();
+            // 엄호 물체 파괴됨 미션실패 UI / pause on / resum off /btn off / 
+        }
         m_Dead = true;
         GameObject thisparticle = Instantiate(deadparticle, transform);
         thisparticle.SetActive(true);
+        thisparticle.transform.parent = null;
         gameObject.SetActive(false);
     }
     // Update is called once per frame
