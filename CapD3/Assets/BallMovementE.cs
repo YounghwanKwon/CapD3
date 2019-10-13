@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BallMovement : MonoBehaviour
+public class BallMovementE : MonoBehaviour
 {
     private Transform player;
     private NavMeshAgent nav;
@@ -19,6 +19,7 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nav.SetDestination(player.position);
+        Vector3 point = new Vector3(0f, 1f, -210f);
+        nav.SetDestination(point);
     }
 }

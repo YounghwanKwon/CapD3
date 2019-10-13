@@ -11,11 +11,12 @@ public class RoundMove : MonoBehaviour
     public Vector3 movement = new Vector3(0f, 1.25f, 0f);
     public float xpos;
     public float zpos;
+
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("movementstart", 0f, 0.01f);
-        InvokeRepeating("setpos", 0f, 0.01f);
+        InvokeRepeating("setpos", 0f, 0.01f);        
     }
 
     // Update is called once per frame
@@ -34,42 +35,54 @@ public class RoundMove : MonoBehaviour
         {
             QuadrantChk++;
             xpos += 0.1f;
-            zpos = Mathf.Sqrt((-xpos * -xpos * -1) + 900);
+            float t = (-xpos * -xpos * -1) + 900;
+            t = Mathf.Round(t * 10) * 0.1f;
+            zpos = Mathf.Sqrt(t);
             movement = RoundCenter.transform.position;
             movement.x += xpos;
-            movement.z += zpos;         
+            movement.z += zpos;
 
         }
-        if (QuadrantChk >= 300 && QuadrantChk < 600)
+        else if (QuadrantChk >= 300 && QuadrantChk < 600)
         {
             QuadrantChk++;
             xpos -= 0.1f;
-            zpos = -1 * Mathf.Sqrt((-xpos * -xpos * -1) + 900);          
+            float t = (-xpos * -xpos * -1) + 900;
+            t = Mathf.Round(t * 10) * 0.1f;
+            zpos = -1 * Mathf.Sqrt(t);
             movement = RoundCenter.transform.position;
             movement.x += xpos;
             movement.z += zpos;
         }
-        if (QuadrantChk >= 600 && QuadrantChk < 900)
+        else if (QuadrantChk >= 600 && QuadrantChk < 900)
         {
             QuadrantChk++;
             xpos -= 0.1f;
-            zpos = -1 * Mathf.Sqrt ((-xpos * -xpos * -1) + 900);
+            float t = (-xpos * -xpos * -1) + 900;
+            t = Mathf.Round(t * 10) * 0.1f;
+            zpos = -1 * Mathf.Sqrt(t);
             movement = RoundCenter.transform.position;
             movement.x += xpos;
             movement.z += zpos;
         }
-        if (QuadrantChk >= 900 && QuadrantChk < 1200)
+        else if (QuadrantChk >= 900 && QuadrantChk < 1200)
         {
             QuadrantChk++;
             xpos += 0.1f;
-            zpos = Mathf.Sqrt(((-xpos * -xpos * -1) + 900));
+            float t = (-xpos * -xpos * -1) + 900;
+            t = Mathf.Round(t * 10) * 0.1f;
+            zpos = Mathf.Sqrt(t);
             movement = RoundCenter.transform.position;
             movement.x += xpos;
             movement.z += zpos;
         }
-        if(QuadrantChk>=1200)
+        else if (QuadrantChk >= 1200)
         {
             QuadrantChk = 0;
         }
+
     }
+
+
+
 }
