@@ -52,7 +52,7 @@ public class Stage2DodgeFieldScript : MonoBehaviour
                 //Debug.Log(i);
                 setxpos1(transs1);                
             }
-            Invoke("setandbombatFirst", 0.4f);
+            Invoke("setandbombatFirst", Time.deltaTime*24);
         }
         
     }
@@ -71,7 +71,7 @@ public class Stage2DodgeFieldScript : MonoBehaviour
                 //Debug.Log(i);
                 setzpos1(transs2);
             }
-            Invoke("setandbombatSecond", 0.4f);
+            Invoke("setandbombatSecond", Time.deltaTime * 24);
         }
 
     }
@@ -90,7 +90,7 @@ public class Stage2DodgeFieldScript : MonoBehaviour
                 //Debug.Log(i);
                 setxpos2(transs3);
             }
-            Invoke("setandbombatThird", 0.4f);
+            Invoke("setandbombatThird", Time.deltaTime * 24);
         }
 
     }
@@ -109,7 +109,7 @@ public class Stage2DodgeFieldScript : MonoBehaviour
                 //Debug.Log(i);
                 setzpos2(transs4);
             }
-            Invoke("setandbombatFourth", 0.4f);
+            Invoke("setandbombatFourth", Time.deltaTime * 24);
         }
 
     }
@@ -128,7 +128,7 @@ public class Stage2DodgeFieldScript : MonoBehaviour
                 //Debug.Log(i);
                 setxpos3(transs5);
             }
-            Invoke("setandbombatFifth", 0.4f);
+            Invoke("setandbombatFifth", Time.deltaTime * 24);
         }
 
     }
