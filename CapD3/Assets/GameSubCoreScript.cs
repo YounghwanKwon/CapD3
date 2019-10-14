@@ -14,6 +14,7 @@ public class GameSubCoreScript : MonoBehaviour
     private stage1HDMDManagerScript s1HDMDmscript;
     private stage2ManagerScript s2mscript;
     [SerializeField] private GameObject captureslider;
+    [SerializeField] private GameObject roundmove2;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -76,9 +77,13 @@ public class GameSubCoreScript : MonoBehaviour
                 s1mscript.order4bosson();
             else if (stage1HDMDManager)
                 s1HDMDmscript.order4bosson();
-            else if (stage2Manager)
-                //s2mscript.order4bosson();
-                Debug.Log("stage2 need otherthing");
+            else if (roundmove2)
+            {
+                roundmove2.SetActive(true);
+               // Debug.Log("stage2 need otherthing");
+            }
+               
+                
             else
                 Debug.Log("error3");
         }
