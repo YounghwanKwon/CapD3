@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class recordforstage2
+{
+    int rank = 0;
+    string username = "";
+    string cleatime = "";
+}
 public class StageSaveScript : MonoBehaviour
 {
     public static int StageNum;
@@ -30,5 +36,9 @@ public class StageSaveScript : MonoBehaviour
     void Update()
     {
         
+    }
+    public void Makerecord1fortest()
+    {
+        recordforstage2 recordvalue1 = new recordforstage2();
     }
 }
