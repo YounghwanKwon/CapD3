@@ -8,6 +8,7 @@ public class SetRottoPlayer : MonoBehaviour
     public Vector3 SetVec;
     public float xpos;
     public float zpos;
+    [SerializeField] private GameObject Golem;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,12 @@ public class SetRottoPlayer : MonoBehaviour
     }
     void SetRot()
     {
-        SetVec = this.transform.position - Player.transform.position;
-        xpos = SetVec.x;
-        zpos = SetVec.z;
-        this.transform.rotation = Quaternion.Euler(0, Mathf.Atan2(xpos, zpos) * Mathf.Rad2Deg + 180, 0);
+        if (Golem.gameObject.activeSelf == true)
+        {
+            SetVec = this.transform.position - Player.transform.position;
+            xpos = SetVec.x;
+            zpos = SetVec.z;
+            this.transform.rotation = Quaternion.Euler(0, Mathf.Atan2(xpos, zpos) * Mathf.Rad2Deg + 180, 0);
+        }
     }
 }
