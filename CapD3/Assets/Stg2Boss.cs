@@ -14,7 +14,7 @@ public class Stg2Boss : MonoBehaviour
     private TutorialManagerScript Tmanagerscript;
     [SerializeField] private GameObject NWmanager;
     public GameObject ThrowAway;
-    public Animation ani;
+    //public Animation ani;
 
 
     // Start is called before the first frame update
