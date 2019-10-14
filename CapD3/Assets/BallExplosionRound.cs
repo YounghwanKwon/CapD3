@@ -65,7 +65,7 @@ namespace Complete
                 else if (targetHealth3)
                 {
                     Debug.Log("3did we in?");
-                    targetHealth3.TakeDamage(1);
+                    targetHealth3.TakeDamage(0.75f);
                 }
                 else
                 {

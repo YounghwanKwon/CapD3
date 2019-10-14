@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class BreakableWallScript : MonoBehaviour
 {
-    [SerializeField] private int MaxHPcount;
+    [SerializeField] private float MaxHPcount;
     [SerializeField] private GameObject deadparticle;
     [SerializeField] private Slider thisslider;
-    private int CurrentHPcount;
+    private float CurrentHPcount;
     private bool m_Dead = false;
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
@@ -24,7 +24,7 @@ public class BreakableWallScript : MonoBehaviour
             thisslider.gameObject.SetActive(true);
         setUIHP();
     }
-    public void TakeDamage(int i)
+    public void TakeDamage(float i)
     {
         Debug.Log("take damaged : " + this);
         CurrentHPcount -= i;
@@ -35,7 +35,7 @@ public class BreakableWallScript : MonoBehaviour
         }
         if (CurrentHPcount <= 0 && m_Dead == false)
         {
-            OnDeath();
+            OnDeath(); 
         }
     }
     public void setUIHP()
