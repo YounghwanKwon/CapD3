@@ -16,6 +16,8 @@ public class GameSubCoreScript2 : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
+
+            Debug.Log("1");
             boomstopcheck1();
             Destroy(bots);
             Ingamehealpack.SetActive(true);
@@ -70,18 +72,22 @@ public class GameSubCoreScript2 : MonoBehaviour
             else
                 Debug.Log("no lab2script");
         }
-        /*if (stage2Manager)
+        if (stage2Manager)
         {
+            Debug.Log("2");
             stage2ManagerScript stage2script = stage2Manager.GetComponent<stage2ManagerScript>();
             if (stage2script)
             {
-                stage2script.makeboomstop1();
-                deactive();
-                Debug.Log("stop?");
+
+                Debug.Log("3");
+                stage2script.order1fneww();
+                //stage2script.makeboomstop1();
+                //deactive();
+                //Debug.Log("stop?");
             }
             else
                 Debug.Log("no lab2script");
-        }*/
+        }
         else
             Debug.Log("no lab2manager");
     }

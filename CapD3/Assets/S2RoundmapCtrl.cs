@@ -10,11 +10,14 @@ public class S2RoundmapCtrl : MonoBehaviour
     public GameObject RG4;
     public GameObject RG5;
     public GameObject cube2;
+    [SerializeField] private GameObject s2m;
 
     // Start is called before the first frame update
     void Start()
     {
         cube2.SetActive(true);
+        stage2ManagerScript s2ms = s2m.GetComponent<stage2ManagerScript>();
+        s2ms.order2s2r2fbc();
     }
 
     // Update is called once per frame
