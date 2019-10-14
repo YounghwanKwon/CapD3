@@ -64,13 +64,55 @@ public class stage2ManagerScript : MonoBehaviour
     }
     public void order4bosson()
     {
-        igcvsscript.setupsentence("need otherthing");
+        igcvsscript.setupsentence("망치를 피하고 골렘들을 저지하십시오!!");
         Invoke("bookingoff", 5);
+    }
+    public void order2s2lfbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("퍼즐 구간입니다. \n남서쪽의 퍼즐을 보고 북동쪽의 퍼즐을 맞추시요");
+        Invoke("bookingoff", 10);
+    }
+    public void order2s2l2fbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("퍼즐 구간 클리어!\n 북동쪽 다리의 파란색 큐브를 획득하시오");
+        Invoke("bookingoff", 10);
+    }
+    public void order2s2dfbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("미로 구간입니다.\n 미로내의 힐팩으로 체력을 보충하며 미로의 출구로 가시오");
+        Invoke("bookingoff", 10);
+    }
+    public void order2s2rfbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("폭탄 구간입니다. \n하얀색 발판에서 숨을 돌릴 수 있습니다.");
+        Invoke("bookingoff", 10);
+    }
+    public void order2s2r2fbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("발판이 줄어들고있습니다!\n 하얀색 큐브를 최대한 빨리 찾으십시오!!");
+        Invoke("bookingoff", 15);
+    }
+    public void order2s2ddfbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("오일 저장소를 지키십시오!!\n 플레이어는 포탄 또는 몸으로 방어할수있습니다!!");
+        Invoke("bookingoff", 35);
+    }
+    public void order2s2dd2fbc()
+    {
+        igcvsscript.upsentenceononly();
+        igcvsscript.setupsentence("큐브를 통하여 다음장소로 이동하십시오");
     }
     public void bookingoff()
     {
         igcvsscript.upsentenceoffonly();
     }
+
     /*
     public void makeboomstop1()
     {

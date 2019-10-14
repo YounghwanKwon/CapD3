@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stage2Leftctrl : MonoBehaviour
 {
     public GameObject Road1;
+    [SerializeField] private GameObject s2m;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,8 @@ public class Stage2Leftctrl : MonoBehaviour
                 {
                     if (Switch13Script.colorset == 2 && Switch14Script.colorset == 3 && Switch15Script.colorset == 2 && Switch16Script.colorset == 2)
                     {
+                        stage2ManagerScript s2ms = s2m.GetComponent<stage2ManagerScript>();
+                        s2ms.order2s2l2fbc();
                         Road1.SetActive(true);
                     }
                 }

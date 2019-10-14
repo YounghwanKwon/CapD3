@@ -31,7 +31,7 @@ public class Cubewallrighttrigger : MonoBehaviour
             s1HDMDmscript.order2fbc();
         else if (s2manager)
         {
-            s2mscript.order2fbc();
+            s2mscript.order2s2rfbc();
             s2righttrigger.SetActive(true);
         }
         else

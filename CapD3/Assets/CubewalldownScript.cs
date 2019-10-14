@@ -36,7 +36,7 @@ public class CubewalldownScript : MonoBehaviour
         else if(StageSaveScript.StageNum == 2)
         {
             stage2ManagerScript s2managerScript = s2manager.GetComponent<stage2ManagerScript>();
-            s2managerScript.order2fbc();
+            s2managerScript.order2s2dfbc();
         }
         else
             Debug.Log("error5");

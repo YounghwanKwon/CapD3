@@ -34,7 +34,7 @@ public class CubewallleftScript : MonoBehaviour
         else if (s2manager)
         {
             stage2ManagerScript s2managerScript = s2manager.GetComponent<stage2ManagerScript>();
-            s2managerScript.order2fbc();
+            s2managerScript.order2s2lfbc();
         }
         else
             Debug.Log("error1");

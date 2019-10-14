@@ -80,6 +80,7 @@ public class GameSubCoreScript : MonoBehaviour
             else if (roundmove2)
             {
                 roundmove2.SetActive(true);
+                s2mscript.order2s2ddfbc();
                // Debug.Log("stage2 need otherthing");
             }
                

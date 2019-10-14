@@ -19,6 +19,7 @@ public class RoundMove : MonoBehaviour
     [SerializeField] private GameObject pausecanvas;
     [SerializeField] private GameObject resumebtn;
     [SerializeField] private GameObject NextStgBtn;
+    [SerializeField] private GameObject s2m;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,14 @@ public class RoundMove : MonoBehaviour
         InvokeRepeating("setpos", 0f, 0.01f);
         InvokeRepeating("movementstart2", 0f, 0.01f);
         InvokeRepeating("setpos2", 0f, 0.01f);
+        Invoke("gocubeorderfunc", 35);
     }
 
+    public void gocubeorderfunc()
+    {
+        stage2ManagerScript s2ms = s2m.GetComponent<stage2ManagerScript>();
+        s2ms.order2s2dd2fbc();
+    }
     // Update is called once per frame
     void Update()
     {
