@@ -8,7 +8,7 @@ public class SetRottoPlayer : MonoBehaviour
     public Vector3 SetVec;
     public float xpos;
     public float zpos;
-    public GameObject Golem;
+    [SerializeField] private GameObject Golem;
 
     // Start is called before the first frame update
     void Start()
