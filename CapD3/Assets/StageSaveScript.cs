@@ -4,9 +4,31 @@ using UnityEngine;
 
 public class recordforstage2
 {
-    int rank = 0;
-    string username = "";
-    string cleatime = "";
+    private int rank;
+    private string username;
+    private string cleartime;
+    private int stagenum;
+
+    public int Rank
+    {
+        set { this.rank = value; }
+        get { return this.rank; }
+    }
+    public string Username
+    {
+        set { this.username = value; }
+        get { return this.username; }
+    }
+    public string Cleartime
+    {
+        set { this.cleartime = value; }
+        get { return this.cleartime; }
+    }
+    public int Stagenum
+    {
+        set { this.stagenum = value; }
+        get { return this.stagenum; }
+    }
 }
 public class StageSaveScript : MonoBehaviour
 {
@@ -36,9 +58,16 @@ public class StageSaveScript : MonoBehaviour
     void Update()
     {
         
+
     }
     public void Makerecord1fortest()
     {
         recordforstage2 recordvalue1 = new recordforstage2();
+    }
+
+    public void globalfunc2()
+    {
+        if (StageNum == -1)
+            Debug.Log("stagenum -1 ? : " + StageSaveScript.StageNum);
     }
 }

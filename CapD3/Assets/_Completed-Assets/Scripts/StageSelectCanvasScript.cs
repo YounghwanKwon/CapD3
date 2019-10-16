@@ -87,6 +87,10 @@ public class StageSelectCanvasScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StageSaveScript.StageNum = -1;
+        Debug.Log("stagenum : " + StageSaveScript.StageNum);
+        StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
+        sss.globalfunc2();
         texts[0].text = "";
         texts[1].text = "";
     }
