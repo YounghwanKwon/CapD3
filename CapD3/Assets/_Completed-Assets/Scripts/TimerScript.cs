@@ -34,6 +34,10 @@ public class TimerScript : MonoBehaviour
         }
 
     }
+    public float gettc2()
+    {
+        return timeclock2;
+    }
 
     public void timepassoff()
     {

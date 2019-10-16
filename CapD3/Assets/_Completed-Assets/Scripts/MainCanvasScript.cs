@@ -18,6 +18,10 @@ public class MainCanvasScript : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+    public void ScoreBoardBtnPressed()
+    {
+        SceneManager.LoadScene("Scoreboard");
+    }
 
     public void exitapp()
     {
@@ -39,4 +43,5 @@ public class MainCanvasScript : MonoBehaviour
     {
         
     }
+
 }

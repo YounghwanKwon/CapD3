@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class StageSelectCanvasScript : MonoBehaviour
 {
+    private static float k = 0.1f;
     [SerializeField] private GameObject[] maps;
     [SerializeField] private GameObject[] canvas;
     [SerializeField] private GameObject[] tanks;
@@ -89,10 +90,16 @@ public class StageSelectCanvasScript : MonoBehaviour
     {
         StageSaveScript.StageNum = -1;
         Debug.Log("stagenum : " + StageSaveScript.StageNum);
-        StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
-        sss.globalfunc2();
+        //StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
+        //sss.globalfunc2();
+        //sss.Makerecord1fortest("username12312", 1.123f-k);
+        //kup();
         texts[0].text = "";
         texts[1].text = "";
+    }
+    void kup()
+    {
+        k += 0.01f;
     }
 
     // Update is called once per frame

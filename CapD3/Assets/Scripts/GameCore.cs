@@ -15,6 +15,7 @@ public class GameCore : MonoBehaviour
     [SerializeField] private GameObject pausecanvas;
     [SerializeField] private GameObject resumebtn;
     [SerializeField] private GameObject NextStgBtn;
+    [SerializeField] private GameObject ScoreboardBtn;
 
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
@@ -26,10 +27,14 @@ public class GameCore : MonoBehaviour
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
             if (!Tmanager)
             {
+                TimerScript ts = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();
+                StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
+                sss.Makerecord1fortest("Username1", ts.gettc2());
                 Time.timeScale = 0;
                 btncanvas.SetActive(false);
                 pausecanvas.SetActive(true);
                 NextStgBtn.SetActive(true);
+                ScoreboardBtn.SetActive(true);
                 resumebtn.SetActive(false);
                 if(text1)
                     text1.SetActive(true);

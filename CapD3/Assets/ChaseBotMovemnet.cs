@@ -30,7 +30,7 @@ public class ChaseBotMovemnet : MonoBehaviour
         {
             if (nav.velocity == Vector3.zero)
             {
-                Debug.Log("normal destination");
+                //Debug.Log("normal destination");
                 nav.SetDestination(WayPoint[count++].position);
                 if (count >= WayPoint.Length)
                 {
@@ -46,7 +46,7 @@ public class ChaseBotMovemnet : MonoBehaviour
                     count += (int)((Random.value * 4)-2);
                     if(count < 0 || count >9)
                         count = (int)(Mathf.Round(Random.value * 9));
-                    Debug.Log("forced chaned destination");
+                    //Debug.Log("forced chaned destination");
                     nav.SetDestination(WayPoint[count].position);
                     if (count >= WayPoint.Length)
                     {

@@ -54,11 +54,16 @@ public class WallCube : MonoBehaviour
             this.transform.position = new Vector3(0f, 0f, -1f);
             BallBomb0.SetActive(true);
             lazerturret.SetActive(true);
+            UICaptureslider.gameObject.SetActive(true);
             //lazerturret2.SetActive(true);
             FrontWall.SetActive(true);
             BackWall.SetActive(true);
-            CM.SetActive(true);
-            s1HDMDmscript.order2_1rfbc();
+            if(CM)
+                CM.SetActive(true);
+            if(s1manager)
+                s1mscript.order2fbc();
+            else if(s1HDMDmanager)
+                s1HDMDmscript.order2_1rfbc();
             StartCoroutine(Timer());
         }
         else

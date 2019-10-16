@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseCanvasScript : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class PauseCanvasScript : MonoBehaviour
     [SerializeField] private GameObject Btncanvas;
     [SerializeField] private GameObject pausecanvas;
 
+    public void ScoreboardBtnpressed()
+    {
+        SceneManager.LoadScene("Scoreboard");
+        Time.timeScale = 1;
+    }
     // Start is called before the first frame update
     void Start()
     {
