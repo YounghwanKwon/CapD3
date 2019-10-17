@@ -30,14 +30,14 @@ public class StageSelectCanvasScript : MonoBehaviour
     public void Stage1HDMDBtnPressed()
     {
         texts[0].text = "Destroy 'the Boss'(drone type)";
-        texts[1].text = "Collect blue cube 3 times\n(Follow the yellow arrow direction)";
+        texts[1].text = "Collect blue cube 4 times\n(Follow the yellow arrow direction)";
         stagenumber = 101;
         //SceneManager.LoadScene("Stage1");
     }
     public void Stage2BtnPressed()
     {
-        texts[0].text = "Developing";
-        texts[1].text = "Developing";
+        texts[0].text = "Destroy 'the Boss'(Golem type)";
+        texts[1].text = "Collect cube 4 times\n(Follow the yellow arrow direction)";
         stagenumber = 2;
         //SceneManager.LoadScene("Stage2");
     }
