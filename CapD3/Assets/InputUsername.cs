@@ -34,5 +34,9 @@ public class InputUsername : MonoBehaviour
         StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
         sss.Makerecord1fortest(UserName, ts.gettc2());
 
+=======
+        sss.Save();
+        Debug.Log("저장완료");
+>>>>>>> #13_tryscoreboard_save
     }
 }
