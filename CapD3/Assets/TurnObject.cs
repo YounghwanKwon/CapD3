@@ -12,7 +12,7 @@ public class TurnObject : MonoBehaviour
     void Start()
     {
         RotSpeed = new Vector3(0, 1f, 0);
-        InvokeRepeating("ObjectTurn", 0f, 0.01f);
+        Invoke("ObjectTurn", 0f);
     }
 
     // Update is called once per frame
@@ -24,5 +24,6 @@ public class TurnObject : MonoBehaviour
     {
         RotVec += RotSpeed;
         Lturret.transform.rotation = Quaternion.Euler(RotVec);
+        Invoke("ObjectTurn", Time.deltaTime);
     }
 }
