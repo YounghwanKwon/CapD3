@@ -38,8 +38,8 @@ public class ScoreBoardCanvasScript : MonoBehaviour
         rankingnum.text = "";
         for(int i = 0; i < StageSaveScript.records.GetLength(1); i++)
         {
-            Debug.Log(stagenum1);
-            Debug.Log(i);
+            //Debug.Log(stagenum1);
+            //Debug.Log(i);
             if (StageSaveScript.records[stagenum1, i] != null)
             {
                 if (i != 0)

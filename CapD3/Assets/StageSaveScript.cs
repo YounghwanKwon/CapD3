@@ -58,6 +58,7 @@ public class StageSaveScript : MonoBehaviour
     void Awake()
     {
         donotdestory();
+        Load();
     }
     void donotdestory()
     {
@@ -89,7 +90,7 @@ public class StageSaveScript : MonoBehaviour
     {
 
         //setdefaultrecords();
-        Load();
+        //Load();
     }
     /*
     public void setdefaultrecords()
@@ -127,6 +128,14 @@ public class StageSaveScript : MonoBehaviour
         //Debug.Log("Stagenum : " + recordvalue1.Stagenum);
         setinrecords(recordvalue1);
     }
+    public recordforstage2 Makerecord1fortest1(string Useraname1, float time1,int rank1)
+    {
+        recordforstage2 recordvalue1 = new recordforstage2();
+        recordvalue1.Rank = rank1;
+        recordvalue1.Username = Useraname1;
+        recordvalue1.Cleartime = time1;
+        return recordvalue1;
+    }
 
     public void setinrecords(recordforstage2 newreco)
     {
@@ -159,7 +168,7 @@ public class StageSaveScript : MonoBehaviour
             }
         }
         Debug.Log(newrank);
-        showrecords();
+        //showrecords();
     }
 
     public void showrecords()
@@ -210,19 +219,27 @@ public class StageSaveScript : MonoBehaviour
                 }
             }
         }
+        Load();
     }
     public void Load()
     {
+        Debug.Log("load begin");
         for (int m = 0; m < records.GetLength(0); m++)
         {
             for (int n = 0; n < records.GetLength(1); n++)
             {
-                if(records[m,n]!= null)
-                {
-                    records[m, n].Rank = PlayerPrefs.GetInt("Rank" + m + "+" + n);
-                    records[m, n].Username = PlayerPrefs.GetString("Username" + m + "+" + n);
-                    records[m, n].Cleartime = PlayerPrefs.GetFloat("ClearTime" + m + "+" + n);
-                }
+                
+                records[m,n] = Makerecord1fortest1(PlayerPrefs.GetString("Username" + m + "+" + n,"Undefined"), PlayerPrefs.GetFloat("ClearTime" + m + "+" + n,n*50.0f+200f), PlayerPrefs.GetInt("Rank" + m + "+" + n,n+1));
+                //print(PlayerPrefs.GetFloat("ClearTime" + m + "+" + n));
+                //records[m, n].Rank = PlayerPrefs.GetInt("Rank" + m + "+" + n);
+                //records[m, n].Username = PlayerPrefs.GetString("Username" + m + "+" + n);
+                //records[m, n].Cleartime = PlayerPrefs.GetFloat("ClearTime" + m + "+" + n);
+
+                //}
+                //else
+                /*{
+                    Debug.Log("can't load this : m" + m + "n" + n);
+                }*/
             }
         }
     }

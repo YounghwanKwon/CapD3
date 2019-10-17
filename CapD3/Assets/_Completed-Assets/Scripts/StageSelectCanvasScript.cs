@@ -90,8 +90,8 @@ public class StageSelectCanvasScript : MonoBehaviour
     {
         StageSaveScript.StageNum = -1;
         Debug.Log("stagenum : " + StageSaveScript.StageNum);
-        //StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
-        //sss.globalfunc2();
+        StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
+        sss.Load();
         //sss.Makerecord1fortest("username12312", 1.123f-k);
         //kup();
         texts[0].text = "";
