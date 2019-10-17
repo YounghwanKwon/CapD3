@@ -87,8 +87,9 @@ public class StageSaveScript : MonoBehaviour
 
     void Start()
     {
-        
+
         //setdefaultrecords();
+        Load();
     }
     /*
     public void setdefaultrecords()
@@ -192,5 +193,31 @@ public class StageSaveScript : MonoBehaviour
     {
         if (StageNum == -1)
             Debug.Log("stagenum -1 ? : " + StageSaveScript.StageNum);
+    }
+    public void Save()
+    {
+        for (int l = 0; l < 3; l++)
+        {
+            for (int k = 0; k < 9; k++)
+            {
+                Debug.Log("저장완료" + l + "+" + k);
+                Debug.Log(records[l, k].Rank);
+                PlayerPrefs.SetInt("Rank" + l +"+"+ k, records[l, k].Rank);
+                PlayerPrefs.SetString("Username" + l +"+"+ k, records[l, k].Username);
+                PlayerPrefs.SetFloat("ClearTime" + l + "+" + k, records[l, k].Cleartime);
+            }
+        }
+    }
+    public void Load()
+    {
+        for (int m = 0; m < 3; m++)
+        {
+            for (int n = 0; n < 9; n++)
+            {
+                records[m, n].Rank = PlayerPrefs.GetInt("Rank" + m + "+" + n);
+                records[m, n].Username = PlayerPrefs.GetString("Username" + m + "+" + n);
+                records[m, n].Cleartime = PlayerPrefs.GetFloat("ClearTime" + m + "+" + n);
+            }
+        }
     }
 }
