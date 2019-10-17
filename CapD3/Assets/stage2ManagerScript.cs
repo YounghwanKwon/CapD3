@@ -78,7 +78,7 @@ public class stage2ManagerScript : MonoBehaviour
     {
         first++;
         igcvsscript.upsentenceononly();
-        igcvsscript.setupsentence("퍼즐 구간입니다. \n남서쪽의 퍼즐을 보고 북동쪽의 퍼즐을 맞추시요");
+        igcvsscript.setupsentence("퍼즐 구간입니다. \n남서쪽의 퍼즐을 보고 북동쪽의 퍼즐을 맞추시오");
         Invoke("bookingoff", 10);
     }
     public void order2s2l2fbc()

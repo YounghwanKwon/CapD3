@@ -11,7 +11,9 @@ public class btnctrlfire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // Start is called before the first frame update
     void Start()
     {
-
+        crntBtn = 0;
+        firebtn = 0;
+        pressed = false;
     }
 
     // Update is called once per frame

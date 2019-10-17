@@ -38,6 +38,9 @@ namespace Complete
 
         private void Start ()
         {
+            btnctrlfire.pressed = false;
+            btnctrlfire.crntBtn = 0;
+            btnctrlfire.firebtn = 0;
             refillbullet();
             addbullet();
             // The fire axis is based on the player number.
