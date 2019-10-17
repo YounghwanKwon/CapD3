@@ -24,7 +24,7 @@ public class stage1ManagerScript : MonoBehaviour
     [SerializeField] private GameObject[] planes;
     [SerializeField] private GameObject dropshell2;
     [SerializeField] private GameObject dropshell3;
-    [SerializeField] private float leftdifficulty = 0.85f;
+    [SerializeField] private float leftdifficulty ;
     [SerializeField] private Text text1;
 
     private IngameCanvasScript igcvsscript;
@@ -112,7 +112,7 @@ public class stage1ManagerScript : MonoBehaviour
                     Drophere2(air.transform);
                 }
             }
-            Invoke("bombleftB", leftdifficulty);
+            Invoke("bombleftB", Time.deltaTime*51);
         }
     }
 
@@ -131,7 +131,7 @@ public class stage1ManagerScript : MonoBehaviour
                     Drophere2(air.transform);
                 }
             }
-            Invoke("bombleftA", leftdifficulty);
+            Invoke("bombleftA", Time.deltaTime * 51);
         }
     }
     void bombleftC()
@@ -231,7 +231,7 @@ public class stage1ManagerScript : MonoBehaviour
                 setxpos(transs);
                 Drophere(transs);
             }
-            Invoke("setandbombattranss", frequency);
+            Invoke("setandbombattranss", Time.deltaTime*90);
         }
     }
 

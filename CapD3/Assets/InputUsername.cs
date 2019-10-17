@@ -33,5 +33,6 @@ public class InputUsername : MonoBehaviour
         TimerScript ts = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();
         StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
         sss.Makerecord1fortest(UserName, ts.gettc2());
+
     }
 }
