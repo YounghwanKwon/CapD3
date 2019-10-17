@@ -196,27 +196,33 @@ public class StageSaveScript : MonoBehaviour
     }
     public void Save()
     {
-        for (int l = 0; l < 3; l++)
+        for (int l = 0; l < records.GetLength(0); l++)
         {
-            for (int k = 0; k < 9; k++)
+            for (int k = 0; k < records.GetLength(1); k++)
             {
-                Debug.Log("저장완료" + l + "+" + k);
-                Debug.Log(records[l, k].Rank);
-                PlayerPrefs.SetInt("Rank" + l +"+"+ k, records[l, k].Rank);
-                PlayerPrefs.SetString("Username" + l +"+"+ k, records[l, k].Username);
-                PlayerPrefs.SetFloat("ClearTime" + l + "+" + k, records[l, k].Cleartime);
+                if(records[l,k] != null)
+                {
+                    Debug.Log("저장완료" + l + "+" + k);
+                    Debug.Log(records[l, k].Rank);
+                    PlayerPrefs.SetInt("Rank" + l + "+" + k, records[l, k].Rank);
+                    PlayerPrefs.SetString("Username" + l + "+" + k, records[l, k].Username);
+                    PlayerPrefs.SetFloat("ClearTime" + l + "+" + k, records[l, k].Cleartime);
+                }
             }
         }
     }
     public void Load()
     {
-        for (int m = 0; m < 3; m++)
+        for (int m = 0; m < records.GetLength(0); m++)
         {
-            for (int n = 0; n < 9; n++)
+            for (int n = 0; n < records.GetLength(1); n++)
             {
-                records[m, n].Rank = PlayerPrefs.GetInt("Rank" + m + "+" + n);
-                records[m, n].Username = PlayerPrefs.GetString("Username" + m + "+" + n);
-                records[m, n].Cleartime = PlayerPrefs.GetFloat("ClearTime" + m + "+" + n);
+                if(records[m,n]!= null)
+                {
+                    records[m, n].Rank = PlayerPrefs.GetInt("Rank" + m + "+" + n);
+                    records[m, n].Username = PlayerPrefs.GetString("Username" + m + "+" + n);
+                    records[m, n].Cleartime = PlayerPrefs.GetFloat("ClearTime" + m + "+" + n);
+                }
             }
         }
     }
