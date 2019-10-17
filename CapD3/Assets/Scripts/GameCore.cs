@@ -18,6 +18,8 @@ public class GameCore : MonoBehaviour
     [SerializeField] private GameObject ScoreboardBtn;
 
     [SerializeField] private GameObject Tmanager;
+    public GameObject InputName;
+    public GameObject InputButton;
     private TutorialManagerScript Tmanagerscript;
 
     private void OnTriggerEnter(Collider other)
@@ -27,10 +29,14 @@ public class GameCore : MonoBehaviour
             Debug.Log("플레이어가 코어접촉 플레이어 승리");
             if (!Tmanager)
             {
+                /*
                 TimerScript ts = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();
-                StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
+                StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();                
                 sss.Makerecord1fortest("Username1", ts.gettc2());
+                */
                 Time.timeScale = 0;
+                InputName.SetActive(true);
+                InputButton.SetActive(true);
                 btncanvas.SetActive(false);
                 pausecanvas.SetActive(true);
                 NextStgBtn.SetActive(true);

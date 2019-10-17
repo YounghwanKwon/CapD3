@@ -15,6 +15,8 @@ public class NWmanagerScript : MonoBehaviour
     [SerializeField] private GameObject ScoreboardBtn;
     private bool alive1;
     private bool alive2;
+    public GameObject InputName;
+    public GameObject InputButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +41,15 @@ public class NWmanagerScript : MonoBehaviour
     {
         if(!alive1 && !alive2)
         {
+            /*
             TimerScript ts = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();
             StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
             sss.Makerecord1fortest("Username1", ts.gettc2());
+            */
             Time.timeScale = 0;
             Debug.Log("UI player win need");
+            InputName.SetActive(true);
+            InputButton.SetActive(true);
             winUI.SetActive(true);
             btncanvas.SetActive(false);
             pausecanvas.SetActive(true);
