@@ -42,7 +42,6 @@ public class SwingHammerCtrl : MonoBehaviour
             xpos -= 0.1f;
             float t = (-xpos * -xpos * -1) + 100;
             t = Mathf.Round(t * 10) * 0.1f;
-            //Debug.Log("t:" + t + "xpos:" + xpos);
             zpos = Mathf.Sqrt(t);
         }
         

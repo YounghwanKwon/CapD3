@@ -6,14 +6,11 @@ public class Switch16Script : MonoBehaviour
 {
     public static int colorset;
     public bool status = false;
-
-    // Start is called before the first frame update
     void Start()
     {
         colorset = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (colorset == 0)

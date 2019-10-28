@@ -7,13 +7,7 @@ public class Stage2Leftctrl : MonoBehaviour
     public GameObject Road1;
     [SerializeField] private GameObject s2m;
     private bool did = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(did == false)

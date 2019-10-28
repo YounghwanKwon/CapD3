@@ -30,18 +30,14 @@ public class WallCube : MonoBehaviour
     public float time = 0;
     public float SettingTime = 0;
     public bool TrapStart = false;
-    // Start is called before the first frame update
     void Start()
     {
         if (s1manager)
             s1mscript = s1manager.GetComponent<stage1ManagerScript>();
         else if (s1HDMDmanager)
             s1HDMDmscript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
-        else
-            Debug.Log("error8");
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -55,7 +51,6 @@ public class WallCube : MonoBehaviour
             BallBomb0.SetActive(true);
             lazerturret.SetActive(true);
             UICaptureslider.gameObject.SetActive(true);
-            //lazerturret2.SetActive(true);
             FrontWall.SetActive(true);
             BackWall.SetActive(true);
             if(CM)
@@ -66,11 +61,6 @@ public class WallCube : MonoBehaviour
                 s1HDMDmscript.order2_1rfbc();
             StartCoroutine(Timer());
         }
-        else
-        {
-            Debug.Log("버그");
-        }
-
     }
     IEnumerator Timer()
     {
@@ -119,15 +109,13 @@ public class WallCube : MonoBehaviour
             {
                 setslider();
                 this.gameObject.SetActive(false);
-                //FrontWall.SetActive(false);
                 exitarrow.SetActive(true);
                 BackWall.SetActive(false);
                 if (s1manager)
                     s1mscript.order3gooutright();
                 else if (s1HDMDmanager)
                     s1HDMDmscript.order3gooutright();
-                else
-                    Debug.Log("error9");
+                
             }
             yield return new WaitForSeconds(1);
         }
@@ -142,7 +130,6 @@ public class WallCube : MonoBehaviour
         else
         {
             UICaptureslider.gameObject.SetActive(false);
-            Debug.Log("i hoped this slider disable");
         }
 
     }

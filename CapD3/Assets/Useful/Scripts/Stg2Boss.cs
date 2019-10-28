@@ -14,9 +14,6 @@ public class Stg2Boss : MonoBehaviour
     private TutorialManagerScript Tmanagerscript;
     [SerializeField] private GameObject NWmanager;
     public GameObject ThrowAway;
-    //public Animation ani;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +24,6 @@ public class Stg2Boss : MonoBehaviour
     }
     public void TakeDamage(int i)
     {
-        Debug.Log("take damaged : " + this);
         CurrentHPcount -= i;
         setUIHP();
         if (Tmanager)
@@ -52,27 +48,16 @@ public class Stg2Boss : MonoBehaviour
         {
             NWmanagerScript nwscript = NWmanager.GetComponent<NWmanagerScript>();
             nwscript.setdisactive1();
-            Debug.Log("죽음1");
             gameObject.GetComponent<Animator>().SetBool("isDead1", true);
         }
         else if (this.gameObject.CompareTag("golem2") && NWmanager)
         {
             NWmanagerScript nwscript = NWmanager.GetComponent<NWmanagerScript>();
             nwscript.setdisactive2();
-            Debug.Log("죽음2");
             gameObject.GetComponent<Animator>().SetBool("isDead2", true);
         }
         m_Dead = true;
         GameObject thisparticle = Instantiate(deadparticle, transform);
-        //thisparticle.SetActive(true);
-        //gameObject.SetActive(false);
         ThrowAway.SetActive(false);
-        
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

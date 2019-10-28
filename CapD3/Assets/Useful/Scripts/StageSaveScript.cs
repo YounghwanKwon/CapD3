@@ -8,8 +8,6 @@ public class recordforstage2
     private int rank;
     private string username;
     private float cleartime;
-    //private int stagenum;
-
     public int Rank
     {
         set { this.rank = value; }
@@ -24,18 +22,12 @@ public class recordforstage2
     {
         set { this.cleartime = value; }
         get { return this.cleartime; }
-    }/*
-    public int Stagenum
-    {
-        set { this.stagenum = value; }
-        get { return this.stagenum; }
-    }*/
+    }
     public recordforstage2()
     {
         rank = 0;
         username = "undefined in class";
         cleartime = 0f;
-        //Stagenum = StageSaveScript.StageNum;
     }
 }
 public class StageSaveScript : MonoBehaviour
@@ -46,14 +38,6 @@ public class StageSaveScript : MonoBehaviour
     private static bool onepls=false;
     public static recordforstage2[,] records = new recordforstage2[3,9];
 
-    public void globalfunc1()
-    {
-        Debug.Log("connectsuceess!!");
-        Debug.Log("connectsuceess!!");
-        Debug.Log("connectsuceess!!");
-        Debug.Log("connectsuceess!!");
-        Debug.Log("connectsuceess!!");
-    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -86,46 +70,13 @@ public class StageSaveScript : MonoBehaviour
         return getnum;
     }
 
-    void Start()
-    {
 
-        //setdefaultrecords();
-        //Load();
-    }
-    /*
-    public void setdefaultrecords()
-    {
-
-        //Debug.Log(records[0]);
-        Debug.Log(records[0].Rank);
-        for (int i=0; i < records.Length; i++)
-        {
-            if(records[i] == null)
-            {
-                records[i].Rank = i+1;
-                records[i].Username = "undefined";
-                records[i].Cleartime = 0.0f;
-                records[i].Stagenum = StageNum;
-            }
-        }
-    }
-    */
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void Makerecord1fortest(string Useraname1,float time1 )
     {
         recordforstage2 recordvalue1 = new recordforstage2();
         recordvalue1.Rank = setrank(time1);
         recordvalue1.Username = Useraname1;
         recordvalue1.Cleartime = time1;
-        //recordvalue1.Stagenum = StageNum;
-        //Debug.Log("rank : " + recordvalue1.Rank);
-        //Debug.Log("Username : " + recordvalue1.Username);
-        //Debug.Log("Cleartime : " + recordvalue1.Cleartime);
-        //Debug.Log("Stagenum : " + recordvalue1.Stagenum);
         setinrecords(recordvalue1);
     }
     public recordforstage2 Makerecord1fortest1(string Useraname1, float time1,int rank1)
@@ -167,21 +118,6 @@ public class StageSaveScript : MonoBehaviour
                     newrank++;
             }
         }
-        Debug.Log(newrank);
-        //showrecords();
-    }
-
-    public void showrecords()
-    {
-        checknum();
-        for (int i=0; i < records.GetLength(1); i++)
-        {
-            if(records[getnum,i] != null)
-            {
-                Debug.Log(records[getnum, i].Cleartime);
-                Debug.Log(records[getnum, i].Rank);
-            }
-        }
     }
 
     public int setrank(float time1)
@@ -190,7 +126,6 @@ public class StageSaveScript : MonoBehaviour
         int guessrank = 1;
         for (int i =0; i < records.GetLength(1); i++)
         {
-            Debug.Log(getnum);
             if (records[getnum, i] != null && time1 >= records[getnum, i].Cleartime )
             {
                 guessrank++;
@@ -198,11 +133,7 @@ public class StageSaveScript : MonoBehaviour
         }
         return guessrank;
     }
-    public void globalfunc2()
-    {
-        if (StageNum == -1)
-            Debug.Log("stagenum -1 ? : " + StageSaveScript.StageNum);
-    }
+    
     public void Save()
     {
         for (int l = 0; l < records.GetLength(0); l++)
@@ -211,8 +142,6 @@ public class StageSaveScript : MonoBehaviour
             {
                 if(records[l,k] != null)
                 {
-                    Debug.Log("저장완료" + l + "+" + k);
-                    Debug.Log(records[l, k].Rank);
                     PlayerPrefs.SetInt("Rank" + l + "+" + k, records[l, k].Rank);
                     PlayerPrefs.SetString("Username" + l + "+" + k, records[l, k].Username);
                     PlayerPrefs.SetFloat("ClearTime" + l + "+" + k, records[l, k].Cleartime);
@@ -223,23 +152,11 @@ public class StageSaveScript : MonoBehaviour
     }
     public void Load()
     {
-        Debug.Log("load begin");
         for (int m = 0; m < records.GetLength(0); m++)
         {
             for (int n = 0; n < records.GetLength(1); n++)
             {
-                
                 records[m,n] = Makerecord1fortest1(PlayerPrefs.GetString("Username" + m + "+" + n,"Undefined"), PlayerPrefs.GetFloat("ClearTime" + m + "+" + n,n*50.0f+200f), PlayerPrefs.GetInt("Rank" + m + "+" + n,n+1));
-                //print(PlayerPrefs.GetFloat("ClearTime" + m + "+" + n));
-                //records[m, n].Rank = PlayerPrefs.GetInt("Rank" + m + "+" + n);
-                //records[m, n].Username = PlayerPrefs.GetString("Username" + m + "+" + n);
-                //records[m, n].Cleartime = PlayerPrefs.GetFloat("ClearTime" + m + "+" + n);
-
-                //}
-                //else
-                /*{
-                    Debug.Log("can't load this : m" + m + "n" + n);
-                }*/
             }
         }
     }
