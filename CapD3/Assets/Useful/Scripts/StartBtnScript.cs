@@ -10,8 +10,6 @@ public class StartBtnScript : MonoBehaviour
     [SerializeField] private GameObject testIngamecanvas;
     [SerializeField] private GameObject buttoncanvas;
     [SerializeField] private GameObject turrets;
-    // Start is called before the first frame update
-
     public void whenbuttonpressed()
     {
         testmap1.gameObject.SetActive(true);
@@ -20,21 +18,5 @@ public class StartBtnScript : MonoBehaviour
         gameObject.SetActive(false);
         testIngamecanvas.gameObject.SetActive(true);
         buttoncanvas.SetActive(true);
-
-        /*
-        Slider UIhealthslider = testIngamecanvas.GetComponentInChildren<Slider>();
-        UIhealthslider.gameObject.SetActive(false);
-        */
-
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

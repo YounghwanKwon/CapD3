@@ -16,8 +16,6 @@ public class ResetBtnScript : MonoBehaviour
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject exitBtn;
     private int stagenumber;
-    //[SerializeField] private GameObject completedtuesdaymap;
-    // Start is called before the first frame update
 
     public void whenresetbtnpressed()
     {
@@ -30,14 +28,6 @@ public class ResetBtnScript : MonoBehaviour
             SceneManager.LoadScene("Tutorial");
         else if (StageSaveScript.StageNum == 101)
             SceneManager.LoadScene("Stage1hardmode");
-        else if (StageSaveScript.StageNum == 3)
-            SceneManager.LoadScene("Lab2");
-        else
-            Debug.Log("망함.. stagenumber : " + stagenumber);
-        //Debug.Log("reset버튼이 눌림");
-        //ExitScript escscript = exitBtn.GetComponent<ExitScript>();
-        //escscript.countup();
-        //tryreset();
     }
     public void setstage(int number)
     {
@@ -70,32 +60,5 @@ public class ResetBtnScript : MonoBehaviour
         temptimer.timepasson();
 
         this.gameObject.SetActive(false);
-        /*
-        destorypart();
-        instantiatepart();
-        movingpart();
-        */
-    }
-    void destorypart()
-    {
-
-    }
-    void instantiatepart()
-    {
-
-    }
-    void movingpart()
-    {
-
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

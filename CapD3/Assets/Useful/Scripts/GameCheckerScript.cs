@@ -9,7 +9,6 @@ public class GameCheckerScript : MonoBehaviour
     public int stagenumber;
     public bool isgoing = false;
 
-
     // Start is called before the first frame update
     public void setisgoingture()
     {
@@ -26,15 +25,5 @@ public class GameCheckerScript : MonoBehaviour
     public void setstagenumber1()
     {
         stagenumber = 1;
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -28,16 +28,8 @@ namespace Complete
 
                 this.gameObject.SetActive(false);
                 regentry();
-                //Destroy(this.gameObject);
-
             }
         }
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
         void Update()
         {
             spin();
@@ -46,17 +38,10 @@ namespace Complete
         void spin()
         {
             transform.Rotate(new Vector3(0, 90, 0) * Time.deltaTime);
-
         }
         
-        IEnumerator Waiting()
-        {
-            yield return waiting;
-        }
-
         void regentry()
         {
-            Debug.Log("regentry진입");
             Invoke("regen", 5);
         }
         void regen()

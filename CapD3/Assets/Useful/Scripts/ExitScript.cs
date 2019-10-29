@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Unity.SenceManageMent;
 
 public class ExitScript : MonoBehaviour
 {
     public static int resetcount = 0;
-    // Start is called before the first frame update
 
     public void whenexitpressed()
     {
@@ -21,15 +19,5 @@ public class ExitScript : MonoBehaviour
         {
             this.gameObject.SetActive(true);
         }
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

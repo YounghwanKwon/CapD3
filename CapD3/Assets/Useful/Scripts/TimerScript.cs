@@ -28,22 +28,16 @@ public class TimerScript : MonoBehaviour
             timeclock2 = Mathf.Round(timeclock1 * 10) * 0.1f;
 
             timertext.text = "Time : " + timeclock2;
-
-            //timeclock = Time.deltaTime;
-            //timertext.text = "Time : " + ;
         }
-
     }
     public float gettc2()
     {
         return timeclock2;
     }
-
     public void timepassoff()
     {
         timepassing = false;
     }
-
     public void timepasson()
     {
         timepassing = true;
@@ -52,5 +46,4 @@ public class TimerScript : MonoBehaviour
     {
         timeclock1 = 0f;
     }
-
 }

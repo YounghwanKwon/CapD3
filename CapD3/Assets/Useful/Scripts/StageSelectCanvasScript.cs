@@ -18,28 +18,24 @@ public class StageSelectCanvasScript : MonoBehaviour
         texts[0].text = "Learning how to play this game";
         texts[1].text = "You can learn \nhow to move, shoot, heal\n what to do to win";
         stagenumber = 0;
-        //SceneManager.LoadScene("Tutorial");
     }
     public void Stage1BtnPressed()
     {
         texts[0].text = "Destroy 'the Boss'(drone type)";
         texts[1].text = "Collect blue cube 3 times\n(Follow the yellow arrow direction)";
         stagenumber = 1;
-        //SceneManager.LoadScene("Stage1");
     }
     public void Stage1HDMDBtnPressed()
     {
         texts[0].text = "Destroy 'the Boss'(drone type)";
         texts[1].text = "Collect blue cube 4 times\n(Follow the yellow arrow direction)";
         stagenumber = 101;
-        //SceneManager.LoadScene("Stage1");
     }
     public void Stage2BtnPressed()
     {
         texts[0].text = "Destroy 'the Boss'(Golem type)";
         texts[1].text = "Collect cube 4 times\n(Follow the yellow arrow direction)";
         stagenumber = 2;
-        //SceneManager.LoadScene("Stage2");
     }
     public void Lab2BtnPressed()
     {
@@ -69,15 +65,11 @@ public class StageSelectCanvasScript : MonoBehaviour
             SceneManager.LoadScene("Stage2");
         else if (stagenumber == 101)
             SceneManager.LoadScene("Stage1hardmode");
-        else
-            Debug.Log(stagenumber);
-
     }
     public void whenstartfored()
     {
         texts[0].text = "";
         texts[1].text = "Select stage first\n And Enjoy it";
-        Debug.Log(stagenumber);
     }
 
     public void StageSelectCanvasDisappearing()
@@ -89,22 +81,9 @@ public class StageSelectCanvasScript : MonoBehaviour
     void Start()
     {
         StageSaveScript.StageNum = -1;
-        Debug.Log("stagenum : " + StageSaveScript.StageNum);
         StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
         sss.Load();
-        //sss.Makerecord1fortest("username12312", 1.123f-k);
-        //kup();
         texts[0].text = "";
         texts[1].text = "";
-    }
-    void kup()
-    {
-        k += 0.01f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

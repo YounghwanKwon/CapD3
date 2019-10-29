@@ -25,7 +25,6 @@ public class CapturePoint : MonoBehaviour
     private bool Istotallycaptured = false;
     private DateTime OneSecLater;
     private TimeSpan span;
-    // Start is called before the first frame update
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
@@ -64,10 +63,8 @@ public class CapturePoint : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("n초가지남 count: " + count);
                     test1.SetActive(true);
 
-                    //UICapturingSlider.gameObject.SetActive(false);
                     TimerScript temptimer = timer.GetComponent<TimerScript>();
                     temptimer.timepassoff();
                     PauseCanvasScript canvasscript = canvas.GetComponent<PauseCanvasScript>();
@@ -76,18 +73,9 @@ public class CapturePoint : MonoBehaviour
                     Invoke("deactive", 2);
                     onlyone = true;
                 }
-                
             }
-
         }
-        else if (capturing == false)
-        {
-            Debug.Log("too far to capture");
-        }
-        else if (capturing == true) { Debug.Log("정상"); }
-        else
-            Debug.Log("ㅈ됨;;count : "+ count);
-        Debug.Log("end tryCapturing  count : " + count);
+        
     }
     void deactive()
     {
@@ -111,39 +99,16 @@ public class CapturePoint : MonoBehaviour
     }
     void tryaddcount()
     {
-        //float temp = 0;
-        //temp += Time.deltaTime;
-        //count += Mathf.Round(temp * 10) * 0.1f;
-
         count += Time.deltaTime;
         SetUICapturingSlider();
-        Debug.Log("count: " + count);
-
-
-        //Debug.Log("now.tolocaltime: " + now.ToLocalTime());
-        /*TimeSpan span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
-        while (span.TotalSeconds <= 1)
-        {
-            span = DateTime.Now.ToLocalTime() - now.ToLocalTime();
-        }
-        if (capturing == true)
-            count++;*/
     }
     void OneSeclaterfunc()
     {
         
         OneSecLater = DateTime.Now;
         span = OneSecLater - now;
-        Debug.Log("span.totalSeconds: " + span.TotalSeconds);
-        Debug.Log("span.TotalMilliseconds: " + span.TotalMilliseconds);
-        //count += span.TotalMilliseconds;
-        
-        Debug.Log("count: " + count);
         span = TimeSpan.Zero;
         now = DateTime.Now;
-        //capturing = false;
-        
-
     }
     void Start()
     {
@@ -157,7 +122,6 @@ public class CapturePoint : MonoBehaviour
             Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
         }
     }
-
     // Update is called once per frame
     void Update()
     {
