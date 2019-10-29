@@ -42,7 +42,6 @@ public class NWmanagerScript : MonoBehaviour
         if(!alive1 && !alive2)
         {
             Time.timeScale = 0;
-            Debug.Log("UI player win need");
             InputName.SetActive(true);
             InputButton.SetActive(true);
             winUI.SetActive(true);
