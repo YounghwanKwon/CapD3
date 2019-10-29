@@ -41,12 +41,6 @@ public class Effect_Raycast_Laser : MonoBehaviour {
         if (lazerdamagef == 0)
             lazerdamagef = 0.3f;
     }
-	
-    // Update is called once per frame
-    void Update () {
-
-
-    }
 
     public void LTurretDamage()
     {
@@ -85,7 +79,6 @@ public class Effect_Raycast_Laser : MonoBehaviour {
     {
         m_Dead = true;
         TankObj.SetActive(false);
-        //Time.timeScale = 0;
         ResetBtn.SetActive(true);
         SSBtn.SetActive(true);
     }
