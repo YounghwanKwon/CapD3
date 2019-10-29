@@ -13,12 +13,6 @@ public class MovementE : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
     
     public void poweronfunc()

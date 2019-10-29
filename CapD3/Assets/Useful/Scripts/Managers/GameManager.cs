@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public int m_NumRoundsToWin = 5;        
     public float m_StartDelay = 3f;         
     public float m_EndDelay = 3f;           
-    public CameraControl m_CameraControl;   
+    //public CameraControl m_CameraControl;   
     public Text m_MessageText;              
     public GameObject m_TankPrefab;         
     public TankManager[] m_Tanks;           
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
             targets[i] = m_Tanks[i].m_Instance.transform;
         }
 
-        m_CameraControl.m_Targets = targets;
+       // m_CameraControl.m_Targets = targets;
     }
 
 

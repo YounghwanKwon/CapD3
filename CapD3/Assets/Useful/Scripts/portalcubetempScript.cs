@@ -7,8 +7,6 @@ public class portalcubetempScript : MonoBehaviour
     [SerializeField] private Transform Destination;
     [SerializeField] private GameObject NWmanager;
     [SerializeField] private GameObject roundmove;
-    //[SerializeField] private GameObject[] sliders;
-    // Start is called before the first frame update
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,8 +18,6 @@ public class portalcubetempScript : MonoBehaviour
                 NWmanager.SetActive(true);
             if (roundmove)
                 roundmove.SetActive(true);
-            //sliders[0].SetActive(true);
-            //sliders[1].SetActive(true);
         }
     }
 }

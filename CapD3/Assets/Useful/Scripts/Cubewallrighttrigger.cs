@@ -24,7 +24,6 @@ public class Cubewallrighttrigger : MonoBehaviour
     public void func1()
     {
         wall.SetActive(true);
-        //stage1ManagerScript s1managerscript = s1manager.GetComponent<stage1ManagerScript>();
         if (s1manager)
             s1mscript.order2fbc();
         else if (s1HDMDmanager)
@@ -34,9 +33,7 @@ public class Cubewallrighttrigger : MonoBehaviour
             s2mscript.order2s2rfbc();
             s2righttrigger.SetActive(true);
         }
-        else
-            Debug.Log("error7");
-this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
@@ -47,14 +44,5 @@ this.gameObject.SetActive(false);
             s1HDMDmscript = s1HDMDmanager.GetComponent<stage1HDMDManagerScript>();
         else if (s2manager)
             s2mscript = s2manager.GetComponent<stage2ManagerScript>();
-        else
-            Debug.Log("error6");
-            
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

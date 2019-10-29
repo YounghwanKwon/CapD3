@@ -7,13 +7,6 @@ public class btnctrlrr : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool isBtnDown = false;
     public static float moveforr = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (isBtnDown)
@@ -25,7 +18,6 @@ public class btnctrlrr : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             moveforr = 0;
         }
     }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         isBtnDown = true;

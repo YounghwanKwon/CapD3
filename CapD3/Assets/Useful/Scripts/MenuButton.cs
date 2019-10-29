@@ -9,14 +9,6 @@ public class MenuButton : MonoBehaviour, IPointerClickHandler
     public GameObject MoveImage;
     public GameObject FireButton;
     public GameObject ResumeButton;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -41,5 +33,4 @@ public class MenuButton : MonoBehaviour, IPointerClickHandler
     {
         PauseBtn = true;
     }
-
 }

@@ -41,11 +41,6 @@ public class NWmanagerScript : MonoBehaviour
     {
         if(!alive1 && !alive2)
         {
-            /*
-            TimerScript ts = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();
-            StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();
-            sss.Makerecord1fortest("Username1", ts.gettc2());
-            */
             Time.timeScale = 0;
             Debug.Log("UI player win need");
             InputName.SetActive(true);
@@ -62,14 +57,8 @@ public class NWmanagerScript : MonoBehaviour
                 TimerScript temptimer = timer.GetComponent<TimerScript>();
                 temptimer.timepassoff();
             }
-
         }
         else
             Debug.Log("not enough : "+alive1 +" "+ alive2);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

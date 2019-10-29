@@ -26,14 +26,4 @@ public class HDMDforleft1Script : MonoBehaviour
             s1HDMDmscript.order2_1lfbc();
         }
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

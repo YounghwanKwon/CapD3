@@ -9,18 +9,10 @@ public class SetRottoPlayer : MonoBehaviour
     public float xpos;
     public float zpos;
     [SerializeField] private GameObject Golem;
-
-    // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         InvokeRepeating("SetRot", 0f, 0.01f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     void SetRot()
     {

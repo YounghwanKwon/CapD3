@@ -14,14 +14,6 @@ public class leaderboard : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -60,9 +52,5 @@ public class leaderboard : MonoBehaviour
             }
             ClearTime = 0;
         }        
-    }
-    void LeaderSet()
-    {
-        
     }
 }

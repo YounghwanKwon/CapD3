@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class GameCore : MonoBehaviour
 {
-    //[SerializeField] private GameObject tank;
-    //[SerializeField] private Canvas Maincanvas;
     [SerializeField] private GameObject text1;
-    // Start is called before the first frame update
     [SerializeField] private GameObject StageSelectBtn;
     [SerializeField] private GameObject resetbtn;
     [SerializeField] private GameObject timer;
@@ -26,14 +23,8 @@ public class GameCore : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            Debug.Log("플레이어가 코어접촉 플레이어 승리");
             if (!Tmanager)
             {
-                /*
-                TimerScript ts = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();
-                StageSaveScript sss = GameObject.FindWithTag("StageSave").GetComponent<StageSaveScript>();                
-                sss.Makerecord1fortest("Username1", ts.gettc2());
-                */
                 Time.timeScale = 0;
                 InputName.SetActive(true);
                 InputButton.SetActive(true);
@@ -62,12 +53,6 @@ public class GameCore : MonoBehaviour
                 }
                 this.gameObject.SetActive(false);
             }
-            
-            
-        }
-        else
-        {
-            Debug.Log("예외발생 예상치못한 물체 코어에접촉");
         }
     }
 
@@ -85,11 +70,4 @@ public class GameCore : MonoBehaviour
         if (Tmanager)
             Tmanagerscript = Tmanager.GetComponent<TutorialManagerScript>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
 }

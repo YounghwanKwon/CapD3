@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameSubCoreScript1 : MonoBehaviour
 {
-
-    //[SerializeField] private GameObject gamecore;
     [SerializeField] private GameObject stage1Manager;
     [SerializeField] private GameObject stage1HDMDManager;
     [SerializeField] private GameObject stage2Manager;
@@ -17,12 +15,7 @@ public class GameSubCoreScript1 : MonoBehaviour
             boomstopcheck();
             this.gameObject.SetActive(false);
         }
-        else
-        {
-            Debug.Log("예외발생 예상치못한 물체 코어에접촉");
-        }
     }
-
     void boomstopcheck()
     {
         if (stage1Manager)
@@ -32,10 +25,7 @@ public class GameSubCoreScript1 : MonoBehaviour
             {
                 stage1script.makeboomstop();
                 deactive();
-                Debug.Log("stop?");
             }
-            else
-                Debug.Log("no lab2script");
         }
         else if (stage1HDMDManager)
         {
@@ -44,57 +34,21 @@ public class GameSubCoreScript1 : MonoBehaviour
             {
                 stage1HDMDscript.makeboomstop();
                 deactive();
-                Debug.Log("stop?");
             }
-            else
-                Debug.Log("no lab2script");
         }
         else if (stage2Manager)
         {
             stage2ManagerScript stage2script = stage2Manager.GetComponent<stage2ManagerScript>();
             if (stage2Manager)
             {
-                //stage2script.makeboomstop();
                 deactive();
                 Debug.Log("stop?");
             }
-            else
-                Debug.Log("no lab2script");
         }
-        else
-            Debug.Log("no lab2manager");
-    }
-    void boomstopcheck1()
-    {
-        if (stage1Manager)
-        {
-            stage1ManagerScript stage1script = stage1Manager.GetComponent<stage1ManagerScript>();
-            if (stage1script)
-            {
-                stage1script.makeboomstop1();
-                Debug.Log("stop?");
-            }
-            else
-                Debug.Log("no lab2script");
-        }
-        else
-            Debug.Log("no lab2manager");
     }
 
     void deactive()
     {
         downarrow.SetActive(false);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-   
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

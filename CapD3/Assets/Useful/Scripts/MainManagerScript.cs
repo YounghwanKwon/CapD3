@@ -14,10 +14,4 @@ public class MainManagerScript : MonoBehaviour
             childrens[i].SetActive(true);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

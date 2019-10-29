@@ -8,8 +8,6 @@ public class CubewalldownScript : MonoBehaviour
     [SerializeField] private GameObject s1manager;
     [SerializeField] private GameObject s1HDMDmanager;
     [SerializeField] private GameObject s2manager;
-
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -38,20 +36,6 @@ public class CubewalldownScript : MonoBehaviour
             stage2ManagerScript s2managerScript = s2manager.GetComponent<stage2ManagerScript>();
             s2managerScript.order2s2dfbc();
         }
-        else
-            Debug.Log("error5");
-        
         this.gameObject.SetActive(false);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

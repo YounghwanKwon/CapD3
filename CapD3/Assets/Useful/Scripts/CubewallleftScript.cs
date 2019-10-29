@@ -36,21 +36,7 @@ public class CubewallleftScript : MonoBehaviour
             stage2ManagerScript s2managerScript = s2manager.GetComponent<stage2ManagerScript>();
             s2managerScript.order2s2lfbc();
         }
-        else
-            Debug.Log("error1");
         
         this.gameObject.SetActive(false);
-
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

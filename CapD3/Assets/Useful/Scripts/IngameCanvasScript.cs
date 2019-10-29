@@ -48,7 +48,6 @@ public class IngameCanvasScript : MonoBehaviour
         setactive(6);
         fullready = true;
     }
-
     private void Awake()
     {
         Application.targetFrameRate = 60;

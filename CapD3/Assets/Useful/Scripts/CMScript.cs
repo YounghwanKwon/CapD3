@@ -51,10 +51,4 @@ public class CMScript : MonoBehaviour
     {
         needboom = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

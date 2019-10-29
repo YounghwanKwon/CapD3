@@ -8,17 +8,7 @@ public class btnchk : MonoBehaviour
 {
     private bool btnchkF = false;
     public static float moveFval = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         btnchkF = true;
@@ -35,7 +25,5 @@ public class btnchk : MonoBehaviour
         
         else
             return 0;
-        
     }
-
 }

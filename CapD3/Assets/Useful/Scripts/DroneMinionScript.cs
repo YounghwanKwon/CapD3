@@ -12,12 +12,9 @@ public class DroneMinionScript : MonoBehaviour
     [SerializeField] private GameObject Tmanager;
     private TutorialManagerScript Tmanagerscript;
     [SerializeField] private GameObject summonedobj;
-
-    // Start is called before the first frame update
     void Start()
     {
         CurrentHPcount = MaxHPcount;        
-        //summon();
     }
     public void TakeDamage(int i)
     {
@@ -38,30 +35,5 @@ public class DroneMinionScript : MonoBehaviour
         GameObject thisparticle = Instantiate(deadparticle, transform);
         thisparticle.SetActive(true);
         gameObject.SetActive(false);
-    }
-    /*
-    private void summon()
-    {
-        if (!m_Dead)
-        {
-            Transform nT = new GameObject().transform;
-            for (int i = -3; i < 4; i += 6)
-                for (int j = -3; j < 4; j += 6)
-                {
-                    nT.position = new Vector3(transform.position.x + i, transform.position.y, transform.position.z + j);
-                    GameObject pet = Instantiate(summonedobj, nT);
-                    Debug.Log("summon");
-                    pet.SetActive(true);
-                    pet.transform.parent = null;
-                }
-            Invoke("summon", 5);
-        }
-
-    }
-    */
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

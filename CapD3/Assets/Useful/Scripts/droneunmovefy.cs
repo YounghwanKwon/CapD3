@@ -13,21 +13,9 @@ public class droneunmovefy : MonoBehaviour
             droneunmove();
         }
     }
-
     public void droneunmove()
     {
         MovementE moveE = drone.GetComponent<MovementE>();
         moveE.powerofffunc();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

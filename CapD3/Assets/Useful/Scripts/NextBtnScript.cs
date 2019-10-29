@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class NextBtnScript : MonoBehaviour
 {
-    
-    //private int stagenumber;
-    //[SerializeField] private GameObject completedtuesdaymap;
-    // Start is called before the first frame update
 
     public void whennextbtnpressed()
     {
@@ -19,9 +15,6 @@ public class NextBtnScript : MonoBehaviour
             SceneManager.LoadScene("stage2");
         else if (StageSaveScript.StageNum == 2)
             SceneManager.LoadScene("StageSelect");
-        else if (StageSaveScript.StageNum == 3)
-            SceneManager.LoadScene("Lab2");
-        else
-            Debug.Log("망함.. stagenumber : " + StageSaveScript.StageNum);
+        
     }
 }

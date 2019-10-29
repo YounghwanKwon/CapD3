@@ -9,10 +9,4 @@ public class ObjectColorChangeY : MonoBehaviour
     {
         this.GetComponent<MeshRenderer>().material.color = Color.yellow;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

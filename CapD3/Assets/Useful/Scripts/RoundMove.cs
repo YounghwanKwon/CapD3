@@ -36,11 +36,6 @@ public class RoundMove : MonoBehaviour
         stage2ManagerScript s2ms = s2m.GetComponent<stage2ManagerScript>();
         s2ms.order2s2dd2fbc();
     }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void setpos()
     {
         Roundmove1.transform.position = movement;

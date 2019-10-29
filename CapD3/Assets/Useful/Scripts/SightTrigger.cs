@@ -12,26 +12,13 @@ public class SightTrigger : MonoBehaviour
     {
         SightCat = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
-
-        //if (other.name == "tank_e1")
         if (other.transform.CompareTag("Player"))
         {            
             SightCat = true;
-            //Debug.Log("SightCat = true");
             Lighting.SetActive(true);
             this.gameObject.SetActive(false);
-        }
-        else
-        {
-            
         }
     }
 }

@@ -15,7 +15,6 @@ public class BreakableWallScript : MonoBehaviour
     [SerializeField] private GameObject NWmanager;
     [SerializeField] private GameObject Roundmove1;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -61,18 +60,11 @@ public class BreakableWallScript : MonoBehaviour
         {
             RoundMove rm = Roundmove1.GetComponent<RoundMove>();
             rm.missionfail1();
-            // 엄호 물체 파괴됨 미션실패 UI / pause on / resum off /btn off / 
         }
         m_Dead = true;
         GameObject thisparticle = Instantiate(deadparticle, transform);
         thisparticle.SetActive(true);
         thisparticle.transform.parent = null;
         gameObject.SetActive(false);
-        Debug.Log(gameObject);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

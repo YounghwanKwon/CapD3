@@ -27,9 +27,6 @@ public class dronebossScript : MonoBehaviour
         bosshpslider.gameObject.SetActive(true);
         CurrentHPcount = MaxHPcount;
         bosshpslider.value = CurrentHPcount;
-        //nT.position = new Vector3(0, 0, 0);
-        //nT.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        //nT.localScale = new Vector3(1, 1, 1);
         rotation = 0;
         summon();
     }
@@ -68,7 +65,6 @@ public class dronebossScript : MonoBehaviour
                 {
                     nT.position = new Vector3(transform.position.x + i, transform.position.y, transform.position.z + j);
                     GameObject pet = Instantiate(summonedobj, nT);
-                    Debug.Log("summon");
                     pet.SetActive(true);
                     pet.transform.parent = null;
                 }
@@ -78,20 +74,14 @@ public class dronebossScript : MonoBehaviour
             
             setij();
             zerovec.transform.position = new Vector3(zerovec.transform.position.x + i,zerovec.transform.position.y, zerovec.transform.position.z + j);
-            Debug.Log(zerovec.transform.position);
             GameObject pet = Instantiate(summonedobj,zerovec.transform);
-            Debug.Log("summon");
             pet.SetActive(true);
             MovementE ME = pet.GetComponent<MovementE>();
             ME.poweronfunc();
             pet.transform.parent = null;
             zerovec.transform.position = Vector3.zero;
             Invoke("summon", 2.5f);
-            
-
         }
-        else
-            Debug.Log("boss script has error");
         
     }
     private void setij()
@@ -101,10 +91,5 @@ public class dronebossScript : MonoBehaviour
         else if (rotation % 4 == 1) { i = 0; j = 5.0f; }
         else if (rotation % 4 == 2) { i = -5.0f; j = 0; }
         else { i = 0; j = -5.0f; }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

@@ -9,7 +9,6 @@ public class PortalCubeScript : MonoBehaviour
     [SerializeField] private Transform Destination2;
     [SerializeField] private GameObject s2m;
     // Start is called before the first frame update
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -27,7 +26,6 @@ public class PortalCubeScript : MonoBehaviour
                 Complete.TankHealth th = player.GetComponent<Complete.TankHealth>();
                 th.GetHealing(60.0f);
             }
-            
         }
     }
 }

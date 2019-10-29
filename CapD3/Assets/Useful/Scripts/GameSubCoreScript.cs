@@ -20,7 +20,6 @@ public class GameSubCoreScript : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             SubCorecount++;
-            Debug.Log("플레이어가 서브코어접촉 정상 감지1 subcorecount : "+SubCorecount);
             if (SubCorecount == 1 || SubCorecount == 2)
                 if (stage1Manager)
                     s1mscript.order1fneww();
@@ -28,20 +27,10 @@ public class GameSubCoreScript : MonoBehaviour
                     s1HDMDmscript.order1fneww();
                 else if (stage2Manager)
                     s2mscript.order1fneww();
-                else
-                    Debug.Log("error4");
-
-
             this.gameObject.SetActive(false);
             Invoke("check3", 0.3f);
         }
-        else
-        {
-            Debug.Log("예외발생 예상치못한 물체 코어에접촉");
-        }
     }
-
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -51,27 +40,17 @@ public class GameSubCoreScript : MonoBehaviour
             s1HDMDmscript = stage1HDMDManager.GetComponent<stage1HDMDManagerScript>();
         else if (stage2Manager)
             s2mscript = stage2Manager.GetComponent<stage2ManagerScript>();
-        else
-            Debug.Log("error2");
+        
         if(StageSaveScript.StageNum != 2)
         {
-            Debug.Log("초기화1");
             SubCorecount = 0;
         }
-        
-    }
-
-    public void checkreset()
-    {
-        Debug.Log("초기화2");
-        SubCorecount = 0;
     }
 
     private void check3()
     {
         if(SubCorecount == 3)
         {
-            //gamecore.SetActive(true);
             settingbosson();
             if (stage1Manager)
                 s1mscript.order4bosson();
@@ -81,12 +60,7 @@ public class GameSubCoreScript : MonoBehaviour
             {
                 roundmove2.SetActive(true);
                 s2mscript.order2s2ddfbc();
-               // Debug.Log("stage2 need otherthing");
             }
-               
-                
-            else
-                Debug.Log("error3");
         }
     }
   
@@ -99,10 +73,5 @@ public class GameSubCoreScript : MonoBehaviour
             moveE.poweronfunc();
             captureslider.gameObject.SetActive(false);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

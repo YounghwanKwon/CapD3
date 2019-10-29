@@ -5,20 +5,8 @@ using UnityEngine;
 public class ActivateControler : MonoBehaviour
 {
     public GameObject go1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void OnTriggerEnter()
     {
-        
         go1.SetActive(true);
         this.gameObject.SetActive(false);
     }

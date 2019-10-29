@@ -33,9 +33,6 @@ public class stage1ManagerScript : MonoBehaviour
     void Start()
     {
         StageSaveScript.StageNum = 1;
-        //bombleftA();
-        //bombleftC();
-        //setandbombattranss();
         ResetBtnScript rsbtnscript = resetbtn.GetComponent<ResetBtnScript>();
         rsbtnscript.setstage(1);
         text1.text = "Stage : 1";
@@ -43,13 +40,6 @@ public class stage1ManagerScript : MonoBehaviour
         igcvsscript = igcanvas.GetComponent<IngameCanvasScript>();
         igcvsscript.upsentenceononly();
         igcvsscript.setupsentence("다음 지시사항을 참고하여 임무를 완료하시오 \n 지시사항 : 노란색 화살표를 찾아서 이동할것");
-
-        //Debug.Log(planes);
-
-        //setxpos(BombPlacingPoint1);
-        //DropA(BombPlacingPoint1);
-        //setandbombattranss();
-        //setpipes();
     }
     public void order1fneww()
     {
@@ -81,28 +71,10 @@ public class stage1ManagerScript : MonoBehaviour
     {
         needboomleft = false;
     }
-
-    private void bombleft()
-    {
-        if (needboomleft == true)
-        {
-            //air.transform.position = ground.transform.position;
-
-            for (int i = 0; i < 18; i++)
-            {
-                ground = pipes[i];
-                air.transform.position = ground.transform.position;
-                Drophere2(air.transform);
-            }
-            Invoke("bombleft", 3f);
-        }
-    }
     public void bombleftA()
     {
         if (needboomleft == true)
         {
-            //air.transform.position = ground.transform.position;
-
             for (int i = 0; i < 18; i++)
             {
                 if (i % 2 == 0)
@@ -115,13 +87,10 @@ public class stage1ManagerScript : MonoBehaviour
             Invoke("bombleftB", Time.deltaTime*51);
         }
     }
-
     public void bombleftB()
     {
         if (needboomleft)
         {
-            //air.transform.position = ground.transform.position;
-
             for (int i = 0; i < 18; i++)
             {
                 if (i % 2 == 1)
@@ -134,73 +103,15 @@ public class stage1ManagerScript : MonoBehaviour
             Invoke("bombleftA", Time.deltaTime * 51);
         }
     }
-    void bombleftC()
-    {
-        if (needboomleft == true)
-        {
-            air.transform.position = ground.transform.position;
-
-            for (int i = 0; i < 11; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    ground = planes[i];
-                    air.transform.position = ground.transform.position;
-                    Drophere3(air.transform);
-                }
-            }
-            Invoke("bombleftD", leftdifficulty);
-        }
-    }
-
-    void bombleftD()
-    {
-        if (needboomleft)
-        {
-            air.transform.position = ground.transform.position;
-
-            for (int i = 0; i < 11; i++)
-            {
-                if (i % 2 == 1)
-                {
-                    ground = planes[i];
-                    air.transform.position = ground.transform.position;
-                    Drophere3(air.transform);
-                }
-            }
-            Invoke("bombleftC", leftdifficulty);
-        }
-    }
-    void setpipes()
-    {
-        Debug.Log(transform.childCount);
-        //GameObject[] planes1 = new GameObject[transform.childCount];
-        //GameObject[] planes1 = motherplane.GetComponentsInChildren<GameObject>();
-        /*
-        for (int i = 0; i<planes1.Length; i++)
-        {
-            pipes[i] = planes1[i].gameObject;
-        }
-        */
-    }
-
-
     void setxpos(Transform Atransform)
     {
-        //Debug.Log("called setxpos169");
         xvalue *= -1;
         Atransform.transform.position = new Vector3(xvalue, Atransform.transform.position.y, Atransform.transform.position.z);
     }
-
     void Drophere(Transform Atransform)
     {
-
-        //Debug.Log("called Drop258");
-        //setxpos(Atransform);
         GameObject thisshell = Instantiate(shell1, Atransform);
         thisshell.transform.parent = null;
-        //Instantiate(shell1,new Vector3(0,0.1f,0),Quaternion.Euler(Vector3.zero));
-        //Invoke("DropA", 2);
     }
     void Drophere2(Transform Atransform)
     {
@@ -212,45 +123,22 @@ public class stage1ManagerScript : MonoBehaviour
         GameObject thisshell = Instantiate(dropshell3, Atransform);
         thisshell.transform.parent = null;
     }
-
-
     public void setandbombattranss()
     {
         if (needboom1 == true)
         {
             transs = transform;
-            //Debug.Log(BombPlacingPoint1.transform+"3");
             for (int i = 0; i < transnumber; i++)
             {
-                //Debug.Log("BombPlacingPoint1"+BombPlacingPoint1 + "47");
-                //Debug.Log("x"+xvalue);
-                //Debug.Log("y" + BombPlacingPoint1.transform.position.y);
-                //Debug.Log("z" + BombPlacingPoint1.transform.position.z);
                 transs.transform.position = new Vector3(xvalue, BombPlacingPoint1.transform.position.y, BombPlacingPoint1.transform.position.z - 5.0f * i);
-                //Debug.Log(i);
                 setxpos(transs);
                 Drophere(transs);
             }
             Invoke("setandbombattranss", Time.deltaTime*90);
         }
     }
-
     public void makeboomstop()
     {
         needboom1 = false;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    void checktime(float atime)
-    {
-        float a = 0;
-        a += Time.deltaTime;
-        //needboom = true;
-        Debug.Log("2sec");
     }
 }

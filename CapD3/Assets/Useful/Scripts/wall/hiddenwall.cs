@@ -13,17 +13,11 @@ public class hiddenwall : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            Debug.Log("플레이어가 벽에 도달하였습니다");
-            Debug.Log("탱크소환을 시도합니다");
-
             spwanonetank();
             spwanpoint.position = new Vector3(0f,1f,spwanpoint.transform.position.z + 40f);
 
             this.gameObject.SetActive(false);
-            //tank.Setup();
-            //HC = Instantiate(HC, spwanpoint, spwanpoint.rotation);
         }
-
     }
 
     void resetpadding()
@@ -38,18 +32,7 @@ public class hiddenwall : MonoBehaviour
 
     public void spwanonetank()
     {
-        //resetpadding();
         Instantiate(tank, spwanpoint.position + paddingspace.position, spwanpoint.rotation);
         movespwanpoint();
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -9,10 +9,4 @@ public class ObjectColorChangeG : MonoBehaviour
     {
         this.GetComponent<MeshRenderer>().material.color = Color.green;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

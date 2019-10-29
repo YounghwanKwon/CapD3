@@ -12,10 +12,10 @@ public class Effect_Raycast_Laser : MonoBehaviour {
     public GameObject ResetBtn;
     public GameObject SSBtn;
 
-    private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
-    private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
-    private float m_CurrentHealth;                      // How much health the tank currently has.
-    private bool m_Dead;                                // Has the tank been reduced beyond zero health yet?
+    private AudioSource m_ExplosionAudio;               
+    private ParticleSystem m_ExplosionParticles;    
+    private float m_CurrentHealth;                    
+    private bool m_Dead;                            
 
 
     [SerializeField] private GameObject[] Canvass;
@@ -30,7 +30,6 @@ public class Effect_Raycast_Laser : MonoBehaviour {
     [SerializeField] private float lazerdistance;
     [SerializeField] private float lazerdamagef;
 
-    // Use this for initialization
     void Start () {
         if (Tmanager)
         {
@@ -51,23 +50,17 @@ public class Effect_Raycast_Laser : MonoBehaviour {
 
     public void LTurretDamage()
     {
-        //레이캐스팅 결과정보 저장
         RaycastHit hit;
 
-        //레이캐스트 위치, 방향, 결과값, 최대인식거리
-        //Physics.Raycast(transform.position, transform.forward, out hit, 200);
         if (Physics.Raycast(transform.position, transform.forward, out hit, lazerdistance))
         {
             ScaleDistance.transform.localScale = new Vector3(1, hit.distance, 1);
 
-            //레이캐스트가 닿은 곳으로 오브젝트를 옮김
             RayResult.transform.position = hit.point;
 
-            //오브젝트의 회전값을 닿은 면적의 노멀방향와 일치
             RayResult.transform.rotation = Quaternion.LookRotation(hit.normal);
             if (hit.point != null)
             {
-                //Debug.Log("hit point not null");
                 target = hit.transform.GetComponent<Rigidbody>();
             }
 
@@ -86,27 +79,15 @@ public class Effect_Raycast_Laser : MonoBehaviour {
                 }
             }
         }
-        else
-        {
-            //Debug.Log("hit point null");
-        }
     }
 
     private void OnDeath()
     {
-
-        // Set the flag so that this function is only called once.
-
         m_Dead = true;
-
-
-
         TankObj.SetActive(false);
         //Time.timeScale = 0;
         ResetBtn.SetActive(true);
         SSBtn.SetActive(true);
     }
-
-
 }
 

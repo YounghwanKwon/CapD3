@@ -11,23 +11,11 @@ public class InputUsername : MonoBehaviour
     public GameObject Input;
 
     private string UserName;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void GetName()
     {
         UserName = InputName.text;
-        Debug.Log(UserName);
         InputName.text = null;
-        Debug.Log(InputName.text);
         Button.SetActive(false);
         Input.SetActive(false);
         TimerScript ts = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();

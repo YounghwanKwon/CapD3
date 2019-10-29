@@ -15,17 +15,6 @@ public class PauseCanvasScript : MonoBehaviour
         SceneManager.LoadScene("Scoreboard");
         Time.timeScale = 1;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void whenuserdead()
     {
         pausecanvas.SetActive(true);
@@ -33,15 +22,10 @@ public class PauseCanvasScript : MonoBehaviour
         childrens[4].SetActive(true);
         childrens[5].SetActive(false);
     }
-
     public void whenResumeBtnpressed()
     {
         Btncanvas.SetActive(true);
         pausecanvas.SetActive(false);
         Time.timeScale = 1;
-    }
-    public void checkstage(int number)
-    {
-
     }
 }

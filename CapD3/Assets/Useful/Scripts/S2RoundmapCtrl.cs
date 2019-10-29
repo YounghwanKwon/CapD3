@@ -11,8 +11,6 @@ public class S2RoundmapCtrl : MonoBehaviour
     public GameObject RG5;
     public GameObject cube2;
     [SerializeField] private GameObject s2m;
-
-    // Start is called before the first frame update
     void Start()
     {
         cube2.SetActive(true);
@@ -79,10 +77,6 @@ public class S2RoundmapCtrl : MonoBehaviour
         {
             RG5.GetComponent<MeshRenderer>().material.color = Color.white;
             RG5.SetActive(false);            
-        }
-        else
-        {
-            Debug.Log("에러남");
         }
     }
 }
